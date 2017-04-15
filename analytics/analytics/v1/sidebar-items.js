@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["record_event","This put request records an event for analytics processing."],["routes",""]],"static":[["static_rocket_route_info_for_record_event",""]]});
