@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["v1","`/v1/`"]]});
+initSidebarItems({"mod":[["v1","Mount: `/v1/`"]]});

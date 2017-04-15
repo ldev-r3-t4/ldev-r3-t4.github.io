@@ -66,8 +66,10 @@
 <span id="21">21</span>
 <span id="22">22</span>
 <span id="23">23</span>
+<span id="24">24</span>
+<span id="25">25</span>
 </pre><pre class="rust ">
-<span class="doccomment">//! `/v1/`</span>
+<span class="doccomment">//! Mount: `/v1/`</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! This module contains the handlers for the mount point `/v1/`.</span>
 <span class="kw">use</span> <span class="ident">rocket</span>::{<span class="ident">Route</span>, <span class="ident">State</span>};
@@ -82,6 +84,8 @@
     ]
 }
 
+<span class="doccomment">/// Route: `/`</span>
+<span class="doccomment">///</span>
 <span class="doccomment">/// This put request records an event for analytics processing.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// It requires a body with format `application/json` using the</span>
