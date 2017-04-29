@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='index.html'>rocket</a></p><script>window.sidebarCurrent = {name: 'Route', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct Route</p><div class="block items"><ul><li><a href="#fields">Fields</a></li><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='index.html'>rocket</a></p><script>window.sidebarCurrent = {name: 'Route', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -56,7 +56,7 @@
     pub rank: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.isize.html">isize</a>,
     pub format: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../rocket/http/struct.ContentType.html" title="struct rocket::http::ContentType">ContentType</a>&gt;,
 }</pre><div class='docblock'><p>A route: a method, its handler, path, rank, and format/content type.</p>
-</div><h2 class='fields'>Fields</h2><span id='structfield.method' class="structfield">
+</div><h2 id='fields' class='fields'>Fields</h2><span id='structfield.method' class="structfield">
                            <span id='method.v' class='invisible'>
                            <code>method: <a class="enum" href="../rocket/http/enum.Method.html" title="enum rocket::http::Method">Method</a></code>
                            </span></span><div class='docblock'><p>The method this route matches against.</p>
@@ -79,6 +79,7 @@
 </div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class="struct" href="../rocket/struct.Route.html" title="struct rocket::Route">Route</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/rocket/router/route.rs.html#32-92' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>&lt;S&gt;(m: <a class="enum" href="../rocket/http/enum.Method.html" title="enum rocket::http::Method">Method</a>, path: S, handler: <a class="type" href="../rocket/type.Handler.html" title="type rocket::Handler">Handler</a>) -&gt; <a class="struct" href="../rocket/struct.Route.html" title="struct rocket::Route">Route</a> <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;S: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html" title="trait core::convert::AsRef">AsRef</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,&nbsp;</span></code></span></h4>
 <div class='docblock'><p>Creates a new route with the method, path, and handler.</p>
+
 <p>The rank of the route will be <code>0</code> if the path contains no dynamic
 segments, and <code>1</code> if it does.</p>
 </div><h4 id='method.ranked' class="method"><span id='ranked.v' class='invisible'><code>fn <a href='#method.ranked' class='fnname'>ranked</a>&lt;S&gt;(rank: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.isize.html">isize</a>, m: <a class="enum" href="../rocket/http/enum.Method.html" title="enum rocket::http::Method">Method</a>, path: S, handler: <a class="type" href="../rocket/type.Handler.html" title="type rocket::Handler">Handler</a>) -&gt; <a class="struct" href="../rocket/struct.Route.html" title="struct rocket::Route">Route</a> <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;S: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html" title="trait core::convert::AsRef">AsRef</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,&nbsp;</span></code></span></h4>

@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'></p><script>window.sidebarCurrent = {name: 'term_painter', ty: 'mod', relpath: '../'};</script>
+        <p class='location'>Crate term_painter</p><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'term_painter', ty: 'mod', relpath: '../'};</script>
     </nav>
 
     <nav class="sub">
@@ -66,18 +66,19 @@ example:</p>
         <span class="ident">Red</span>.<span class="ident">bold</span>().<span class="ident">paint</span>(<span class="string">&quot;Both!&quot;</span>)
     );
 }</pre>
+
 <p>This crate uses <a href="https://crates.io/crates/term"><code>rust-lang/term</code></a> to do the formatting. Of course,
-you can use <code>term</code> directly, but it's kinda clumsy. Hence this library.</p>
-<h2 id="how-to-use-it" class="section-header"><a href="#how-to-use-it">How to use it</a></h2>
+you can use <code>term</code> directly, but it&#39;s kinda clumsy. Hence this library.</p>
+
+<h2 id='how-to-use-it' class='section-header'><a href='#how-to-use-it'>How to use it</a></h2>
 <p>Formatting is done in two steps:</p>
+
 <ol>
 <li>Creating a style</li>
-<li>Use this style to &quot;paint&quot; something and get a <code>Painted</code> object</li>
+<li><p>Use this style to &quot;paint&quot; something and get a <code>Painted</code> object</p></li>
 </ol>
-<ol>
-<li>Creating a style</li>
-</ol>
-<hr />
+
+<h2 id='1-creating-a-style' class='section-header'><a href='#1-creating-a-style'>1. Creating a style</a></h2>
 <p>To create a style a startpoint is needed: This can either be a startpoint
 with an attached modifier (like <code>Red</code>: modifies the fg-color) or the
 <code>Plain</code> startpoint, which does not modify anything.
@@ -100,6 +101,7 @@ After that, the startpoint can be modified with modifiers like <code>bold()</cod
     <span class="comment">// These two are equivalent, too</span>
     <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;{} | {}&quot;</span>, <span class="ident">Red</span>.<span class="ident">paint</span>(<span class="ident">x</span>), <span class="ident">Plain</span>.<span class="ident">fg</span>(<span class="ident">Red</span>).<span class="ident">paint</span>(<span class="ident">x</span>));
 }</pre>
+
 <p>You can chain as many modifiers as you want. Every modifier overrides
 preceding modifier:</p>
 
@@ -107,11 +109,10 @@ preceding modifier:</p>
 
 <span class="comment">// blue, not red</span>
 <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;{}&quot;</span>, <span class="ident">Plain</span>.<span class="ident">fg</span>(<span class="ident">Red</span>).<span class="ident">fg</span>(<span class="ident">Blue</span>).<span class="ident">paint</span>(<span class="string">&quot;Apple&quot;</span>));</pre>
-<ol start="2">
-<li>Use the style</li>
-</ol>
-<hr />
+
+<h2 id='2-use-the-style' class='section-header'><a href='#2-use-the-style'>2. Use the style</a></h2>
 <p>After building the style, you can use it in two different ways.</p>
+
 <p>One way is to call <code>paint</code> to use it on some object.
 <code>paint</code> will return the wrapper object <code>Painted</code> that holds your object and
 the specified style. <code>Painted</code> implements any formatting trait (like
@@ -119,6 +120,7 @@ the specified style. <code>Painted</code> implements any formatting trait (like
 does. So a <code>Painted</code> object can be printed via <code>println!</code> or similar macros.
 When it gets printed, it will apply the given style before printing the
 object of type <code>T</code> and will reset the style after printing.</p>
+
 <p><code>Note</code>: <code>paint</code> will consume the passed object. This is no problem when
 passing constant literals (like <code>paint(&quot;cheesecake&quot;)</code>) or types that are
 <code>Copy</code>. Otherwise it could be confusing because just printing should not
@@ -146,6 +148,7 @@ object (with <code>&amp;</code>). Example:</p>
     <span class="comment">// non_copy was moved into `paint`, so it not usable anymore...</span>
     <span class="comment">// copy is still usable here...</span>
 }</pre>
+
 <p>Another way is to call <code>with</code>. <code>with</code> takes another function (usually a
 closure) and everything that is printed within that closure is formatted
 with the given style. Specifically, <code>with()</code> sets the given style,
@@ -174,33 +177,39 @@ outer calls of <code>with</code>.</p>
          });
     });
 }</pre>
-<h2 id="some-notes" class="section-header"><a href="#some-notes">Some Notes</a></h2>
-<p>If you don't want to pollute your namespace with <code>Color</code> and <code>Attr</code> names,
+
+<h2 id='some-notes' class='section-header'><a href='#some-notes'>Some Notes</a></h2>
+<p>If you don&#39;t want to pollute your namespace with <code>Color</code> and <code>Attr</code> names,
 you can use a more qualified name (<code>Color::Red.paint(..)</code>) and remove these
 <code>use</code> statements:</p>
+
 <ul>
 <li><code>use term_painter::Color::*;</code></li>
 <li><code>use term_painter::Attr::*;</code></li>
 </ul>
+
 <p>Please note that global state is changed when printing a <code>Painted</code>
 object. This means that some state is set before and reset after printing.
 This means that, for example, using this library in <code>format!</code> or <code>write!</code>
-won't work. The color formatting is not stored in the resulting string.
+won&#39;t work. The color formatting is not stored in the resulting string.
 Although Unix terminals do modify color and formatting by printing special
 control characters, Windows and others do not. This library uses the
 plattform independent library <code>term</code>, thus saving formatted text in a
 string not possible. This was a design choice.</p>
+
 <p>This crate also assumes that the terminal state is not altered by anything
 else. Calling <code>term</code> function directly might result in strange behaviour.
 This is due to the fact that one can not read the current terminal state.
 In order to work like this, this crate needs to track terminal state
-itself. However, there shouldn't be any problems when the terminal state
+itself. However, there shouldn&#39;t be any problems when the terminal state
 is completely reset in between using those two different methods.</p>
+
 <p>Another possible source of confusion might be multithreading. Terminal
 state and handles are hold in thread local variables. If two terminal
 handles would reference the same physical terminal, those two threads could
-interfere with each other. I have not tested it, though. Usually, you don't
+interfere with each other. I have not tested it, though. Usually, you don&#39;t
 want to print to the same Terminal in two threads simultanously anyway.</p>
+
 <p>Functions of <code>term</code> sometimes return a <code>Result</code> that is <code>Err</code> when the
 function fails to set the state. However, this crate silently ignores those
 failures. To check the capabilities of the terminal, use <code>term</code> directly.</p>
@@ -214,7 +223,6 @@ failures. To check the capabilities of the terminal, use <code>term</code> direc
 given style is applied before printing and reset afterwards.
 All formatting traits (<code>Display</code>, <code>Debug</code>, ...) that are implemented
 for <code>T</code> are also implemented the wrapper type <code>Painted&lt;T&gt;</code>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -223,7 +231,6 @@ for <code>T</code> are also implemented the wrapper type <code>Painted&lt;T&gt;<
                            <td class='docblock-short'>
                                 <p>Saves all properties of a style. Implements <code>ToStyle</code>, so you can call
 style modifiers on it.</p>
-
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
@@ -231,18 +238,16 @@ style modifiers on it.</p>
                            <td><a class="enum" href="enum.Attr.html"
                                   title='enum term_painter::Attr'>Attr</a></td>
                            <td class='docblock-short'>
-                                <p>Lists possible attributes. It implements <code>ToStyle</code> so it's possible to call
-<code>ToStyle</code>'s methods directly on a <code>Attr</code> variant like:</p>
-
+                                <p>Lists possible attributes. It implements <code>ToStyle</code> so it&#39;s possible to call
+<code>ToStyle</code>&#39;s methods directly on a <code>Attr</code> variant like:</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class="enum" href="enum.Color.html"
                                   title='enum term_painter::Color'>Color</a></td>
                            <td class='docblock-short'>
-                                <p>Lists all possible Colors. It implements <code>ToStyle</code> so it's possible to call
-<code>ToStyle</code>'s methods directly on a <code>Color</code> variant like:</p>
-
+                                <p>Lists all possible Colors. It implements <code>ToStyle</code> so it&#39;s possible to call
+<code>ToStyle</code>&#39;s methods directly on a <code>Color</code> variant like:</p>
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
@@ -253,7 +258,6 @@ style modifiers on it.</p>
                                 <p>Everything that can be seen as part of a style. This is the core of this
 crate. All functions (&quot;style modifier&quot;) consume self and return a modified
 version of the style.</p>
-
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>

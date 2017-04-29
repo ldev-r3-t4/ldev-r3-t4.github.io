@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         <a href='../../term/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
-        <p class='location'><a href='../index.html'>term</a>::<wbr><a href='index.html'>terminfo</a></p><script>window.sidebarCurrent = {name: 'Error', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Enum Error</p><div class="block items"><ul><li><a href="#variants">Variants</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../index.html'>term</a>::<wbr><a href='index.html'>terminfo</a></p><script>window.sidebarCurrent = {name: 'Error', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -60,12 +60,14 @@
     NamesMissingNull,
     StringsMissingNull,
 }</pre><div class='docblock'><p>An error from parsing a terminfo entry</p>
-</div><h2 class='variants'>Variants</h2>
+</div><h2 id='variants' class='variants'>Variants</h2>
 <span id='variant.BadMagic' class='variant'><span id='BadMagic.v' class='invisible'><code>BadMagic(<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>)</code></span></span><div class='docblock'><p>The &quot;magic&quot; number at the start of the file was wrong.</p>
+
 <p>It should be <code>0x11A</code></p>
 </div><span id='variant.NotUtf8' class='variant'><span id='NotUtf8.v' class='invisible'><code>NotUtf8(<a class="struct" href="https://doc.rust-lang.org/nightly/core/str/struct.Utf8Error.html" title="struct core::str::Utf8Error">Utf8Error</a>)</code></span></span><div class='docblock'><p>The names in the file were not valid UTF-8.</p>
+
 <p>In theory these should only be ASCII, but to work with the Rust <code>str</code> type, we treat them
-as UTF-8. This is valid, except when a terminfo file decides to be invalid. This hasn't
+as UTF-8. This is valid, except when a terminfo file decides to be invalid. This hasn&#39;t
 been encountered in the wild.</p>
 </div><span id='variant.ShortNames' class='variant'><span id='ShortNames.v' class='invisible'><code>ShortNames</code></span></span><div class='docblock'><p>The names section of the file was empty</p>
 </div><span id='variant.TooManyBools' class='variant'><span id='TooManyBools.v' class='invisible'><code>TooManyBools</code></span></span><div class='docblock'><p>More boolean parameters are present in the file than this crate knows how to interpret.</p>

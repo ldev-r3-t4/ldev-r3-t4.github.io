@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>serde</a>::<wbr><a href='index.html'>de</a></p><script>window.sidebarCurrent = {name: 'EnumVisitor', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Trait EnumVisitor</p><div class="block items"><ul><li><a href="#associated-types">Associated Types</a></li><li><a href="#required-methods">Required Methods</a></li><li><a href="#provided-methods">Provided Methods</a></li><li><a href="#implementors">Implementors</a></li></ul></div><p class='location'><a href='../index.html'>serde</a>::<wbr><a href='index.html'>de</a></p><script>window.sidebarCurrent = {name: 'EnumVisitor', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -48,7 +48,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../src/serde/de/mod.rs.html#1373-1398' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../../src/serde/de/mod.rs.html#1377-1402' title='goto source code'>[src]</a></span></h1>
 <pre class='rust trait'>pub trait EnumVisitor: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a> {
     type <a href='#associatedtype.Error' class="type">Error</a>: <a class="trait" href="../../serde/de/trait.Error.html" title="trait serde::de::Error">Error</a>;
     type <a href='#associatedtype.Variant' class="type">Variant</a>: <a class="trait" href="../../serde/de/trait.VariantVisitor.html" title="trait serde::de::VariantVisitor">VariantVisitor</a>&lt;Error = Self::<a class="trait" href="../../serde/de/trait.EnumVisitor.html" title="trait serde::de::EnumVisitor">Error</a>&gt;;
@@ -70,12 +70,14 @@ variant.</p>
             <h2 id='required-methods'>Required Methods</h2>
             <div class='methods'>
         <h3 id='tymethod.visit_variant_seed' class='method'><span id='visit_variant_seed.v' class='invisible'><code>fn <a href='#tymethod.visit_variant_seed' class='fnname'>visit_variant_seed</a>&lt;V&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;seed: V<br>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a>V::<a class="trait" href="../../serde/de/trait.DeserializeSeed.html" title="trait serde::de::DeserializeSeed">Value</a>, Self::<a class="trait" href="../../serde/de/trait.EnumVisitor.html" title="trait serde::de::EnumVisitor">Variant</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>, Self::<a class="trait" href="../../serde/de/trait.EnumVisitor.html" title="trait serde::de::EnumVisitor">Error</a>&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;V: <a class="trait" href="../../serde/de/trait.DeserializeSeed.html" title="trait serde::de::DeserializeSeed">DeserializeSeed</a>,&nbsp;</span></code></span></h3><div class='docblock'><p><code>visit_variant</code> is called to identify which variant to deserialize.</p>
+
 <p><code>Deserialize</code> implementations should typically use
 <code>EnumVisitor::visit_variant</code> instead.</p>
 </div></div>
             <h2 id='provided-methods'>Provided Methods</h2>
             <div class='methods'>
         <h3 id='method.visit_variant' class='method'><span id='visit_variant.v' class='invisible'><code>fn <a href='#method.visit_variant' class='fnname'>visit_variant</a>&lt;V&gt;(self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a>V, Self::<a class="trait" href="../../serde/de/trait.EnumVisitor.html" title="trait serde::de::EnumVisitor">Variant</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>, Self::<a class="trait" href="../../serde/de/trait.EnumVisitor.html" title="trait serde::de::EnumVisitor">Error</a>&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;V: <a class="trait" href="../../serde/trait.Deserialize.html" title="trait serde::Deserialize">Deserialize</a>,&nbsp;</span></code></span></h3><div class='docblock'><p><code>visit_variant</code> is called to identify which variant to deserialize.</p>
+
 <p>This method exists as a convenience for <code>Deserialize</code> implementations.
 <code>EnumVisitor</code> implementations should not override the default behavior.</p>
 </div></div>

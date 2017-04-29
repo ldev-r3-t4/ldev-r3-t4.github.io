@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>request</a></p><script>window.sidebarCurrent = {name: 'FromRequest', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Trait FromRequest</p><div class="block items"><ul><li><a href="#associated-types">Associated Types</a></li><li><a href="#required-methods">Required Methods</a></li><li><a href="#implementors">Implementors</a></li></ul></div><p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>request</a></p><script>window.sidebarCurrent = {name: 'FromRequest', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -53,102 +53,105 @@
     type <a href='#associatedtype.Error' class="type">Error</a>: <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a>;
     fn <a href='#tymethod.from_request' class='fnname'>from_request</a>(request: &amp;'a <a class="struct" href="../../rocket/struct.Request.html" title="struct rocket::Request">Request</a>&lt;'r&gt;) -&gt; <a class="type" href="../../rocket/request/type.Outcome.html" title="type rocket::request::Outcome">Outcome</a>&lt;Self, Self::<a class="trait" href="../../rocket/request/trait.FromRequest.html" title="trait rocket::request::FromRequest">Error</a>&gt;;
 }</pre><div class='docblock'><p>Trait used to derive an object from incoming request metadata.</p>
+
 <p>An arbitrary number of types that implement this trait can appear as
 parameters in a route handler, as illustrated below:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="attribute">#[<span class="ident">get</span>(<span class="string">&quot;/&quot;</span>)]</span>
 <span class="kw">fn</span> <span class="ident">index</span>(<span class="ident">a</span>: <span class="ident">A</span>, <span class="ident">b</span>: <span class="ident">B</span>, <span class="ident">c</span>: <span class="ident">C</span>) <span class="op">-&gt;</span> ... { ... }</pre>
+
 <p>In this example, <code>A</code>, <code>B</code>, and <code>C</code> can be any types that implements
 <code>FromRequest</code>. There can be any number of <code>FromRequest</code> types in the
 function signature. Note that unlike every other derived object in Rocket,
 <code>FromRequest</code> parameter names do not need to be declared in the route
 attribute.</p>
+
 <p>Derivation of <code>FromRequest</code> arguments is always attemped in left-to-right
 declaration order. In the example above, for instance, the order will be <code>a</code>
 followed by <code>b</code> followed by <code>c</code>. If a deriviation fails, the following
-aren't attempted.</p>
-<h1 id="outcomes" class="section-header"><a href="#outcomes">Outcomes</a></h1>
+aren&#39;t attempted.</p>
+
+<h1 id='outcomes' class='section-header'><a href='#outcomes'>Outcomes</a></h1>
 <p>The returned <a href="/rocket/outcome/index.html">Outcome</a> of a <code>from_request</code> call
 determines how the incoming request will be processed.</p>
+
 <ul>
-<li>
-<p><strong>Success</strong>(S)</p>
+<li><p><strong>Success</strong>(S)</p>
+
 <p>If the <code>Outcome</code> is <code>Success</code>, then the <code>Success</code> value will be used as
 the value for the corresponding parameter.  As long as all other parsed
-types succeed, the request will be handled.</p>
-</li>
-<li>
-<p><strong>Failure</strong>(Status, E)</p>
+types succeed, the request will be handled.</p></li>
+<li><p><strong>Failure</strong>(Status, E)</p>
+
 <p>If the <code>Outcome</code> is <code>Failure</code>, the request will fail with the given status
 code and error. The designated error
 <a href="/rocket/struct.Catcher.html">Catcher</a> will be used to respond to the
 request. Note that users can request types of <code>Result&lt;S, E&gt;</code> and
-<code>Option&lt;S&gt;</code> to catch <code>Failure</code>s and retrieve the error value.</p>
-</li>
-<li>
-<p><strong>Forward</strong></p>
+<code>Option&lt;S&gt;</code> to catch <code>Failure</code>s and retrieve the error value.</p></li>
+<li><p><strong>Forward</strong></p>
+
 <p>If the <code>Outcome</code> is <code>Forward</code>, the request will be forwarded to the next
 matching request. Note that users can request an <code>Option&lt;S&gt;</code> to catch
-<code>Forward</code>s.</p>
-</li>
+<code>Forward</code>s.</p></li>
 </ul>
-<h1 id="provided-implementations" class="section-header"><a href="#provided-implementations">Provided Implementations</a></h1>
+
+<h1 id='provided-implementations' class='section-header'><a href='#provided-implementations'>Provided Implementations</a></h1>
 <p>Rocket implements <code>FromRequest</code> for several built-in types. Their behavior
 is documented here.</p>
+
 <ul>
-<li>
-<p><strong>&amp;URI</strong></p>
+<li><p><strong>&amp;URI</strong></p>
+
 <p>Extracts the <a href="/rocket/http/uri/struct.URI.html">URI</a> from the incoming
 request.</p>
-<p><em>This implementation always returns successfully.</em></p>
-</li>
-<li>
-<p><strong>Method</strong></p>
+
+<p><em>This implementation always returns successfully.</em></p></li>
+<li><p><strong>Method</strong></p>
+
 <p>Extracts the <a href="/rocket/http/enum.Method.html">Method</a> from the incoming
 request.</p>
-<p><em>This implementation always returns successfully.</em></p>
-</li>
-<li>
-<p><strong>&amp;Cookies</strong></p>
+
+<p><em>This implementation always returns successfully.</em></p></li>
+<li><p><strong>&amp;Cookies</strong></p>
+
 <p>Returns a borrow to the <a href="/rocket/http/type.Cookies.html">Cookies</a> in the
 incoming request. Note that <code>Cookies</code> implements internal mutability, so
 a handle to <code>&amp;Cookies</code> allows you to get <em>and</em> set cookies in the
 request.</p>
-<p><em>This implementation always returns successfully.</em></p>
-</li>
-<li>
-<p><strong>ContentType</strong></p>
+
+<p><em>This implementation always returns successfully.</em></p></li>
+<li><p><strong>ContentType</strong></p>
+
 <p>Extracts the <a href="/rocket/http/struct.ContentType.html">ContentType</a> from
-the incoming request. If the request didn't specify a Content-Type, the
-request is forwarded.</p>
-</li>
-<li>
-<p><strong>SocketAddr</strong></p>
+the incoming request. If the request didn&#39;t specify a Content-Type, the
+request is forwarded.</p></li>
+<li><p><strong>SocketAddr</strong></p>
+
 <p>Extracts the remote address of the incoming request as a <code>SocketAddr</code>.
 If the remote address is not known, the request is forwarded.</p>
-<p><em>This implementation always returns successfully.</em></p>
-</li>
-<li>
-<p><strong>Option&lt;T&gt;</strong> <em>where</em> <strong>T: FromRequest</strong></p>
-<p>The type <code>T</code> is derived from the incoming request using <code>T</code>'s
+
+<p><em>This implementation always returns successfully.</em></p></li>
+<li><p><strong>Option&lt;T&gt;</strong> <em>where</em> <strong>T: FromRequest</strong></p>
+
+<p>The type <code>T</code> is derived from the incoming request using <code>T</code>&#39;s
 <code>FromRequest</code> implementation. If the derivation is a <code>Success</code>, the
 dervived value is returned in <code>Some</code>. Otherwise, a <code>None</code> is returned.</p>
-<p><em>This implementation always returns successfully.</em></p>
-</li>
-<li>
-<p><strong>Result&lt;T, T::Error&gt;</strong> <em>where</em> <strong>T: FromRequest</strong></p>
-<p>The type <code>T</code> is derived from the incoming request using <code>T</code>'s
+
+<p><em>This implementation always returns successfully.</em></p></li>
+<li><p><strong>Result&lt;T, T::Error&gt;</strong> <em>where</em> <strong>T: FromRequest</strong></p>
+
+<p>The type <code>T</code> is derived from the incoming request using <code>T</code>&#39;s
 <code>FromRequest</code> implementation. If derivation is a <code>Success</code>, the value is
 returned in <code>Ok</code>. If the derivation is a <code>Failure</code>, the error value is
 returned in <code>Err</code>. If the derivation is a <code>Forward</code>, the request is
-forwarded.</p>
-</li>
+forwarded.</p></li>
 </ul>
-<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
-<p>Imagine you're running an authenticated API service that requires that some
+
+<h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
+<p>Imagine you&#39;re running an authenticated API service that requires that some
 requests be sent along with a valid API key in a header field. You want to
-ensure that the handlers corresponding to these requests don't get called
+ensure that the handlers corresponding to these requests don&#39;t get called
 unless there is an API key in the request and the key is valid. The
 following example implements this using an <code>APIKey</code> type and a <code>FromRequest</code>
 implementation for that type. The <code>APIKey</code> type is then used in the
@@ -197,6 +200,7 @@ implementation for that type. The <code>APIKey</code> type is then used in the
             <h2 id='required-methods'>Required Methods</h2>
             <div class='methods'>
         <h3 id='tymethod.from_request' class='method'><span id='from_request.v' class='invisible'><code>fn <a href='#tymethod.from_request' class='fnname'>from_request</a>(request: &amp;'a <a class="struct" href="../../rocket/struct.Request.html" title="struct rocket::Request">Request</a>&lt;'r&gt;) -&gt; <a class="type" href="../../rocket/request/type.Outcome.html" title="type rocket::request::Outcome">Outcome</a>&lt;Self, Self::<a class="trait" href="../../rocket/request/trait.FromRequest.html" title="trait rocket::request::FromRequest">Error</a>&gt;</code></span></h3><div class='docblock'><p>Derives an instance of <code>Self</code> from the incoming request metadata.</p>
+
 <p>If the derivation is successful, an outcome of <code>Success</code> is returned. If
 the derivation fails in an unrecoverable fashion, <code>Failure</code> is returned.
 <code>Forward</code> is returned to indicate that the request should be forwarded

@@ -61,9 +61,46 @@
 <span id="16">16</span>
 <span id="17">17</span>
 <span id="18">18</span>
+<span id="19">19</span>
+<span id="20">20</span>
+<span id="21">21</span>
+<span id="22">22</span>
+<span id="23">23</span>
+<span id="24">24</span>
+<span id="25">25</span>
+<span id="26">26</span>
+<span id="27">27</span>
+<span id="28">28</span>
+<span id="29">29</span>
+<span id="30">30</span>
+<span id="31">31</span>
+<span id="32">32</span>
+<span id="33">33</span>
+<span id="34">34</span>
+<span id="35">35</span>
+<span id="36">36</span>
+<span id="37">37</span>
+<span id="38">38</span>
+<span id="39">39</span>
+<span id="40">40</span>
+<span id="41">41</span>
+<span id="42">42</span>
 </pre><pre class="rust ">
+<span class="doccomment">//! This crate runs the analytics server for the Large Scale Round 3 Team 4 project.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! Git repositories:</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! - [Analytics Server](https://github.com/ldev-r3-t4/analytics)</span>
+<span class="doccomment">//! - [Analytics Protocol](https://github.com/ldev-r3-t4/analytics-proto)</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! To see the protocol documentation, click [here](https://ldev-r3-t4.github.io/analytics/analytics_proto/).</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! Choose one of the version modules which corresponds to a mount point below to see more about it.</span>
+
+
 <span class="attribute">#<span class="op">!</span>[<span class="ident">feature</span>(<span class="ident">plugin</span>)]</span>
 <span class="attribute">#<span class="op">!</span>[<span class="ident">plugin</span>(<span class="ident">rocket_codegen</span>)]</span>
+<span class="attribute">#<span class="op">!</span>[<span class="ident">allow</span>(<span class="ident">unmounted_route</span>)]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">rocket</span>;
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">rocket_contrib</span>;
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">analytics_proto</span> <span class="kw">as</span> <span class="ident">proto</span>;
@@ -71,14 +108,25 @@
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">v1</span>;
 
 <span class="kw">use</span> <span class="ident">rocket</span>::<span class="ident">Rocket</span>;
+<span class="kw">use</span> <span class="ident">rocket</span>::<span class="ident">response</span>::<span class="ident">content</span>::<span class="ident">HTML</span>;
 
 <span class="kw">fn</span> <span class="ident">countdown</span>() <span class="op">-&gt;</span> <span class="ident">Rocket</span> {
     <span class="ident">rocket</span>::<span class="ident">ignite</span>()
+        .<span class="ident">mount</span>(<span class="string">&quot;/&quot;</span>, <span class="macro">routes</span><span class="macro">!</span>[<span class="ident">index</span>])
         .<span class="ident">mount</span>(<span class="string">&quot;/v1&quot;</span>, <span class="ident">v1</span>::<span class="ident">routes</span>())
+        .<span class="ident">manage</span>(<span class="ident">v1</span>::<span class="ident">Data</span>::<span class="ident">default</span>())
 }
 
 <span class="kw">fn</span> <span class="ident">main</span>() {
     <span class="ident">countdown</span>().<span class="ident">launch</span>();
+}
+
+<span class="doccomment">/// `GET /`</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This is the index page of the server which directs users to the documentation.</span>
+<span class="attribute">#[<span class="ident">get</span>(<span class="string">&quot;/&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">index</span>() <span class="op">-&gt;</span> <span class="ident">HTML</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span><span class="op">&gt;</span> {
+    <span class="ident">HTML</span>(<span class="macro">include_str</span><span class="macro">!</span>(<span class="string">&quot;index.html&quot;</span>))
 }
 </pre>
 </section>

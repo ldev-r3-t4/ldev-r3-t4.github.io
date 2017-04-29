@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>data</a></p><script>window.sidebarCurrent = {name: 'FromData', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Trait FromData</p><div class="block items"><ul><li><a href="#associated-types">Associated Types</a></li><li><a href="#required-methods">Required Methods</a></li><li><a href="#implementors">Implementors</a></li></ul></div><p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>data</a></p><script>window.sidebarCurrent = {name: 'FromData', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -53,38 +53,40 @@
     type <a href='#associatedtype.Error' class="type">Error</a>;
     fn <a href='#tymethod.from_data' class='fnname'>from_data</a>(request: &amp;<a class="struct" href="../../rocket/struct.Request.html" title="struct rocket::Request">Request</a>, data: <a class="struct" href="../../rocket/struct.Data.html" title="struct rocket::Data">Data</a>) -&gt; <a class="type" href="../../rocket/data/type.Outcome.html" title="type rocket::data::Outcome">Outcome</a>&lt;Self, Self::<a class="trait" href="../../rocket/data/trait.FromData.html" title="trait rocket::data::FromData">Error</a>&gt;;
 }</pre><div class='docblock'><p>Trait used to derive an object from incoming request data.</p>
+
 <p>Types that implement this trait can be used as a target for the <code>data = &quot;&lt;param&gt;&quot;</code> route parmater, as illustrated below:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="attribute">#[<span class="ident">post</span>(<span class="string">&quot;/submit&quot;</span>, <span class="ident">data</span> <span class="op">=</span> <span class="string">&quot;&lt;var&gt;&quot;</span>)]</span>
 <span class="kw">fn</span> <span class="ident">submit</span>(<span class="ident">var</span>: <span class="ident">T</span>) <span class="op">-&gt;</span> ... { ... }</pre>
+
 <p>In this example, <code>T</code> can be any type that implements <code>FromData</code>.</p>
-<h1 id="outcomes" class="section-header"><a href="#outcomes">Outcomes</a></h1>
+
+<h1 id='outcomes' class='section-header'><a href='#outcomes'>Outcomes</a></h1>
 <p>The returned <a href="/rocket/outcome/index.html">Outcome</a> of a <code>from_data</code> call
 determines how the incoming request will be processed.</p>
+
 <ul>
-<li>
-<p><strong>Success</strong>(S)</p>
+<li><p><strong>Success</strong>(S)</p>
+
 <p>If the <code>Outcome</code> is <code>Success</code>, then the <code>Success</code> value will be used as
 the value for the data parameter.  As long as all other parsed types
-succeed, the request will be handled by the requesting handler.</p>
-</li>
-<li>
-<p><strong>Failure</strong>(Status, E)</p>
+succeed, the request will be handled by the requesting handler.</p></li>
+<li><p><strong>Failure</strong>(Status, E)</p>
+
 <p>If the <code>Outcome</code> is <code>Failure</code>, the request will fail with the given status
 code and error. The designated error
 <a href="/rocket/struct.Catcher.html">Catcher</a> will be used to respond to the
 request. Note that users can request types of <code>Result&lt;S, E&gt;</code> and
-<code>Option&lt;S&gt;</code> to catch <code>Failure</code>s and retrieve the error value.</p>
-</li>
-<li>
-<p><strong>Forward</strong>(Data)</p>
+<code>Option&lt;S&gt;</code> to catch <code>Failure</code>s and retrieve the error value.</p></li>
+<li><p><strong>Forward</strong>(Data)</p>
+
 <p>If the <code>Outcome</code> is <code>Forward</code>, the request will be forwarded to the next
 matching request. This requires that no data has been read from the <code>Data</code>
-parameter. Note that users can request an <code>Option&lt;S&gt;</code> to catch <code>Forward</code>s.</p>
-</li>
+parameter. Note that users can request an <code>Option&lt;S&gt;</code> to catch <code>Forward</code>s.</p></li>
 </ul>
-<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
+
+<h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
 <p>Say that you have a custom type, <code>Person</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -92,15 +94,17 @@ parameter. Note that users can request an <code>Option&lt;S&gt;</code> to catch 
     <span class="ident">name</span>: <span class="ident">String</span>,
     <span class="ident">age</span>: <span class="ident">u16</span>
 }</pre>
+
 <p><code>Person</code> has a custom serialization format, so the built-in <code>JSON</code> type
-doesn't suffice. The format is <code>&lt;name&gt;:&lt;age&gt;</code> with <code>Content-Type: application/x-person</code>. You'd like to use <code>Person</code> as a <code>FromData</code> type so
-that you can retrieve it directly from a client's request body:</p>
+doesn&#39;t suffice. The format is <code>&lt;name&gt;:&lt;age&gt;</code> with <code>Content-Type: application/x-person</code>. You&#39;d like to use <code>Person</code> as a <code>FromData</code> type so
+that you can retrieve it directly from a client&#39;s request body:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="attribute">#[<span class="ident">post</span>(<span class="string">&quot;/person&quot;</span>, <span class="ident">data</span> <span class="op">=</span> <span class="string">&quot;&lt;person&gt;&quot;</span>)]</span>
 <span class="kw">fn</span> <span class="ident">person</span>(<span class="ident">person</span>: <span class="ident">Person</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> {
     <span class="string">&quot;Saved the new person to the database!&quot;</span>
 }</pre>
+
 <p>A <code>FromData</code> implementation allowing this looks like:</p>
 
 <pre class="rust rust-example-rendered">
@@ -153,6 +157,7 @@ that you can retrieve it directly from a client's request body:</p>
             <h2 id='required-methods'>Required Methods</h2>
             <div class='methods'>
         <h3 id='tymethod.from_data' class='method'><span id='from_data.v' class='invisible'><code>fn <a href='#tymethod.from_data' class='fnname'>from_data</a>(request: &amp;<a class="struct" href="../../rocket/struct.Request.html" title="struct rocket::Request">Request</a>, data: <a class="struct" href="../../rocket/struct.Data.html" title="struct rocket::Data">Data</a>) -&gt; <a class="type" href="../../rocket/data/type.Outcome.html" title="type rocket::data::Outcome">Outcome</a>&lt;Self, Self::<a class="trait" href="../../rocket/data/trait.FromData.html" title="trait rocket::data::FromData">Error</a>&gt;</code></span></h3><div class='docblock'><p>Parses an instance of <code>Self</code> from the incoming request body data.</p>
+
 <p>If the parse is successful, an outcome of <code>Success</code> is returned. If the
 data does not correspond to the type of <code>Self</code>, <code>Forward</code> is returned.
 If parsing fails, <code>Failure</code> is returned.</p>

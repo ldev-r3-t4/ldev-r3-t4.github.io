@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["record_event","Route: `/`"],["routes",""]],"static":[["static_rocket_route_info_for_record_event",""]]});
+initSidebarItems({"fn":[["get_events","`GET /`"],["record_event","`PUT /`"],["routes",""]],"static":[["static_rocket_route_info_for_get_events",""],["static_rocket_route_info_for_record_event",""]],"struct":[["Analytics",""]],"type":[["Data",""]]});

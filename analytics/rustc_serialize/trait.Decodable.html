@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         <a href='../rustc_serialize/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
-        <p class='location'><a href='index.html'>rustc_serialize</a></p><script>window.sidebarCurrent = {name: 'Decodable', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Trait Decodable</p><div class="block items"><ul><li><a href="#required-methods">Required Methods</a></li><li><a href="#implementors">Implementors</a></li></ul></div><p class='location'><a href='index.html'>rustc_serialize</a></p><script>window.sidebarCurrent = {name: 'Decodable', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -52,13 +52,16 @@
 <pre class='rust trait'>pub trait Decodable: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a> {
     fn <a href='#tymethod.decode' class='fnname'>decode</a>&lt;D:&nbsp;<a class="trait" href="../rustc_serialize/trait.Decoder.html" title="trait rustc_serialize::Decoder">Decoder</a>&gt;(d: &amp;mut D) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;Self, D::<a class="trait" href="../rustc_serialize/trait.Decoder.html" title="trait rustc_serialize::Decoder">Error</a>&gt;;
 }</pre><div class='docblock'><p>Trait for deserializing a type.</p>
+
 <p>This can be implemented for custom data types to allow them to be decoded
-with <code>Decoder</code> implementations. Most of Rust's built-in or standard data
+with <code>Decoder</code> implementations. Most of Rust&#39;s built-in or standard data
 types (like <code>i32</code> and <code>Vec&lt;T&gt;</code>) have <code>Decodable</code> implementations provided by
 this module.</p>
+
 <p>Note that, in general, you should let the compiler implement this for you by
 using the <code>derive(RustcDecodable)</code> attribute.</p>
-<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">rustc_serialize</span>;
 
@@ -67,6 +70,7 @@ using the <code>derive(RustcDecodable)</code> attribute.</p>
     <span class="ident">x</span>: <span class="ident">i32</span>,
     <span class="ident">y</span>: <span class="ident">i32</span>,
 }</pre>
+
 <p>This generates code equivalent to:</p>
 
 <pre class="rust rust-example-rendered">

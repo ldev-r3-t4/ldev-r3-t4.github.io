@@ -50,6 +50,7 @@
                    </a>
                </span><a class='srclink' href='../../src/rocket/config/mod.rs.html#480-482' title='goto source code'>[src]</a></span></h1>
 <pre class='rust fn'>pub fn active() -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;'static <a class="struct" href="../../rocket/config/struct.Config.html" title="struct rocket::config::Config">Config</a>&gt;</pre><div class='docblock'><p>Retrieve the active configuration, if there is one.</p>
+
 <p>This function is guaranteed to return <code>Some</code> once a Rocket application has
 started. Before a Rocket application has started, or when there is no active
 Rocket application (such as during testing), this function will return None.</p>

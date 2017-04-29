@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>request</a></p><script>window.sidebarCurrent = {name: 'State', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct State</p><div class="block items"><ul><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>request</a></p><script>window.sidebarCurrent = {name: 'State', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -50,15 +50,17 @@
                    </a>
                </span><a class='srclink' href='../../src/rocket/request/state.rs.html#54' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct State&lt;'r, T:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> + 'static&gt;(_);</pre><div class='docblock'><p>Request guard to retrieve managed state.</p>
+
 <p>This type can be used as a request guard to retrieve the state Rocket is
 managing for some type <code>T</code>. This allows for the sharing of state across any
 number of handlers. A value for the given type must previously have been
 registered to be managed by Rocket via the
 <a href="/rocket/struct.Rocket.html#method.manage">manage</a> method. The type being
 managed must be thread safe and sendable across thread boundaries. In other
-words, it must implement <code>Send + Sync + 'static</code>.</p>
-<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
-<p>Imagine you have some configuration struct of the type <code>MyConfig</code> that you'd
+words, it must implement <code>Send + Sync + &#39;static</code>.</p>
+
+<h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
+<p>Imagine you have some configuration struct of the type <code>MyConfig</code> that you&#39;d
 like to initialize at start-up and later access it in several handlers. The
 following example does just this:</p>
 
@@ -89,6 +91,7 @@ following example does just this:</p>
 </div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'r, T:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> + 'static&gt; <a class="struct" href="../../rocket/struct.State.html" title="struct rocket::State">State</a>&lt;'r, T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rocket/request/state.rs.html#56-65' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.inner' class="method"><span id='inner.v' class='invisible'><code>fn <a href='#method.inner' class='fnname'>inner</a>(&amp;self) -&gt; &amp;'r T</code></span></h4>
 <div class='docblock'><p>Retrieve a borrow to the underyling value.</p>
+
 <p>Using this method is typically unnecessary as <code>State</code> implements <code>Deref</code>
 with a <code>Target</code> of <code>T</code>. This means Rocket will automatically coerce a
 <code>State&lt;T&gt;</code> to an <code>&amp;T</code> when the types call for it.</p>

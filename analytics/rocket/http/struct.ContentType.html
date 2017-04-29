@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>http</a></p><script>window.sidebarCurrent = {name: 'ContentType', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct ContentType</p><div class="block items"><ul><li><a href="#fields">Fields</a></li><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>http</a></p><script>window.sidebarCurrent = {name: 'ContentType', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -54,11 +54,13 @@
     pub subtype: UncasedAscii&lt;'static&gt;,
     pub params: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;UncasedAscii&lt;'static&gt;&gt;,
 }</pre><div class='docblock'><p>Representation of HTTP Content-Types.</p>
-<h1 id="usage" class="section-header"><a href="#usage">Usage</a></h1>
+
+<h1 id='usage' class='section-header'><a href='#usage'>Usage</a></h1>
 <p><code>ContentTypes</code> should rarely be created directly. Instead, an associated
 constant should be used; one is declared for most commonly used content
 types.</p>
-<h2 id="example" class="section-header"><a href="#example">Example</a></h2>
+
+<h2 id='example' class='section-header'><a href='#example'>Example</a></h2>
 <p>A Content-Type of <code>text/html; charset=utf-8</code> can be insantiated via the
 <code>HTML</code> constant:</p>
 
@@ -66,7 +68,8 @@ types.</p>
 <span class="kw">use</span> <span class="ident">rocket</span>::<span class="ident">http</span>::<span class="ident">ContentType</span>;
 
 <span class="kw">let</span> <span class="ident">html</span> <span class="op">=</span> <span class="ident">ContentType</span>::<span class="ident">HTML</span>;</pre>
-<h1 id="header" class="section-header"><a href="#header">Header</a></h1>
+
+<h1 id='header' class='section-header'><a href='#header'>Header</a></h1>
 <p><code>ContentType</code> implements <code>Into&lt;Header&gt;</code>. As such, it can be used in any
 context where an <code>Into&lt;Header&gt;</code> is expected:</p>
 
@@ -75,7 +78,7 @@ context where an <code>Into&lt;Header&gt;</code> is expected:</p>
 <span class="kw">use</span> <span class="ident">rocket</span>::<span class="ident">response</span>::<span class="ident">Response</span>;
 
 <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">Response</span>::<span class="ident">build</span>().<span class="ident">header</span>(<span class="ident">ContentType</span>::<span class="ident">HTML</span>).<span class="ident">finalize</span>();</pre>
-</div><h2 class='fields'>Fields</h2><span id='structfield.ttype' class="structfield">
+</div><h2 id='fields' class='fields'>Fields</h2><span id='structfield.ttype' class="structfield">
                            <span id='ttype.v' class='invisible'>
                            <code>ttype: UncasedAscii&lt;'static&gt;</code>
                            </span></span><div class='docblock'><p>The &quot;type&quot; component of the Content-Type.</p>
@@ -94,17 +97,14 @@ context where an <code>Into&lt;Header&gt;</code> is expected:</p>
 <span class="ident">Any</span>: <span class="ident">ContentType</span> <span class="op">=</span> <span class="ident">ContentType</span>{<span class="ident">ttype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;*&quot;</span>),},
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;*&quot;</span>),},
             <span class="ident">params</span>: <span class="prelude-val">None</span>,}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 any
-</b>: <i></p>
-<ul>
-<li></li>
-</ul>
-<p>/</p>
-<ul>
-<li></li>
-</ul>
-<p></i></p>
+</b>: <i>
+*
+/
+*
+</i></p>
 </div><h4 id='associatedconstant.HTML' class="associatedconstant"><span id='HTML.v' class='invisible'><code>const <a href='#associatedconstant.HTML' class="constant"><b>HTML</b></a>: <a class="struct" href="../../rocket/http/struct.ContentType.html" title="struct rocket::http::ContentType">ContentType</a></code></span></h4>
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
@@ -112,13 +112,14 @@ any
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;html&quot;</span>),},
             <span class="ident">params</span>:
                 <span class="prelude-val">Some</span>(<span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;charset=utf-8&quot;</span>),}),}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 HTML
 </b>: <i>
 text
 /
 html
-;
+; 
 charset=utf-8
 </i></p>
 </div><h4 id='associatedconstant.Plain' class="associatedconstant"><span id='Plain.v' class='invisible'><code>const <a href='#associatedconstant.Plain' class="constant"><b>Plain</b></a>: <a class="struct" href="../../rocket/http/struct.ContentType.html" title="struct rocket::http::ContentType">ContentType</a></code></span></h4>
@@ -128,13 +129,14 @@ charset=utf-8
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;plain&quot;</span>),},
             <span class="ident">params</span>:
                 <span class="prelude-val">Some</span>(<span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;charset=utf-8&quot;</span>),}),}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 Plain
 </b>: <i>
 text
 /
 plain
-;
+; 
 charset=utf-8
 </i></p>
 </div><h4 id='associatedconstant.JSON' class="associatedconstant"><span id='JSON.v' class='invisible'><code>const <a href='#associatedconstant.JSON' class="constant"><b>JSON</b></a>: <a class="struct" href="../../rocket/http/struct.ContentType.html" title="struct rocket::http::ContentType">ContentType</a></code></span></h4>
@@ -143,6 +145,7 @@ charset=utf-8
 <span class="ident">JSON</span>: <span class="ident">ContentType</span> <span class="op">=</span> <span class="ident">ContentType</span>{<span class="ident">ttype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;application&quot;</span>),},
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;json&quot;</span>),},
             <span class="ident">params</span>: <span class="prelude-val">None</span>,}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 JSON
 </b>: <i>
@@ -157,6 +160,7 @@ json
             <span class="ident">subtype</span>:
                 <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;x-www-form-urlencoded&quot;</span>),},
             <span class="ident">params</span>: <span class="prelude-val">None</span>,}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 form
 </b>: <i>
@@ -170,6 +174,7 @@ x-www-form-urlencoded
 <span class="ident">JavaScript</span>: <span class="ident">ContentType</span> <span class="op">=</span> <span class="ident">ContentType</span>{<span class="ident">ttype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;application&quot;</span>),},
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;javascript&quot;</span>),},
             <span class="ident">params</span>: <span class="prelude-val">None</span>,}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 JavaScript
 </b>: <i>
@@ -184,13 +189,14 @@ javascript
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;css&quot;</span>),},
             <span class="ident">params</span>:
                 <span class="prelude-val">Some</span>(<span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;charset=utf-8&quot;</span>),}),}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 CSS
 </b>: <i>
 text
 /
 css
-;
+; 
 charset=utf-8
 </i></p>
 </div><h4 id='associatedconstant.DataForm' class="associatedconstant"><span id='DataForm.v' class='invisible'><code>const <a href='#associatedconstant.DataForm' class="constant"><b>DataForm</b></a>: <a class="struct" href="../../rocket/http/struct.ContentType.html" title="struct rocket::http::ContentType">ContentType</a></code></span></h4>
@@ -199,6 +205,7 @@ charset=utf-8
 <span class="ident">DataForm</span>: <span class="ident">ContentType</span> <span class="op">=</span> <span class="ident">ContentType</span>{<span class="ident">ttype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;multipart&quot;</span>),},
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;form-data&quot;</span>),},
             <span class="ident">params</span>: <span class="prelude-val">None</span>,}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 data form
 </b>: <i>
@@ -213,13 +220,14 @@ form-data
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;xml&quot;</span>),},
             <span class="ident">params</span>:
                 <span class="prelude-val">Some</span>(<span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;charset=utf-8&quot;</span>),}),}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 XML
 </b>: <i>
 text
 /
 xml
-;
+; 
 charset=utf-8
 </i></p>
 </div><h4 id='associatedconstant.CSV' class="associatedconstant"><span id='CSV.v' class='invisible'><code>const <a href='#associatedconstant.CSV' class="constant"><b>CSV</b></a>: <a class="struct" href="../../rocket/http/struct.ContentType.html" title="struct rocket::http::ContentType">ContentType</a></code></span></h4>
@@ -229,13 +237,14 @@ charset=utf-8
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;csv&quot;</span>),},
             <span class="ident">params</span>:
                 <span class="prelude-val">Some</span>(<span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;charset=utf-8&quot;</span>),}),}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 CSV
 </b>: <i>
 text
 /
 csv
-;
+; 
 charset=utf-8
 </i></p>
 </div><h4 id='associatedconstant.PNG' class="associatedconstant"><span id='PNG.v' class='invisible'><code>const <a href='#associatedconstant.PNG' class="constant"><b>PNG</b></a>: <a class="struct" href="../../rocket/http/struct.ContentType.html" title="struct rocket::http::ContentType">ContentType</a></code></span></h4>
@@ -244,6 +253,7 @@ charset=utf-8
 <span class="ident">PNG</span>: <span class="ident">ContentType</span> <span class="op">=</span> <span class="ident">ContentType</span>{<span class="ident">ttype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;image&quot;</span>),},
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;png&quot;</span>),},
             <span class="ident">params</span>: <span class="prelude-val">None</span>,}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 PNG
 </b>: <i>
@@ -257,6 +267,7 @@ png
 <span class="ident">GIF</span>: <span class="ident">ContentType</span> <span class="op">=</span> <span class="ident">ContentType</span>{<span class="ident">ttype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;image&quot;</span>),},
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;gif&quot;</span>),},
             <span class="ident">params</span>: <span class="prelude-val">None</span>,}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 GIF
 </b>: <i>
@@ -270,6 +281,7 @@ gif
 <span class="ident">BMP</span>: <span class="ident">ContentType</span> <span class="op">=</span> <span class="ident">ContentType</span>{<span class="ident">ttype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;image&quot;</span>),},
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;bmp&quot;</span>),},
             <span class="ident">params</span>: <span class="prelude-val">None</span>,}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 BMP
 </b>: <i>
@@ -283,6 +295,7 @@ bmp
 <span class="ident">JPEG</span>: <span class="ident">ContentType</span> <span class="op">=</span> <span class="ident">ContentType</span>{<span class="ident">ttype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;image&quot;</span>),},
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;jpeg&quot;</span>),},
             <span class="ident">params</span>: <span class="prelude-val">None</span>,}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 JPEG
 </b>: <i>
@@ -296,6 +309,7 @@ jpeg
 <span class="ident">WEBP</span>: <span class="ident">ContentType</span> <span class="op">=</span> <span class="ident">ContentType</span>{<span class="ident">ttype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;image&quot;</span>),},
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;webp&quot;</span>),},
             <span class="ident">params</span>: <span class="prelude-val">None</span>,}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 WEBP
 </b>: <i>
@@ -309,6 +323,7 @@ webp
 <span class="ident">SVG</span>: <span class="ident">ContentType</span> <span class="op">=</span> <span class="ident">ContentType</span>{<span class="ident">ttype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;image&quot;</span>),},
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;svg+xml&quot;</span>),},
             <span class="ident">params</span>: <span class="prelude-val">None</span>,}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 SVG
 </b>: <i>
@@ -322,6 +337,7 @@ svg+xml
 <span class="ident">PDF</span>: <span class="ident">ContentType</span> <span class="op">=</span> <span class="ident">ContentType</span>{<span class="ident">ttype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;application&quot;</span>),},
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;pdf&quot;</span>),},
             <span class="ident">params</span>: <span class="prelude-val">None</span>,}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 PDF
 </b>: <i>
@@ -335,6 +351,7 @@ pdf
 <span class="ident">TTF</span>: <span class="ident">ContentType</span> <span class="op">=</span> <span class="ident">ContentType</span>{<span class="ident">ttype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;application&quot;</span>),},
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;font-sfnt&quot;</span>),},
             <span class="ident">params</span>: <span class="prelude-val">None</span>,}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 TTF
 </b>: <i>
@@ -348,6 +365,7 @@ font-sfnt
 <span class="ident">OTF</span>: <span class="ident">ContentType</span> <span class="op">=</span> <span class="ident">ContentType</span>{<span class="ident">ttype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;application&quot;</span>),},
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;font-sfnt&quot;</span>),},
             <span class="ident">params</span>: <span class="prelude-val">None</span>,}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 OTF
 </b>: <i>
@@ -361,6 +379,7 @@ font-sfnt
 <span class="ident">WOFF</span>: <span class="ident">ContentType</span> <span class="op">=</span> <span class="ident">ContentType</span>{<span class="ident">ttype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;application&quot;</span>),},
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;font-woff&quot;</span>),},
             <span class="ident">params</span>: <span class="prelude-val">None</span>,}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 WOFF
 </b>: <i>
@@ -374,6 +393,7 @@ font-woff
 <span class="ident">WOFF2</span>: <span class="ident">ContentType</span> <span class="op">=</span> <span class="ident">ContentType</span>{<span class="ident">ttype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;font&quot;</span>),},
             <span class="ident">subtype</span>: <span class="ident">UncasedAscii</span>{<span class="ident">string</span>: <span class="ident">Cow</span>::<span class="ident">Borrowed</span>(<span class="string">&quot;woff2&quot;</span>),},
             <span class="ident">params</span>: <span class="prelude-val">None</span>,}</pre>
+
 <p><a href="struct.ContentType.html">ContentType</a> for <b>
 WOFF2
 </b>: <i>
@@ -387,15 +407,12 @@ there is an associated constant for <code>self</code>.</p>
 </div><h4 id='method.is_any' class="method"><span id='is_any.v' class='invisible'><code>fn <a href='#method.is_any' class='fnname'>is_any</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
 any
-</b> ContentType: <i></p>
-<ul>
-<li></li>
-</ul>
-<p></i>/<i></p>
-<ul>
-<li></li>
-</ul>
-<p></i>.</p>
+</b> ContentType: <i>
+*
+</i>/<i>
+*
+</i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_html' class="method"><span id='is_html.v' class='invisible'><code>fn <a href='#method.is_html' class='fnname'>is_html</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -405,6 +422,7 @@ text
 </i>/<i>
 html
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_plain' class="method"><span id='is_plain.v' class='invisible'><code>fn <a href='#method.is_plain' class='fnname'>is_plain</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -414,6 +432,7 @@ text
 </i>/<i>
 plain
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_json' class="method"><span id='is_json.v' class='invisible'><code>fn <a href='#method.is_json' class='fnname'>is_json</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -423,6 +442,7 @@ application
 </i>/<i>
 json
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_form' class="method"><span id='is_form.v' class='invisible'><code>fn <a href='#method.is_form' class='fnname'>is_form</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -432,6 +452,7 @@ application
 </i>/<i>
 x-www-form-urlencoded
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_javascript' class="method"><span id='is_javascript.v' class='invisible'><code>fn <a href='#method.is_javascript' class='fnname'>is_javascript</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -441,6 +462,7 @@ application
 </i>/<i>
 javascript
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_css' class="method"><span id='is_css.v' class='invisible'><code>fn <a href='#method.is_css' class='fnname'>is_css</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -450,6 +472,7 @@ text
 </i>/<i>
 css
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_data_form' class="method"><span id='is_data_form.v' class='invisible'><code>fn <a href='#method.is_data_form' class='fnname'>is_data_form</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -459,6 +482,7 @@ multipart
 </i>/<i>
 form-data
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_xml' class="method"><span id='is_xml.v' class='invisible'><code>fn <a href='#method.is_xml' class='fnname'>is_xml</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -468,6 +492,7 @@ text
 </i>/<i>
 xml
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_csv' class="method"><span id='is_csv.v' class='invisible'><code>fn <a href='#method.is_csv' class='fnname'>is_csv</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -477,6 +502,7 @@ text
 </i>/<i>
 csv
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_png' class="method"><span id='is_png.v' class='invisible'><code>fn <a href='#method.is_png' class='fnname'>is_png</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -486,6 +512,7 @@ image
 </i>/<i>
 png
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_gif' class="method"><span id='is_gif.v' class='invisible'><code>fn <a href='#method.is_gif' class='fnname'>is_gif</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -495,6 +522,7 @@ image
 </i>/<i>
 gif
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_bmp' class="method"><span id='is_bmp.v' class='invisible'><code>fn <a href='#method.is_bmp' class='fnname'>is_bmp</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -504,6 +532,7 @@ image
 </i>/<i>
 bmp
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_jpeg' class="method"><span id='is_jpeg.v' class='invisible'><code>fn <a href='#method.is_jpeg' class='fnname'>is_jpeg</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -513,6 +542,7 @@ image
 </i>/<i>
 jpeg
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_webp' class="method"><span id='is_webp.v' class='invisible'><code>fn <a href='#method.is_webp' class='fnname'>is_webp</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -522,6 +552,7 @@ image
 </i>/<i>
 webp
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_svg' class="method"><span id='is_svg.v' class='invisible'><code>fn <a href='#method.is_svg' class='fnname'>is_svg</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -531,6 +562,7 @@ image
 </i>/<i>
 svg+xml
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_pdf' class="method"><span id='is_pdf.v' class='invisible'><code>fn <a href='#method.is_pdf' class='fnname'>is_pdf</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -540,6 +572,7 @@ application
 </i>/<i>
 pdf
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_ttf' class="method"><span id='is_ttf.v' class='invisible'><code>fn <a href='#method.is_ttf' class='fnname'>is_ttf</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -549,6 +582,7 @@ application
 </i>/<i>
 font-sfnt
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_otf' class="method"><span id='is_otf.v' class='invisible'><code>fn <a href='#method.is_otf' class='fnname'>is_otf</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -558,6 +592,7 @@ application
 </i>/<i>
 font-sfnt
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_woff' class="method"><span id='is_woff.v' class='invisible'><code>fn <a href='#method.is_woff' class='fnname'>is_woff</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -567,6 +602,7 @@ application
 </i>/<i>
 font-woff
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.is_woff2' class="method"><span id='is_woff2.v' class='invisible'><code>fn <a href='#method.is_woff2' class='fnname'>is_woff2</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a <b>
@@ -576,6 +612,7 @@ font
 </i>/<i>
 woff2
 </i>.</p>
+
 <p>Paramaters are not taken into account when doing this check.</p>
 </div><h4 id='method.from_extension' class="method"><span id='from_extension.v' class='invisible'><code>fn <a href='#method.from_extension' class='fnname'>from_extension</a>(ext: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a class="struct" href="../../rocket/http/struct.ContentType.html" title="struct rocket::http::ContentType">ContentType</a></code></span></h4>
 <div class='docblock'><p>Returns the Content-Type associated with the extension <code>ext</code>. Not all
@@ -583,7 +620,8 @@ extensions are recognized. If an extensions is not recognized, then this
 method returns a ContentType of <code>Any</code>. The currently recognized
 extensions are: txt, html, htm, xml, js, css, json, png, gif, bmp, jpeg,
 jpg, and pdf.</p>
-<h1 id="example-1" class="section-header"><a href="#example-1">Example</a></h1>
+
+<h1 id='example-1' class='section-header'><a href='#example-1'>Example</a></h1>
 <p>A recognized content type:</p>
 
 <pre class="rust rust-example-rendered">
@@ -591,6 +629,7 @@ jpg, and pdf.</p>
 
 <span class="kw">let</span> <span class="ident">xml</span> <span class="op">=</span> <span class="ident">ContentType</span>::<span class="ident">from_extension</span>(<span class="string">&quot;xml&quot;</span>);
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">xml</span>.<span class="ident">is_xml</span>());</pre>
+
 <p>An unrecognized content type:</p>
 
 <pre class="rust rust-example-rendered">
@@ -602,7 +641,8 @@ jpg, and pdf.</p>
 <div class='docblock'><p>Creates a new <code>ContentType</code> with type <code>ttype</code> and subtype <code>subtype</code>.
 This should <em>only</em> be used to construct uncommon Content-Types or custom
 Content-Types. Use an associated constant for common Content-Types.</p>
-<h1 id="example-2" class="section-header"><a href="#example-2">Example</a></h1>
+
+<h1 id='example-2' class='section-header'><a href='#example-2'>Example</a></h1>
 <p>Create a custom <code>application/x-person</code> Content-Type:</p>
 
 <pre class="rust rust-example-rendered">
@@ -616,7 +656,8 @@ optionally parameters <code>params</code>, a semicolon-seperated list of
 parameters. This should be <em>only</em> to construct uncommon Content-Types or
 custom Content-Types. Use an associated constant for common
 Content-Types.</p>
-<h1 id="example-3" class="section-header"><a href="#example-3">Example</a></h1>
+
+<h1 id='example-3' class='section-header'><a href='#example-3'>Example</a></h1>
 <p>Create a custom <code>application/x-id; id=1</code> Content-Type:</p>
 
 <pre class="rust rust-example-rendered">
@@ -625,10 +666,11 @@ Content-Types.</p>
 <span class="kw">let</span> <span class="ident">id</span> <span class="op">=</span> <span class="ident">ContentType</span>::<span class="ident">with_params</span>(<span class="string">&quot;application&quot;</span>, <span class="string">&quot;x-id&quot;</span>, <span class="prelude-val">Some</span>(<span class="string">&quot;id=1&quot;</span>));
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">id</span>.<span class="ident">to_string</span>(), <span class="string">&quot;application/x-id; id=1&quot;</span>.<span class="ident">to_string</span>());</pre>
 </div><h4 id='method.params' class="method"><span id='params.v-1' class='invisible'><code>fn <a href='#method.params' class='fnname'>params</a>&lt;'a&gt;(&amp;'a self) -&gt; impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/iter/iterator/trait.Iterator.html" title="trait core::iter::iterator::Iterator">Iterator</a>&lt;Item = <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">(</a>&amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, &amp;'a <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">)</a>&gt; + 'a</code></span></h4>
-<div class='docblock'><p>Returns an iterator over the (key, value) pairs of the Content-Type's
+<div class='docblock'><p>Returns an iterator over the (key, value) pairs of the Content-Type&#39;s
 parameter list. The iterator will be empty if the Content-Type has no
 parameters.</p>
-<h1 id="example-4" class="section-header"><a href="#example-4">Example</a></h1>
+
+<h1 id='example-4' class='section-header'><a href='#example-4'>Example</a></h1>
 <p>The <code>ContentType::Plain</code> type has one parameter: <code>charset=utf-8</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -637,6 +679,7 @@ parameters.</p>
 <span class="kw">let</span> <span class="ident">plain</span> <span class="op">=</span> <span class="ident">ContentType</span>::<span class="ident">Plain</span>;
 <span class="kw">let</span> <span class="ident">plain_params</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">plain</span>.<span class="ident">params</span>().<span class="ident">collect</span>();
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">plain_params</span>, <span class="macro">vec</span><span class="macro">!</span>[(<span class="string">&quot;charset&quot;</span>, <span class="string">&quot;utf-8&quot;</span>)]);</pre>
+
 <p>The <code>ContentType::PNG</code> type has no parameters:</p>
 
 <pre class="rust rust-example-rendered">
@@ -659,9 +702,9 @@ parameters.</p>
 <div class='docblock'><p>This method tests for <code>!=</code>.</p>
 </div></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html" title="trait core::hash::Hash">Hash</a> for <a class="struct" href="../../rocket/http/struct.ContentType.html" title="struct rocket::http::ContentType">ContentType</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rocket/http/content_type.rs.html#41' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.hash' class="method"><span id='hash.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#tymethod.hash' class='fnname'>hash</a>&lt;__H:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/hash/trait.Hasher.html" title="trait core::hash::Hasher">Hasher</a>&gt;(&amp;self, __arg_0: &amp;mut __H)</code></span></h4>
-<div class='docblock'><p>Feeds this value into the state given, updating the hasher as necessary.</p>
+<div class='docblock'><p>Feeds this value into the given [<code>Hasher</code>]. <a href="https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#tymethod.hash">Read more</a></p>
 </div><h4 id='method.hash_slice' class="method"><span id='hash_slice.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#method.hash_slice' class='fnname'>hash_slice</a>&lt;H&gt;(data: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[Self]</a>, state: &amp;mut H) <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;H: <a class="trait" href="https://doc.rust-lang.org/nightly/core/hash/trait.Hasher.html" title="trait core::hash::Hasher">Hasher</a>,&nbsp;</span></code><div class='since' title='Stable since Rust version 1.3.0'>1.3.0</div></span></h4>
-<div class='docblock'><p>Feeds a slice of this type into the state provided.</p>
+<div class='docblock'><p>Feeds a slice of this type into the given [<code>Hasher</code>]. <a href="https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#method.hash_slice">Read more</a></p>
 </div></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html" title="trait core::default::Default">Default</a> for <a class="struct" href="../../rocket/http/struct.ContentType.html" title="struct rocket::http::ContentType">ContentType</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rocket/http/content_type.rs.html#269-275' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.default' class="method"><span id='default.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default' class='fnname'>default</a>() -&gt; <a class="struct" href="../../rocket/http/struct.ContentType.html" title="struct rocket::http::ContentType">ContentType</a></code></span></h4>
 <div class='docblock'><p>Returns a ContentType of <code>Any</code>, or <code>*/*</code>.</p>
@@ -670,7 +713,8 @@ parameters.</p>
 <div class='docblock'><p>The associated error which can be returned from parsing.</p>
 </div><h4 id='method.from_str' class="method"><span id='from_str.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/str/trait.FromStr.html#tymethod.from_str' class='fnname'>from_str</a>(raw: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../../rocket/http/struct.ContentType.html" title="struct rocket::http::ContentType">ContentType</a>, &amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;</code></span></h4>
 <div class='docblock'><p>Parses a ContentType from a given Content-Type header value.</p>
-<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
 <p>Parsing an <code>application/json</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -680,6 +724,7 @@ parameters.</p>
 <span class="kw">let</span> <span class="ident">json</span> <span class="op">=</span> <span class="ident">ContentType</span>::<span class="ident">from_str</span>(<span class="string">&quot;application/json&quot;</span>).<span class="ident">unwrap</span>();
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">json</span>.<span class="ident">is_known</span>());
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">json</span>, <span class="ident">ContentType</span>::<span class="ident">JSON</span>);</pre>
+
 <p>Parsing a content-type extension:</p>
 
 <pre class="rust rust-example-rendered">
@@ -690,6 +735,7 @@ parameters.</p>
 <span class="macro">assert</span><span class="macro">!</span>(<span class="op">!</span><span class="ident">custom</span>.<span class="ident">is_known</span>());
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">custom</span>.<span class="ident">ttype</span>, <span class="string">&quot;application&quot;</span>);
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">custom</span>.<span class="ident">subtype</span>, <span class="string">&quot;x-custom&quot;</span>);</pre>
+
 <p>Parsing an invalid Content-Type value:</p>
 
 <pre class="rust rust-example-rendered">
@@ -701,7 +747,8 @@ parameters.</p>
 </div></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html" title="trait core::fmt::Display">Display</a> for <a class="struct" href="../../rocket/http/struct.ContentType.html" title="struct rocket::http::ContentType">ContentType</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rocket/http/content_type.rs.html#402-422' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.fmt-1' class="method"><span id='fmt.v-1' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span></h4>
 <div class='docblock'><p>Formats the ContentType as an HTTP Content-Type value.</p>
-<h1 id="example-5" class="section-header"><a href="#example-5">Example</a></h1>
+
+<h1 id='example-5' class='section-header'><a href='#example-5'>Example</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="kw">use</span> <span class="ident">rocket</span>::<span class="ident">http</span>::<span class="ident">ContentType</span>;
 

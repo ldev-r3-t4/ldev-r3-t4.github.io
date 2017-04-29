@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>rocket</a></p><script>window.sidebarCurrent = {name: 'response', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+        <p class='location'>Module response</p><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#constants">Constants</a></li><li><a href="#traits">Traits</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'><a href='../index.html'>rocket</a></p><script>window.sidebarCurrent = {name: 'response', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -50,17 +50,20 @@
                    </a>
                </span><a class='srclink' href='../../src/rocket/response/mod.rs.html#1-43' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Types and traits to build and send responses.</p>
+
 <p>The return type of a Rocket handler can be any type that implements the
 <a href="trait.Responder.html">Responder</a> trait. Among other things, this module
 contains several such types.</p>
-<h1 id="composing" class="section-header"><a href="#composing">Composing</a></h1>
+
+<h1 id='composing' class='section-header'><a href='#composing'>Composing</a></h1>
 <p>Many of the built-in <code>Responder</code> types <em>chain</em> responses: they take in
 another <code>Responder</code> and add, remove, or change information in the response.
 In other words, many <code>Responder</code> types are built to compose well. As a
-result, you'll often have types of the form <code>A&lt;B&lt;C&gt;&gt;</code> consisting of three
+result, you&#39;ll often have types of the form <code>A&lt;B&lt;C&gt;&gt;</code> consisting of three
 <code>Responder</code>s <code>A</code>, <code>B</code>, and <code>C</code>. This is normal and encouraged as the type
 names typically illustrate the intended response.</p>
-<h1 id="contrib" class="section-header"><a href="#contrib">Contrib</a></h1>
+
+<h1 id='contrib' class='section-header'><a href='#contrib'>Contrib</a></h1>
 <p>The <a href="/rocket_contrib">contrib crate</a> contains several useful <code>Responder</code>s
 including <a href="/rocket_contrib/struct.Template.html">Template</a> and
 <a href="/rocket_contrib/struct.JSON.html">JSON</a>.</p>
@@ -71,7 +74,6 @@ including <a href="/rocket_contrib/struct.Template.html">Template</a> and
                                   title='mod rocket::response::content'>content</a></td>
                            <td class='docblock-short'>
                                 <p>Contains types that set the Content-Type of a response.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -80,7 +82,6 @@ including <a href="/rocket_contrib/struct.Template.html">Template</a> and
                            <td class='docblock-short'>
                                 <p>Contains types that set the status code and correspoding headers of a
 response.</p>
-
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -89,7 +90,6 @@ response.</p>
                                   title='struct rocket::response::Content'>Content</a></td>
                            <td class='docblock-short'>
                                 <p>Sets the Content-Type of a <code>Responder</code> to a chosen value.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -98,7 +98,6 @@ response.</p>
                            <td class='docblock-short'>
                                 <p>A failing response; simply forwards to the catcher for the given
 <code>Status</code>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -108,7 +107,6 @@ response.</p>
                                 <p>Sets a &quot;flash&quot; cookie that will be removed when it is accessed. The
 anologous request type is
 <a href="/rocket/request/type.FlashMessage.html">FlashMessage</a>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -117,7 +115,6 @@ anologous request type is
                            <td class='docblock-short'>
                                 <p>A file with an associated name; responds with the Content-Type based on the
 file extension.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -125,7 +122,6 @@ file extension.</p>
                                   title='struct rocket::response::Redirect'>Redirect</a></td>
                            <td class='docblock-short'>
                                 <p>An empty redirect response to a given URL.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -133,7 +129,6 @@ file extension.</p>
                                   title='struct rocket::response::Response'>Response</a></td>
                            <td class='docblock-short'>
                                 <p>An HTTP/Rocket response, returned by <code>Responder</code>s.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -141,7 +136,6 @@ file extension.</p>
                                   title='struct rocket::response::ResponseBuilder'>ResponseBuilder</a></td>
                            <td class='docblock-short'>
                                 <p>Type for easily building <code>Response</code>s.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -149,7 +143,6 @@ file extension.</p>
                                   title='struct rocket::response::Stream'>Stream</a></td>
                            <td class='docblock-short'>
                                 <p>Streams a response to a client from an arbitrary <code>Read</code>er type.</p>
-
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
@@ -158,7 +151,6 @@ file extension.</p>
                                   title='enum rocket::response::Body'>Body</a></td>
                            <td class='docblock-short'>
                                 <p>The body of a response: can be sized or streamed/chunked.</p>
-
                            </td>
                        </tr></table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
 <table>
@@ -167,7 +159,6 @@ file extension.</p>
                                   title='constant rocket::response::DEFAULT_CHUNK_SIZE'>DEFAULT_CHUNK_SIZE</a></td>
                            <td class='docblock-short'>
                                 <p>The default size, in bytes, of a chunk for streamed responses.</p>
-
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
@@ -176,7 +167,6 @@ file extension.</p>
                                   title='trait rocket::response::Responder'>Responder</a></td>
                            <td class='docblock-short'>
                                 <p>Trait implemented by types that generate responses for clients.</p>
-
                            </td>
                        </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
@@ -185,7 +175,6 @@ file extension.</p>
                                   title='type rocket::response::Result'>Result</a></td>
                            <td class='docblock-short'>
                                 <p>Type alias for the <code>Result</code> of a <code>Responder::respond</code> call.</p>
-
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>

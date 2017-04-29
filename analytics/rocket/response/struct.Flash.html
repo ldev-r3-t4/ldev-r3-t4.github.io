@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>response</a></p><script>window.sidebarCurrent = {name: 'Flash', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct Flash</p><div class="block items"><ul><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>response</a></p><script>window.sidebarCurrent = {name: 'Flash', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -52,27 +52,32 @@
 <pre class='rust struct'>pub struct Flash&lt;R&gt; { /* fields omitted */ }</pre><div class='docblock'><p>Sets a &quot;flash&quot; cookie that will be removed when it is accessed. The
 anologous request type is
 <a href="/rocket/request/type.FlashMessage.html">FlashMessage</a>.</p>
+
 <p>This type makes it easy to send messages across requests. It is typically
 used for &quot;status&quot; messages after redirects. For instance, if a user attempts
 to visit a page he/she does not have access to, you may want to redirect the
 user to a safe place and show a message indicating what happened on the
 redirected page. The message should only persist for a single request. This
 can be accomplished with this type.</p>
-<h1 id="usage" class="section-header"><a href="#usage">Usage</a></h1>
+
+<h1 id='usage' class='section-header'><a href='#usage'>Usage</a></h1>
 <p>Each <code>Flash</code> message consists of a <code>name</code> and some <code>msg</code> contents. A generic
 constructor (<a href="#method.new">new</a>) can be used to construct a message with any
 name, while the <a href="#method.warning">warning</a>, <a href="#method.success">success</a>, and
 <a href="#method.error">error</a> constructors create messages with the corresponding
 names.</p>
+
 <p>Messages can be retrieved on the request side via the
 <a href="/rocket/request/type.FlashMessage.html">FlashMessage</a> type and the
 <a href="#method.name">name</a> and <a href="#method.msg">msg</a> methods.</p>
-<h1 id="response" class="section-header"><a href="#response">Response</a></h1>
+
+<h1 id='response' class='section-header'><a href='#response'>Response</a></h1>
 <p>The <code>Responder</code> implementation for <code>Flash</code> sets the message cookie and then
 uses the passed in responder <code>res</code> to complete the response. In other words,
 it simply sets a cookie and delagates the rest of the response handling to
 the wrapped responder.</p>
-<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
+
+<h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
 <p>The following complete Rocket application illustrates the use of a <code>Flash</code>
 message on both the request and response sides.</p>
 
@@ -98,6 +103,7 @@ message on both the request and response sides.</p>
 <span class="kw">fn</span> <span class="ident">main</span>() {
     <span class="ident">rocket</span>::<span class="ident">ignite</span>().<span class="ident">mount</span>(<span class="string">&quot;/&quot;</span>, <span class="macro">routes</span><span class="macro">!</span>[<span class="ident">login</span>, <span class="ident">index</span>]).<span class="ident">launch</span>()
 }</pre>
+
 <p>On the response side (in <code>login</code>), a <code>Flash</code> error message is set if some
 fictional authentication failed, and the user is redirected to <code>&quot;/&quot;</code>. On the
 request side (in <code>index</code>), the handler emits the flash message if there is
@@ -108,7 +114,8 @@ receive the standard welcome message.</p>
 <div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>&lt;N:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html" title="trait core::convert::AsRef">AsRef</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;, M:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html" title="trait core::convert::AsRef">AsRef</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;&gt;(res: R, name: N, msg: M) -&gt; <a class="struct" href="../../rocket/response/struct.Flash.html" title="struct rocket::response::Flash">Flash</a>&lt;R&gt;</code></span></h4>
 <div class='docblock'><p>Constructs a new <code>Flash</code> message with the given <code>name</code>, <code>msg</code>, and
 underlying <code>responder</code>.</p>
-<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
 <p>Construct a &quot;suggestion&quot; message with contents &quot;Try this out!&quot; that
 redirects to &quot;/&quot;.</p>
 
@@ -119,7 +126,8 @@ redirects to &quot;/&quot;.</p>
 </div><h4 id='method.success' class="method"><span id='success.v' class='invisible'><code>fn <a href='#method.success' class='fnname'>success</a>&lt;S:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html" title="trait core::convert::AsRef">AsRef</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;&gt;(responder: R, msg: S) -&gt; <a class="struct" href="../../rocket/response/struct.Flash.html" title="struct rocket::response::Flash">Flash</a>&lt;R&gt;</code></span></h4>
 <div class='docblock'><p>Constructs a &quot;success&quot; <code>Flash</code> message with the given <code>responder</code> and
 <code>msg</code>.</p>
-<h1 id="examples-1" class="section-header"><a href="#examples-1">Examples</a></h1>
+
+<h1 id='examples-1' class='section-header'><a href='#examples-1'>Examples</a></h1>
 <p>Construct a &quot;success&quot; message with contents &quot;It worked!&quot; that redirects
 to &quot;/&quot;.</p>
 
@@ -130,7 +138,8 @@ to &quot;/&quot;.</p>
 </div><h4 id='method.warning' class="method"><span id='warning.v' class='invisible'><code>fn <a href='#method.warning' class='fnname'>warning</a>&lt;S:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html" title="trait core::convert::AsRef">AsRef</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;&gt;(responder: R, msg: S) -&gt; <a class="struct" href="../../rocket/response/struct.Flash.html" title="struct rocket::response::Flash">Flash</a>&lt;R&gt;</code></span></h4>
 <div class='docblock'><p>Constructs a &quot;warning&quot; <code>Flash</code> message with the given <code>responder</code> and
 <code>msg</code>.</p>
-<h1 id="examples-2" class="section-header"><a href="#examples-2">Examples</a></h1>
+
+<h1 id='examples-2' class='section-header'><a href='#examples-2'>Examples</a></h1>
 <p>Construct a &quot;warning&quot; message with contents &quot;Watch out!&quot; that redirects
 to &quot;/&quot;.</p>
 
@@ -141,7 +150,8 @@ to &quot;/&quot;.</p>
 </div><h4 id='method.error' class="method"><span id='error.v' class='invisible'><code>fn <a href='#method.error' class='fnname'>error</a>&lt;S:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html" title="trait core::convert::AsRef">AsRef</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;&gt;(responder: R, msg: S) -&gt; <a class="struct" href="../../rocket/response/struct.Flash.html" title="struct rocket::response::Flash">Flash</a>&lt;R&gt;</code></span></h4>
 <div class='docblock'><p>Constructs an &quot;error&quot; <code>Flash</code> message with the given <code>responder</code> and
 <code>msg</code>.</p>
-<h1 id="examples-3" class="section-header"><a href="#examples-3">Examples</a></h1>
+
+<h1 id='examples-3' class='section-header'><a href='#examples-3'>Examples</a></h1>
 <p>Construct an &quot;error&quot; message with contents &quot;Whoops!&quot; that redirects
 to &quot;/&quot;.</p>
 
@@ -167,6 +177,7 @@ the response is the <code>Outcome</code> of the wrapped <code>Responder</code>.<
 </div></div><h3 class='impl'><span class='in-band'><code>impl&lt;'a, 'r&gt; <a class="trait" href="../../rocket/request/trait.FromRequest.html" title="trait rocket::request::FromRequest">FromRequest</a>&lt;'a, 'r&gt; for <a class="struct" href="../../rocket/response/struct.Flash.html" title="struct rocket::response::Flash">Flash</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rocket/response/flash.rs.html#218-250' title='goto source code'>[src]</a></span></h3>
 <div class='docblock'><p>Retrieves a flash message from a flash cookie and deletes the flash cookie.
 If there is no flash cookie, an empty <code>Err</code> is returned.</p>
+
 <p>The suggested use is through an <code>Option</code> and the <code>FlashMessage</code> type alias
 in <code>request</code>: <code>Option&lt;FlashMessage&gt;</code>.</p>
 </div><div class='impl-items'><h4 id='associatedtype.Error' class="type"><span id='Error.t' class='invisible'><code>type <a href='../../rocket/request/trait.FromRequest.html#associatedtype.Error' class="type">Error</a> = <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.tuple.html">()</a></code></span></h4>

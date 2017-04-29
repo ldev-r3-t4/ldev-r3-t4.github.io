@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='index.html'>rocket_contrib</a></p><script>window.sidebarCurrent = {name: 'JSON', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct JSON</p><div class="block items"><ul><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='index.html'>rocket_contrib</a></p><script>window.sidebarCurrent = {name: 'JSON', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -51,9 +51,10 @@
                </span><a class='srclink' href='../src/rocket_contrib/json/mod.rs.html#51' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct JSON&lt;T&gt;(pub T);</pre><div class='docblock'><p>The JSON type: implements <code>FromData</code> and <code>Responder</code>, allowing you to easily
 consume and respond with JSON.</p>
-<p>If you're receiving JSON data, simply add a <code>data</code> parameter to your route
+
+<p>If you&#39;re receiving JSON data, simply add a <code>data</code> parameter to your route
 arguments and ensure the type of the parameter is a <code>JSON&lt;T&gt;</code>, where <code>T</code> is
-some type you'd like to parse from JSON. <code>T</code> must implement <code>Deserialize</code>
+some type you&#39;d like to parse from JSON. <code>T</code> must implement <code>Deserialize</code>
 from <a href="https://github.com/serde-rs/json">Serde</a>. The data is parsed from the
 HTTP request body.</p>
 
@@ -62,11 +63,13 @@ HTTP request body.</p>
 <span class="kw">fn</span> <span class="ident">new_user</span>(<span class="ident">user</span>: <span class="ident">JSON</span><span class="op">&lt;</span><span class="ident">User</span><span class="op">&gt;</span>) {
     ...
 }</pre>
-<p>You don't <em>need</em> to use <code>format = &quot;application/json&quot;</code>, but it <em>may</em> be what
+
+<p>You don&#39;t <em>need</em> to use <code>format = &quot;application/json&quot;</code>, but it <em>may</em> be what
 you want. Using <code>format = application/json</code> means that any request that
-doesn't specify &quot;application/json&quot; as its <code>Content-Type</code> header value will
+doesn&#39;t specify &quot;application/json&quot; as its <code>Content-Type</code> header value will
 not be routed to the handler.</p>
-<p>If you're responding with JSON data, return a <code>JSON&lt;T&gt;</code> type, where <code>T</code>
+
+<p>If you&#39;re responding with JSON data, return a <code>JSON&lt;T&gt;</code> type, where <code>T</code>
 implements <code>Serialize</code> from <a href="https://github.com/serde-rs/json">Serde</a>. The
 content type of the response is set to <code>application/json</code> automatically.</p>
 
@@ -80,7 +83,8 @@ content type of the response is set to <code>application/json</code> automatical
 </div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class="struct" href="../rocket_contrib/struct.JSON.html" title="struct rocket_contrib::JSON">JSON</a>&lt;T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/rocket_contrib/json/mod.rs.html#53-66' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.into_inner' class="method"><span id='into_inner.v' class='invisible'><code>fn <a href='#method.into_inner' class='fnname'>into_inner</a>(self) -&gt; T</code></span></h4>
 <div class='docblock'><p>Consumes the JSON wrapper and returns the wrapped item.</p>
-<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
+
+<h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="kw">let</span> <span class="ident">string</span> <span class="op">=</span> <span class="string">&quot;Hello&quot;</span>.<span class="ident">to_string</span>();
 <span class="kw">let</span> <span class="ident">my_json</span> <span class="op">=</span> <span class="ident">JSON</span>(<span class="ident">string</span>);

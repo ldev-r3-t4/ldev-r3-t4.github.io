@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>data</a></p><script>window.sidebarCurrent = {name: 'Data', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct Data</p><div class="block items"><ul><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>data</a></p><script>window.sidebarCurrent = {name: 'Data', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -50,6 +50,7 @@
                    </a>
                </span><a class='srclink' href='../../src/rocket/data/data.rs.html#47-55' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Data { /* fields omitted */ }</pre><div class='docblock'><p>Type representing the data in the body of an incoming request.</p>
+
 <p>This type is the only means by which the body of a request can be retrieved.
 This type is not usually used directly. Instead, types that implement
 <a href="/rocket/data/trait.FromData.html">FromData</a> are used via code generation by
@@ -58,27 +59,33 @@ specifying the <code>data = &quot;&lt;param&gt;&quot;</code> route parameter as 
 <pre class="rust rust-example-rendered">
 <span class="attribute">#[<span class="ident">post</span>(<span class="string">&quot;/submit&quot;</span>, <span class="ident">data</span> <span class="op">=</span> <span class="string">&quot;&lt;var&gt;&quot;</span>)]</span>
 <span class="kw">fn</span> <span class="ident">submit</span>(<span class="ident">var</span>: <span class="ident">T</span>) <span class="op">-&gt;</span> ... { ... }</pre>
+
 <p>Above, <code>T</code> can be any type that implements <code>FromData</code>. Note that <code>Data</code>
 itself implements <code>FromData</code>.</p>
-<h1 id="reading-data" class="section-header"><a href="#reading-data">Reading Data</a></h1>
+
+<h1 id='reading-data' class='section-header'><a href='#reading-data'>Reading Data</a></h1>
 <p>Data may be read from a <code>Data</code> object by calling either the
 <a href="#method.open">open</a> or <a href="#method.peek">peek</a> methods.</p>
+
 <p>The <code>open</code> method consumes the <code>Data</code> object and returns the raw data
 stream. The <code>Data</code> object is consumed for safety reasons: consuming the
 object ensures that holding a <code>Data</code> object means that all of the data is
 available for reading.</p>
+
 <p>The <code>peek</code> method returns a slice containing at most 4096 bytes of buffered
 body data. This enables partially or fully reading from a <code>Data</code> object
 without consuming the <code>Data</code> object.</p>
 </div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class="struct" href="../../rocket/struct.Data.html" title="struct rocket::Data">Data</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rocket/data/data.rs.html#57-190' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.open' class="method"><span id='open.v' class='invisible'><code>fn <a href='#method.open' class='fnname'>open</a>(self) -&gt; <a class="struct" href="../../rocket/data/struct.DataStream.html" title="struct rocket::data::DataStream">DataStream</a></code></span></h4>
 <div class='docblock'><p>Returns the raw data stream.</p>
+
 <p>The stream contains all of the data in the body of the request,
 including that in the <code>peek</code> buffer. The method consumes the <code>Data</code>
 instance. This ensures that a <code>Data</code> type <em>always</em> represents <em>all</em> of
 the data in a request.</p>
 </div><h4 id='method.peek' class="method"><span id='peek.v' class='invisible'><code>fn <a href='#method.peek' class='fnname'>peek</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a></code></span></h4>
 <div class='docblock'><p>Retrieve the <code>peek</code> buffer.</p>
+
 <p>The peek buffer contains at most 4096 bytes of the body of the request.
 The actual size of the returned buffer varies by web request. The
 <a href="#method.peek_complete">peek_complete</a> can be used to determine if this
@@ -89,10 +96,12 @@ of the request. Returns <code>false</code> if it does not or if it is not known 
 it does.</p>
 </div><h4 id='method.stream_to' class="method"><span id='stream_to.v' class='invisible'><code>fn <a href='#method.stream_to' class='fnname'>stream_to</a>&lt;W:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html" title="trait std::io::Write">Write</a>&gt;(self, writer: &amp;mut W) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/std/io/error/type.Result.html" title="type std::io::error::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;</code></span></h4>
 <div class='docblock'><p>A helper method to write the body of the request to any <code>Write</code> type.</p>
+
 <p>This method is identical to <code>io::copy(&amp;mut data.open(), writer)</code>.</p>
 </div><h4 id='method.stream_to_file' class="method"><span id='stream_to_file.v' class='invisible'><code>fn <a href='#method.stream_to_file' class='fnname'>stream_to_file</a>&lt;P:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html" title="trait core::convert::AsRef">AsRef</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/std/path/struct.Path.html" title="struct std::path::Path">Path</a>&gt;&gt;(self, path: P) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/std/io/error/type.Result.html" title="type std::io::error::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u64.html">u64</a>&gt;</code></span></h4>
 <div class='docblock'><p>A helper method to write the body of the request to a file at the path
 determined by <code>path</code>.</p>
+
 <p>This method is identical to
 <code>io::copy(&amp;mut self.open(), &amp;mut File::create(path)?)</code>.</p>
 </div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html" title="trait core::ops::Drop">Drop</a> for <a class="struct" href="../../rocket/struct.Data.html" title="struct rocket::Data">Data</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rocket/data/data.rs.html#192-200' title='goto source code'>[src]</a></span></h3>

@@ -57,9 +57,11 @@
 that implements the <a href="percent_encoding/trait.EncodeSet.html"><code>EncodeSet</code></a> trait,
 for use in <a href="percent_encoding/fn.percent_encode.html"><code>percent_decode()</code></a>
 and related functions.</p>
+
 <p>Parameters are characters to include in the set in addition to those of the base set.
 See <a href="http://url.spec.whatwg.org/#simple-encode-set">encode sets specification</a>.</p>
-<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
+
+<h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="attribute">#[<span class="ident">macro_use</span>]</span> <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">url</span>;
 <span class="kw">use</span> <span class="ident">url</span>::<span class="ident">percent_encoding</span>::{<span class="ident">utf8_percent_encode</span>, <span class="ident">SIMPLE_ENCODE_SET</span>};

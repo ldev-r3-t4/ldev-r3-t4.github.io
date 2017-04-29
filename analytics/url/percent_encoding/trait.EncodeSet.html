@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>url</a>::<wbr><a href='index.html'>percent_encoding</a></p><script>window.sidebarCurrent = {name: 'EncodeSet', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Trait EncodeSet</p><div class="block items"><ul><li><a href="#required-methods">Required Methods</a></li><li><a href="#implementors">Implementors</a></li></ul></div><p class='location'><a href='../index.html'>url</a>::<wbr><a href='index.html'>percent_encoding</a></p><script>window.sidebarCurrent = {name: 'EncodeSet', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -52,13 +52,16 @@
 <pre class='rust trait'>pub trait EncodeSet: <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> {
     fn <a href='#tymethod.contains' class='fnname'>contains</a>(&amp;self, byte: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>;
 }</pre><div class='docblock'><p>Represents a set of characters / bytes that should be percent-encoded.</p>
+
 <p>See <a href="http://url.spec.whatwg.org/#simple-encode-set">encode sets specification</a>.</p>
+
 <p>Different characters need to be encoded in different parts of an URL.
 For example, a literal <code>?</code> question mark in an URL’s path would indicate
 the start of the query string.
 A question mark meant to be part of the path therefore needs to be percent-encoded.
 In the query string however, a question mark does not have any special meaning
 and does not need to be percent-encoded.</p>
+
 <p>A few sets are defined in this module.
 Use the <a href="../macro.define_encode_set!.html"><code>define_encode_set!</code></a> macro to define different ones.</p>
 </div>

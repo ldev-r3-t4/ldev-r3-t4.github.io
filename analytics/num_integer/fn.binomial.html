@@ -50,19 +50,55 @@
                    </a>
                </span><a class='srclink' href='../src/num_integer/lib.rs.html#755-774' title='goto source code'>[src]</a></span></h1>
 <pre class='rust fn'>pub fn binomial&lt;T:&nbsp;<a class="trait" href="../num_integer/trait.Integer.html" title="trait num_integer::Integer">Integer</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a>&gt;(n: T, k: T) -&gt; T</pre><div class='docblock'><p>Calculate the binomial coefficient.</p>
+
 <p>Note that this might overflow, depending on <code>T</code>. For the primitive integer
 types, the following n are the largest ones possible such that there will
 be no overflow for any k:</p>
-<table><thead><tr><th>type </th><th> n</th></tr></thead><tbody>
-<tr><td>u8   </td><td> 10</td></tr>
-<tr><td>i8   </td><td>  9</td></tr>
-<tr><td>u16  </td><td> 18</td></tr>
-<tr><td>i16  </td><td> 17</td></tr>
-<tr><td>u32  </td><td> 34</td></tr>
-<tr><td>i32  </td><td> 33</td></tr>
-<tr><td>u64  </td><td> 67</td></tr>
-<tr><td>i64  </td><td> 66</td></tr>
-</tbody></table>
+
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>n</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>u8</td>
+<td>10</td>
+</tr>
+<tr>
+<td>i8</td>
+<td>9</td>
+</tr>
+<tr>
+<td>u16</td>
+<td>18</td>
+</tr>
+<tr>
+<td>i16</td>
+<td>17</td>
+</tr>
+<tr>
+<td>u32</td>
+<td>34</td>
+</tr>
+<tr>
+<td>i32</td>
+<td>33</td>
+</tr>
+<tr>
+<td>u64</td>
+<td>67</td>
+</tr>
+<tr>
+<td>i64</td>
+<td>66</td>
+</tr>
+</tbody>
+</table>
+
 <p>For larger n, consider using a bigint type for <code>T</code>.</p>
 </div></section>
     <section id='search' class="content hidden"></section>

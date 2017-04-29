@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>http</a></p><script>window.sidebarCurrent = {name: 'Status', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct Status</p><div class="block items"><ul><li><a href="#fields">Fields</a></li><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>http</a></p><script>window.sidebarCurrent = {name: 'Status', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -53,23 +53,27 @@
     pub code: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>,
     pub reason: &amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
 }</pre><div class='docblock'><p>Structure representing HTTP statuses: an integer code and a reason phrase.</p>
-<h1 id="usage" class="section-header"><a href="#usage">Usage</a></h1>
+
+<h1 id='usage' class='section-header'><a href='#usage'>Usage</a></h1>
 <p>Status classes should rarely be created directly. Instead, an associated
 constant should be used; one is declared for every standard status defined
 in the HTTP standard.</p>
-<h2 id="example" class="section-header"><a href="#example">Example</a></h2>
+
+<h2 id='example' class='section-header'><a href='#example'>Example</a></h2>
 <p>A status of <code>200 OK</code> can be insantiated via the <code>Ok</code> constant:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="kw">use</span> <span class="ident">rocket</span>::<span class="ident">http</span>::<span class="ident">Status</span>;
 
 <span class="kw">let</span> <span class="ident">ok</span> <span class="op">=</span> <span class="ident">Status</span>::<span class="prelude-val">Ok</span>;</pre>
+
 <p>A status of <code>400 Not Found</code> can be insantiated via the <code>NotFound</code> constant:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="kw">use</span> <span class="ident">rocket</span>::<span class="ident">http</span>::<span class="ident">Status</span>;
 
 <span class="kw">let</span> <span class="ident">not_found</span> <span class="op">=</span> <span class="ident">Status</span>::<span class="ident">NotFound</span>;</pre>
+
 <p>The code and phrase can be retrieved directly:</p>
 
 <pre class="rust rust-example-rendered">
@@ -80,7 +84,7 @@ in the HTTP standard.</p>
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">not_found</span>.<span class="ident">code</span>, <span class="number">404</span>);
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">not_found</span>.<span class="ident">reason</span>, <span class="string">&quot;Not Found&quot;</span>);
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">not_found</span>.<span class="ident">to_string</span>(), <span class="string">&quot;404 Not Found&quot;</span>.<span class="ident">to_string</span>());</pre>
-</div><h2 class='fields'>Fields</h2><span id='structfield.code' class="structfield">
+</div><h2 id='fields' class='fields'>Fields</h2><span id='structfield.code' class="structfield">
                            <span id='code.v' class='invisible'>
                            <code>code: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a></code>
                            </span></span><div class='docblock'><p>The HTTP status code associated with this status.</p>
@@ -93,6 +97,7 @@ in the HTTP standard.</p>
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">Continue</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">100</span>, <span class="string">&quot;Continue&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 100
 </b> and reason <i>
@@ -102,6 +107,7 @@ Continue
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">SwitchingProtocols</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">101</span>, <span class="string">&quot;Switching Protocols&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 101
 </b> and reason <i>
@@ -111,6 +117,7 @@ Switching Protocols
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">Processing</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">102</span>, <span class="string">&quot;Processing&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 102
 </b> and reason <i>
@@ -120,6 +127,7 @@ Processing
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="prelude-val">Ok</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">200</span>, <span class="string">&quot;OK&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 200
 </b> and reason <i>
@@ -129,6 +137,7 @@ OK
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">Created</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">201</span>, <span class="string">&quot;Created&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 201
 </b> and reason <i>
@@ -138,6 +147,7 @@ Created
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">Accepted</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">202</span>, <span class="string">&quot;Accepted&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 202
 </b> and reason <i>
@@ -147,6 +157,7 @@ Accepted
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">NonAuthoritativeInformation</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">203</span>, <span class="string">&quot;Non-Authoritative Information&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 203
 </b> and reason <i>
@@ -156,6 +167,7 @@ Non-Authoritative Information
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">NoContent</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">204</span>, <span class="string">&quot;No Content&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 204
 </b> and reason <i>
@@ -165,6 +177,7 @@ No Content
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">ResetContent</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">205</span>, <span class="string">&quot;Reset Content&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 205
 </b> and reason <i>
@@ -174,6 +187,7 @@ Reset Content
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">PartialContent</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">206</span>, <span class="string">&quot;Partial Content&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 206
 </b> and reason <i>
@@ -183,6 +197,7 @@ Partial Content
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">MultiStatus</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">207</span>, <span class="string">&quot;Multi-Status&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 207
 </b> and reason <i>
@@ -192,6 +207,7 @@ Multi-Status
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">AlreadyReported</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">208</span>, <span class="string">&quot;Already Reported&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 208
 </b> and reason <i>
@@ -201,6 +217,7 @@ Already Reported
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">ImUsed</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">226</span>, <span class="string">&quot;IM Used&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 226
 </b> and reason <i>
@@ -210,6 +227,7 @@ IM Used
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">MultipleChoices</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">300</span>, <span class="string">&quot;Multiple Choices&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 300
 </b> and reason <i>
@@ -219,6 +237,7 @@ Multiple Choices
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">MovedPermanently</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">301</span>, <span class="string">&quot;Moved Permanently&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 301
 </b> and reason <i>
@@ -228,6 +247,7 @@ Moved Permanently
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">Found</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">302</span>, <span class="string">&quot;Found&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 302
 </b> and reason <i>
@@ -237,6 +257,7 @@ Found
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">SeeOther</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">303</span>, <span class="string">&quot;See Other&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 303
 </b> and reason <i>
@@ -246,6 +267,7 @@ See Other
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">NotModified</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">304</span>, <span class="string">&quot;Not Modified&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 304
 </b> and reason <i>
@@ -255,6 +277,7 @@ Not Modified
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">UseProxy</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">305</span>, <span class="string">&quot;Use Proxy&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 305
 </b> and reason <i>
@@ -264,6 +287,7 @@ Use Proxy
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">TemporaryRedirect</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">307</span>, <span class="string">&quot;Temporary Redirect&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 307
 </b> and reason <i>
@@ -273,6 +297,7 @@ Temporary Redirect
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">PermanentRedirect</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">308</span>, <span class="string">&quot;Permanent Redirect&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 308
 </b> and reason <i>
@@ -282,6 +307,7 @@ Permanent Redirect
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">BadRequest</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">400</span>, <span class="string">&quot;Bad Request&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 400
 </b> and reason <i>
@@ -291,6 +317,7 @@ Bad Request
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">Unauthorized</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">401</span>, <span class="string">&quot;Unauthorized&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 401
 </b> and reason <i>
@@ -300,6 +327,7 @@ Unauthorized
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">PaymentRequired</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">402</span>, <span class="string">&quot;Payment Required&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 402
 </b> and reason <i>
@@ -309,6 +337,7 @@ Payment Required
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">Forbidden</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">403</span>, <span class="string">&quot;Forbidden&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 403
 </b> and reason <i>
@@ -318,6 +347,7 @@ Forbidden
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">NotFound</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">404</span>, <span class="string">&quot;Not Found&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 404
 </b> and reason <i>
@@ -327,6 +357,7 @@ Not Found
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">MethodNotAllowed</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">405</span>, <span class="string">&quot;Method Not Allowed&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 405
 </b> and reason <i>
@@ -336,6 +367,7 @@ Method Not Allowed
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">NotAcceptable</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">406</span>, <span class="string">&quot;Not Acceptable&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 406
 </b> and reason <i>
@@ -345,6 +377,7 @@ Not Acceptable
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">ProxyAuthenticationRequired</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">407</span>, <span class="string">&quot;Proxy Authentication Required&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 407
 </b> and reason <i>
@@ -354,6 +387,7 @@ Proxy Authentication Required
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">RequestTimeout</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">408</span>, <span class="string">&quot;Request Timeout&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 408
 </b> and reason <i>
@@ -363,6 +397,7 @@ Request Timeout
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">Conflict</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">409</span>, <span class="string">&quot;Conflict&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 409
 </b> and reason <i>
@@ -372,6 +407,7 @@ Conflict
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">Gone</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">410</span>, <span class="string">&quot;Gone&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 410
 </b> and reason <i>
@@ -381,6 +417,7 @@ Gone
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">LengthRequired</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">411</span>, <span class="string">&quot;Length Required&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 411
 </b> and reason <i>
@@ -390,6 +427,7 @@ Length Required
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">PreconditionFailed</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">412</span>, <span class="string">&quot;Precondition Failed&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 412
 </b> and reason <i>
@@ -399,6 +437,7 @@ Precondition Failed
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">PayloadTooLarge</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">413</span>, <span class="string">&quot;Payload Too Large&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 413
 </b> and reason <i>
@@ -408,6 +447,7 @@ Payload Too Large
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">UriTooLong</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">414</span>, <span class="string">&quot;URI Too Long&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 414
 </b> and reason <i>
@@ -417,6 +457,7 @@ URI Too Long
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">UnsupportedMediaType</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">415</span>, <span class="string">&quot;Unsupported Media Type&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 415
 </b> and reason <i>
@@ -426,6 +467,7 @@ Unsupported Media Type
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">RangeNotSatisfiable</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">416</span>, <span class="string">&quot;Range Not Satisfiable&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 416
 </b> and reason <i>
@@ -435,6 +477,7 @@ Range Not Satisfiable
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">ExpectationFailed</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">417</span>, <span class="string">&quot;Expectation Failed&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 417
 </b> and reason <i>
@@ -444,15 +487,17 @@ Expectation Failed
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">ImATeapot</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">418</span>, <span class="string">&quot;I\&#39;m a teapot&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 418
 </b> and reason <i>
-I'm a teapot
+I&#39;m a teapot
 </i>.</p>
 </div><h4 id='associatedconstant.MisdirectedRequest' class="associatedconstant"><span id='MisdirectedRequest.v' class='invisible'><code>const <a href='#associatedconstant.MisdirectedRequest' class="constant"><b>MisdirectedRequest</b></a>: <a class="struct" href="../../rocket/http/struct.Status.html" title="struct rocket::http::Status">Status</a></code></span></h4>
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">MisdirectedRequest</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">421</span>, <span class="string">&quot;Misdirected Request&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 421
 </b> and reason <i>
@@ -462,6 +507,7 @@ Misdirected Request
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">UnprocessableEntity</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">422</span>, <span class="string">&quot;Unprocessable Entity&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 422
 </b> and reason <i>
@@ -471,6 +517,7 @@ Unprocessable Entity
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">Locked</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">423</span>, <span class="string">&quot;Locked&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 423
 </b> and reason <i>
@@ -480,6 +527,7 @@ Locked
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">FailedDependency</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">424</span>, <span class="string">&quot;Failed Dependency&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 424
 </b> and reason <i>
@@ -489,6 +537,7 @@ Failed Dependency
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">UpgradeRequired</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">426</span>, <span class="string">&quot;Upgrade Required&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 426
 </b> and reason <i>
@@ -498,6 +547,7 @@ Upgrade Required
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">PreconditionRequired</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">428</span>, <span class="string">&quot;Precondition Required&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 428
 </b> and reason <i>
@@ -507,6 +557,7 @@ Precondition Required
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">TooManyRequests</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">429</span>, <span class="string">&quot;Too Many Requests&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 429
 </b> and reason <i>
@@ -516,6 +567,7 @@ Too Many Requests
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">RequestHeaderFieldsTooLarge</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">431</span>, <span class="string">&quot;Request Header Fields Too Large&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 431
 </b> and reason <i>
@@ -525,6 +577,7 @@ Request Header Fields Too Large
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">UnavailableForLegalReasons</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">451</span>, <span class="string">&quot;Unavailable For Legal Reasons&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 451
 </b> and reason <i>
@@ -534,6 +587,7 @@ Unavailable For Legal Reasons
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">InternalServerError</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">500</span>, <span class="string">&quot;Internal Server Error&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 500
 </b> and reason <i>
@@ -543,6 +597,7 @@ Internal Server Error
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">NotImplemented</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">501</span>, <span class="string">&quot;Not Implemented&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 501
 </b> and reason <i>
@@ -552,6 +607,7 @@ Not Implemented
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">BadGateway</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">502</span>, <span class="string">&quot;Bad Gateway&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 502
 </b> and reason <i>
@@ -561,6 +617,7 @@ Bad Gateway
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">ServiceUnavailable</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">503</span>, <span class="string">&quot;Service Unavailable&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 503
 </b> and reason <i>
@@ -570,6 +627,7 @@ Service Unavailable
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">GatewayTimeout</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">504</span>, <span class="string">&quot;Gateway Timeout&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 504
 </b> and reason <i>
@@ -579,6 +637,7 @@ Gateway Timeout
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">HttpVersionNotSupported</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">505</span>, <span class="string">&quot;HTTP Version Not Supported&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 505
 </b> and reason <i>
@@ -588,6 +647,7 @@ HTTP Version Not Supported
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">VariantAlsoNegotiates</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">506</span>, <span class="string">&quot;Variant Also Negotiates&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 506
 </b> and reason <i>
@@ -597,6 +657,7 @@ Variant Also Negotiates
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">InsufficientStorage</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">507</span>, <span class="string">&quot;Insufficient Storage&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 507
 </b> and reason <i>
@@ -606,6 +667,7 @@ Insufficient Storage
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">LoopDetected</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">508</span>, <span class="string">&quot;Loop Detected&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 508
 </b> and reason <i>
@@ -615,6 +677,7 @@ Loop Detected
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">NotExtended</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">510</span>, <span class="string">&quot;Not Extended&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 510
 </b> and reason <i>
@@ -624,6 +687,7 @@ Not Extended
 <div class='docblock'>
 <pre class="rust rust-example-rendered">
 <span class="ident">NetworkAuthenticationRequired</span>: <span class="ident">Status</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">Status</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="number">511</span>, <span class="string">&quot;Network Authentication Required&quot;</span>)</pre>
+
 <p><a href="struct.Status.html">Status</a> with code <b>
 511
 </b> and reason <i>
@@ -632,7 +696,8 @@ Network Authentication Required
 </div><h4 id='method.from_code' class="method"><span id='from_code.v' class='invisible'><code>fn <a href='#method.from_code' class='fnname'>from_code</a>(code: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../../rocket/http/struct.Status.html" title="struct rocket::http::Status">Status</a>&gt;</code></span></h4>
 <div class='docblock'><p>Returns a Status given a standard status code <code>code</code>. If <code>code</code> is
 not a known status code, <code>None</code> is returned.</p>
-<h1 id="example-1" class="section-header"><a href="#example-1">Example</a></h1>
+
+<h1 id='example-1' class='section-header'><a href='#example-1'>Example</a></h1>
 <p>Create a <code>Status</code> from a known <code>code</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -640,6 +705,7 @@ not a known status code, <code>None</code> is returned.</p>
 
 <span class="kw">let</span> <span class="ident">not_found</span> <span class="op">=</span> <span class="ident">Status</span>::<span class="ident">from_code</span>(<span class="number">404</span>);
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">not_found</span>, <span class="prelude-val">Some</span>(<span class="ident">Status</span>::<span class="ident">NotFound</span>));</pre>
+
 <p>Create a <code>Status</code> from an unknown <code>code</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -649,7 +715,8 @@ not a known status code, <code>None</code> is returned.</p>
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">not_found</span>.<span class="ident">is_none</span>());</pre>
 </div><h4 id='method.class' class="method"><span id='class.v' class='invisible'><code>fn <a href='#method.class' class='fnname'>class</a>(&amp;self) -&gt; <a class="enum" href="../../rocket/http/enum.StatusClass.html" title="enum rocket::http::StatusClass">StatusClass</a></code></span></h4>
 <div class='docblock'><p>Returns the class of a given status.</p>
-<h1 id="example-2" class="section-header"><a href="#example-2">Example</a></h1>
+
+<h1 id='example-2' class='section-header'><a href='#example-2'>Example</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="kw">use</span> <span class="ident">rocket</span>::<span class="ident">http</span>::{<span class="ident">Status</span>, <span class="ident">StatusClass</span>};
 
@@ -674,7 +741,8 @@ not a known status code, <code>None</code> is returned.</p>
 <div class='docblock'><p>Creates a new <code>Status</code> with <code>code</code> and <code>reason</code>. This should be <em>only</em>
 to construct non-standard HTTP statuses. Use an associated constant for
 standard statuses.</p>
-<h1 id="example-3" class="section-header"><a href="#example-3">Example</a></h1>
+
+<h1 id='example-3' class='section-header'><a href='#example-3'>Example</a></h1>
 <p>Create a custom <code>299 Somewhat Successful</code> status:</p>
 
 <pre class="rust rust-example-rendered">
@@ -693,9 +761,9 @@ standard statuses.</p>
 </div></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../../rocket/http/struct.Status.html" title="struct rocket::http::Status">Status</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rocket/http/status.rs.html#61' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html" title="trait core::hash::Hash">Hash</a> for <a class="struct" href="../../rocket/http/struct.Status.html" title="struct rocket::http::Status">Status</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rocket/http/status.rs.html#61' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.hash' class="method"><span id='hash.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#tymethod.hash' class='fnname'>hash</a>&lt;__H:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/hash/trait.Hasher.html" title="trait core::hash::Hasher">Hasher</a>&gt;(&amp;self, __arg_0: &amp;mut __H)</code></span></h4>
-<div class='docblock'><p>Feeds this value into the state given, updating the hasher as necessary.</p>
+<div class='docblock'><p>Feeds this value into the given [<code>Hasher</code>]. <a href="https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#tymethod.hash">Read more</a></p>
 </div><h4 id='method.hash_slice' class="method"><span id='hash_slice.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#method.hash_slice' class='fnname'>hash_slice</a>&lt;H&gt;(data: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[Self]</a>, state: &amp;mut H) <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;H: <a class="trait" href="https://doc.rust-lang.org/nightly/core/hash/trait.Hasher.html" title="trait core::hash::Hasher">Hasher</a>,&nbsp;</span></code><div class='since' title='Stable since Rust version 1.3.0'>1.3.0</div></span></h4>
-<div class='docblock'><p>Feeds a slice of this type into the state provided.</p>
+<div class='docblock'><p>Feeds a slice of this type into the given [<code>Hasher</code>]. <a href="https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#method.hash_slice">Read more</a></p>
 </div></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html" title="trait core::cmp::PartialEq">PartialEq</a> for <a class="struct" href="../../rocket/http/struct.Status.html" title="struct rocket::http::Status">Status</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rocket/http/status.rs.html#61' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.eq' class="method"><span id='eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class="struct" href="../../rocket/http/struct.Status.html" title="struct rocket::http::Status">Status</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>

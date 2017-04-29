@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>hyper</a>::<wbr><a href='index.html'>header</a></p><script>window.sidebarCurrent = {name: 'Host', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct Host</p><div class="block items"><ul><li><a href="#fields">Fields</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../index.html'>hyper</a>::<wbr><a href='index.html'>header</a></p><script>window.sidebarCurrent = {name: 'Host', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -53,11 +53,14 @@
     pub hostname: <a class="struct" href="https://doc.rust-lang.org/nightly/collections/string/struct.String.html" title="struct collections::string::String">String</a>,
     pub port: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>&gt;,
 }</pre><div class='docblock'><p>The <code>Host</code> header.</p>
+
 <p>HTTP/1.1 requires that all requests include a <code>Host</code> header, and so hyper
 client requests add one automatically.</p>
+
 <p>Currently is just a String, but it should probably become a better type,
 like <code>url::Host</code> or something.</p>
-<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="kw">use</span> <span class="ident">hyper</span>::<span class="ident">header</span>::{<span class="ident">Headers</span>, <span class="ident">Host</span>};
 
@@ -79,7 +82,7 @@ like <code>url::Host</code> or something.</p>
         <span class="ident">port</span>: <span class="prelude-val">Some</span>(<span class="number">8080</span>),
     }
 );</pre>
-</div><h2 class='fields'>Fields</h2><span id='structfield.hostname' class="structfield">
+</div><h2 id='fields' class='fields'>Fields</h2><span id='structfield.hostname' class="structfield">
                            <span id='hostname.v' class='invisible'>
                            <code>hostname: <a class="struct" href="https://doc.rust-lang.org/nightly/collections/string/struct.String.html" title="struct collections::string::String">String</a></code>
                            </span></span><div class='docblock'><p>The hostname, such a example.domain.</p>

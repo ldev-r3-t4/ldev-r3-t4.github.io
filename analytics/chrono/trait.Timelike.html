@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='index.html'>chrono</a></p><script>window.sidebarCurrent = {name: 'Timelike', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Trait Timelike</p><div class="block items"><ul><li><a href="#required-methods">Required Methods</a></li><li><a href="#provided-methods">Provided Methods</a></li><li><a href="#implementors">Implementors</a></li></ul></div><p class='location'><a href='index.html'>chrono</a></p><script>window.sidebarCurrent = {name: 'Timelike', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -72,14 +72,18 @@
 The range from 1,000,000,000 to 1,999,999,999 represents
 the <a href="./naive/time/index.html#leap-second-handling">leap second</a>.</p>
 </div><h3 id='tymethod.with_hour' class='method'><span id='with_hour.v' class='invisible'><code>fn <a href='#tymethod.with_hour' class='fnname'>with_hour</a>(&amp;self, hour: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;Self&gt;</code></span></h3><div class='docblock'><p>Makes a new value with the hour number changed.</p>
+
 <p>Returns <code>None</code> when the resulting value would be invalid.</p>
 </div><h3 id='tymethod.with_minute' class='method'><span id='with_minute.v' class='invisible'><code>fn <a href='#tymethod.with_minute' class='fnname'>with_minute</a>(&amp;self, min: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;Self&gt;</code></span></h3><div class='docblock'><p>Makes a new value with the minute number changed.</p>
+
 <p>Returns <code>None</code> when the resulting value would be invalid.</p>
 </div><h3 id='tymethod.with_second' class='method'><span id='with_second.v' class='invisible'><code>fn <a href='#tymethod.with_second' class='fnname'>with_second</a>(&amp;self, sec: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;Self&gt;</code></span></h3><div class='docblock'><p>Makes a new value with the second number changed.</p>
+
 <p>Returns <code>None</code> when the resulting value would be invalid.
 As with the <a href="#tymethod.second"><code>second</code></a> method,
 the input range is restricted to 0 through 59.</p>
 </div><h3 id='tymethod.with_nanosecond' class='method'><span id='with_nanosecond.v' class='invisible'><code>fn <a href='#tymethod.with_nanosecond' class='fnname'>with_nanosecond</a>(&amp;self, nano: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;Self&gt;</code></span></h3><div class='docblock'><p>Makes a new value with nanoseconds since the whole non-leap second changed.</p>
+
 <p>Returns <code>None</code> when the resulting value would be invalid.
 As with the <a href="#tymethod.nanosecond"><code>nanosecond</code></a> method,
 the input range can exceed 1,000,000,000 for leap seconds.</p>

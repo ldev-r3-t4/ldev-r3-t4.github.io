@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../../index.html'>rocket</a>::<wbr><a href='../index.html'>response</a></p><script>window.sidebarCurrent = {name: 'content', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+        <p class='location'>Module content</p><div class="block items"><ul><li><a href="#structs">Structs</a></li></ul></div><p class='location'><a href='../../index.html'>rocket</a>::<wbr><a href='../index.html'>response</a></p><script>window.sidebarCurrent = {name: 'content', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -50,13 +50,15 @@
                    </a>
                </span><a class='srclink' href='../../../src/rocket/response/content.rs.html#1-89' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Contains types that set the Content-Type of a response.</p>
-<h1 id="usage" class="section-header"><a href="#usage">Usage</a></h1>
+
+<h1 id='usage' class='section-header'><a href='#usage'>Usage</a></h1>
 <p>Each type wraps a given responder. The <code>Responder</code> implementation of each
 type replaces the Content-Type of the wrapped responder and delegates the
 remainder of the response to the wrapped responder. This allows for setting
-the Content-Type of a type that doesn't set it itself or for overriding one
+the Content-Type of a type that doesn&#39;t set it itself or for overriding one
 that does.</p>
-<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
+
+<h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
 <p>The following snippet creates an <code>HTML</code> content response for a string.
 Normally, raw strings set their response Content-Type to <code>text/plain</code>. By
 using the <code>HTML</code> content response, the Content-Type will be set to
@@ -77,7 +79,6 @@ CSS
 </b>, or <i>
 text/css
 </i>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -85,7 +86,6 @@ text/css
                                   title='struct rocket::response::content::Content'>Content</a></td>
                            <td class='docblock-short'>
                                 <p>Sets the Content-Type of a <code>Responder</code> to a chosen value.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -97,7 +97,6 @@ HTML
 </b>, or <i>
 text/html
 </i>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -109,7 +108,6 @@ JSON
 </b>, or <i>
 application/json
 </i>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -121,7 +119,6 @@ JavaScript
 </b>, or <i>
 application/javascript
 </i>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -133,7 +130,6 @@ plain text
 </b>, or <i>
 text/plain
 </i>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -145,7 +141,6 @@ XML
 </b>, or <i>
 text/xml
 </i>.</p>
-
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>

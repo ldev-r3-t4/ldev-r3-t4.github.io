@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>url</a></p><script>window.sidebarCurrent = {name: 'form_urlencoded', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+        <p class='location'>Module form_urlencoded</p><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../index.html'>url</a></p><script>window.sidebarCurrent = {name: 'form_urlencoded', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -51,6 +51,7 @@
                </span><a class='srclink' href='../../src/url/form_urlencoded.rs.html#9-364' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Parser and serializer for the <a href="http://url.spec.whatwg.org/#application/x-www-form-urlencoded"><code>application/x-www-form-urlencoded</code> syntax</a>,
 as used by HTML forms.</p>
+
 <p>Converts between a string (such as an URL’s query string)
 and a sequence of (name, value) pairs.</p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
@@ -60,7 +61,6 @@ and a sequence of (name, value) pairs.</p>
                                   title='struct url::form_urlencoded::ByteSerialize'>ByteSerialize</a></td>
                            <td class='docblock-short'>
                                 <p>Return value of <code>byte_serialize()</code>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -68,7 +68,6 @@ and a sequence of (name, value) pairs.</p>
                                   title='struct url::form_urlencoded::Parse'>Parse</a></td>
                            <td class='docblock-short'>
                                 <p>The return type of <code>parse()</code>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -76,7 +75,6 @@ and a sequence of (name, value) pairs.</p>
                                   title='struct url::form_urlencoded::ParseIntoOwned'>ParseIntoOwned</a></td>
                            <td class='docblock-short'>
                                 <p>Like <code>Parse</code>, but yields pairs of <code>String</code> instead of pairs of <code>Cow&lt;str&gt;</code>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -84,7 +82,6 @@ and a sequence of (name, value) pairs.</p>
                                   title='struct url::form_urlencoded::Serializer'>Serializer</a></td>
                            <td class='docblock-short'>
                                 <p>The <a href="https://url.spec.whatwg.org/#concept-urlencoded-serializer"><code>application/x-www-form-urlencoded</code> serializer</a>.</p>
-
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
@@ -101,7 +98,6 @@ and a sequence of (name, value) pairs.</p>
                                   title='fn url::form_urlencoded::byte_serialize'>byte_serialize</a></td>
                            <td class='docblock-short'>
                                 <p>The <a href="https://url.spec.whatwg.org/#concept-urlencoded-byte-serializer"><code>application/x-www-form-urlencoded</code> byte serializer</a>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -110,7 +106,6 @@ and a sequence of (name, value) pairs.</p>
                            <td class='docblock-short'>
                                 <p>Convert a byte string in the <code>application/x-www-form-urlencoded</code> syntax
 into a iterator of (name, value) pairs.</p>
-
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>

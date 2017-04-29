@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../../index.html'>chrono</a>::<wbr><a href='../index.html'>offset</a>::<wbr><a href='index.html'>local</a></p><script>window.sidebarCurrent = {name: 'Local', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct Local</p><div class="block items"><ul><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../../index.html'>chrono</a>::<wbr><a href='../index.html'>offset</a>::<wbr><a href='index.html'>local</a></p><script>window.sidebarCurrent = {name: 'Local', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -50,10 +50,12 @@
                    </a>
                </span><a class='srclink' href='../../../src/chrono/offset/local.rs.html#85' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Local;</pre><div class='docblock'><p>The local timescale. This is implemented via the standard <code>time</code> crate.</p>
+
 <p>Using the <a href="../../../chrono/offset/trait.TimeZone.html"><code>TimeZone</code></a> methods
 on the Local struct is the preferred way to construct <code>DateTime&lt;Local&gt;</code>
 instances.</p>
-<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
+
+<h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="kw">use</span> <span class="ident">chrono</span>::{<span class="ident">Local</span>, <span class="ident">DateTime</span>, <span class="ident">TimeZone</span>};
 

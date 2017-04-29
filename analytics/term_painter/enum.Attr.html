@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='index.html'>term_painter</a></p><script>window.sidebarCurrent = {name: 'Attr', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Enum Attr</p><div class="block items"><ul><li><a href="#variants">Variants</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='index.html'>term_painter</a></p><script>window.sidebarCurrent = {name: 'Attr', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -57,17 +57,19 @@
     Blink,
     Reverse,
     Secure,
-}</pre><div class='docblock'><p>Lists possible attributes. It implements <code>ToStyle</code> so it's possible to call
-<code>ToStyle</code>'s methods directly on a <code>Attr</code> variant like:</p>
+}</pre><div class='docblock'><p>Lists possible attributes. It implements <code>ToStyle</code> so it&#39;s possible to call
+<code>ToStyle</code>&#39;s methods directly on a <code>Attr</code> variant like:</p>
 
 <pre class="rust rust-example-rendered">
 
 <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;{}&quot;</span>, <span class="ident">Attr</span>::<span class="ident">Bold</span>.<span class="ident">fg</span>(<span class="ident">Color</span>::<span class="ident">Red</span>).<span class="ident">paint</span>(<span class="string">&quot;Red and bold&quot;</span>));</pre>
+
 <p>It is not guaranteed that the local terminal supports all of those
 formatting options. As already mentioned in the module documentation, you
-should use <code>term</code> directly to check the terminal's capabilities.</p>
+should use <code>term</code> directly to check the terminal&#39;s capabilities.</p>
+
 <p>For more information about enum variants, see <code>term::Attr</code> Documentation.</p>
-</div><h2 class='variants'>Variants</h2>
+</div><h2 id='variants' class='variants'>Variants</h2>
 <span id='variant.Plain' class='variant'><span id='Plain.v' class='invisible'><code>Plain</code></span></span><div class='docblock'><p>Just default style</p>
 </div><span id='variant.Bold' class='variant'><span id='Bold.v' class='invisible'><code>Bold</code></span></span><span id='variant.Dim' class='variant'><span id='Dim.v' class='invisible'><code>Dim</code></span></span><span id='variant.Underline' class='variant'><span id='Underline.v' class='invisible'><code>Underline</code></span></span><span id='variant.Blink' class='variant'><span id='Blink.v' class='invisible'><code>Blink</code></span></span><span id='variant.Reverse' class='variant'><span id='Reverse.v' class='invisible'><code>Reverse</code></span></span><span id='variant.Secure' class='variant'><span id='Secure.v' class='invisible'><code>Secure</code></span></span><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="enum" href="../term_painter/enum.Attr.html" title="enum term_painter::Attr">Attr</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/term_painter/lib.rs.html#375' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span></h4>
@@ -88,7 +90,7 @@ should use <code>term</code> directly to check the terminal's capabilities.</p>
 <div class='impl-items'><h4 id='method.to_style' class="method"><span id='to_style.v' class='invisible'><code>fn <a href='../term_painter/trait.ToStyle.html#tymethod.to_style' class='fnname'>to_style</a>(self) -&gt; <a class="struct" href="../term_painter/struct.Style.html" title="struct term_painter::Style">Style</a></code></span></h4>
 <div class='docblock'><p>Returns a Style with default values and the <code>self</code> attribute enabled.</p>
 </div><h4 id='method.to_mapped_style' class="method"><span id='to_mapped_style.v' class='invisible'><code>fn <a href='../term_painter/trait.ToStyle.html#method.to_mapped_style' class='fnname'>to_mapped_style</a>&lt;F&gt;(self, func: F) -&gt; <a class="struct" href="../term_painter/struct.Style.html" title="struct term_painter::Style">Style</a> <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/trait.FnOnce.html" title="trait core::ops::FnOnce">FnOnce</a>(&amp;mut <a class="struct" href="../term_painter/struct.Style.html" title="struct term_painter::Style">Style</a>),&nbsp;</span></code></span></h4>
-<div class='docblock'><p>Convenience method for modifying the style before it's returned.</p>
+<div class='docblock'><p>Convenience method for modifying the style before it&#39;s returned.</p>
 </div><h4 id='method.fg' class="method"><span id='fg.v' class='invisible'><code>fn <a href='../term_painter/trait.ToStyle.html#method.fg' class='fnname'>fg</a>(self, c: <a class="enum" href="../term_painter/enum.Color.html" title="enum term_painter::Color">Color</a>) -&gt; <a class="struct" href="../term_painter/struct.Style.html" title="struct term_painter::Style">Style</a></code></span></h4>
 <div class='docblock'><p>Sets the foreground (text) color.</p>
 </div><h4 id='method.bg' class="method"><span id='bg.v' class='invisible'><code>fn <a href='../term_painter/trait.ToStyle.html#method.bg' class='fnname'>bg</a>(self, c: <a class="enum" href="../term_painter/enum.Color.html" title="enum term_painter::Color">Color</a>) -&gt; <a class="struct" href="../term_painter/struct.Style.html" title="struct term_painter::Style">Style</a></code></span></h4>

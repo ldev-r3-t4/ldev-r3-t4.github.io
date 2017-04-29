@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["v1","Mount: `/v1/`"]]});
+initSidebarItems({"fn":[["index","`GET /`"]],"mod":[["v1","Mount: `/v1/`"]],"static":[["static_rocket_route_info_for_index",""]]});

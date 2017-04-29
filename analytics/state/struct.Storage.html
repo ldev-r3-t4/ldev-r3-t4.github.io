@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='index.html'>state</a></p><script>window.sidebarCurrent = {name: 'Storage', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct Storage</p><div class="block items"><ul><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='index.html'>state</a></p><script>window.sidebarCurrent = {name: 'Storage', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -50,14 +50,17 @@
                    </a>
                </span><a class='srclink' href='../src/state/storage.rs.html#52-56' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Storage&lt;T:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> + 'static&gt; { /* fields omitted */ }</pre><div class='docblock'><p>A single storage location for global access to a value.</p>
+
 <p>A <code>Storage</code> instance can hold a single value in a global context. A
 <code>Storage</code> instance begins without a value and must be initialized via the
 <a href="#method.set">set</a> method. Once a value has been set, it can be retrieved at
 any time and in any thread via the <a href="#method.get">get</a> method. The
 <a href="#method.try_get">try_get</a> can be used to determine whether the <code>Storage</code>
 has been initialized before attempting to retrieve the value.</p>
-<p>For safety reasons, values stored in <code>Storage</code> must be <code>Send + Sync + 'static</code>.</p>
-<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
+
+<p>For safety reasons, values stored in <code>Storage</code> must be <code>Send + Sync + &#39;static</code>.</p>
+
+<h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
 <p>The following example uses <code>Storage</code> to hold a global instance of a
 <code>HashMap</code> which can be modified at will:</p>
 
@@ -91,7 +94,8 @@ has been initialized before attempting to retrieve the value.</p>
 </div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;T:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> + 'static&gt; <a class="struct" href="../state/struct.Storage.html" title="struct state::Storage">Storage</a>&lt;T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/state/storage.rs.html#58-181' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>const fn <a href='#method.new' class='fnname'>new</a>() -&gt; <a class="struct" href="../state/struct.Storage.html" title="struct state::Storage">Storage</a>&lt;T&gt;</code></span></h4>
 <div class='docblock'><p>Create a new, uninitialized storage location.</p>
-<h1 id="example-1" class="section-header"><a href="#example-1">Example</a></h1>
+
+<h1 id='example-1' class='section-header'><a href='#example-1'>Example</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="kw">use</span> <span class="ident">state</span>::<span class="ident">Storage</span>;
 
@@ -99,9 +103,11 @@ has been initialized before attempting to retrieve the value.</p>
 </div><h4 id='method.set' class="method"><span id='set.v' class='invisible'><code>fn <a href='#method.set' class='fnname'>set</a>(&amp;self, value: T) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Sets the value for this storage unit to <code>value</code> if it has not already
 been set before.</p>
+
 <p>If a value has previously been set, <code>self</code> is unchanged and <code>false</code> is
 returned. Otherwise <code>true</code> is returned.</p>
-<h1 id="example-2" class="section-header"><a href="#example-2">Example</a></h1>
+
+<h1 id='example-2' class='section-header'><a href='#example-2'>Example</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="kw">static</span> <span class="ident">MY_GLOBAL</span>: <span class="ident">Storage</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Storage</span>::<span class="ident">new</span>();
 
@@ -109,9 +115,11 @@ returned. Otherwise <code>true</code> is returned.</p>
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">MY_GLOBAL</span>.<span class="ident">set</span>(<span class="string">&quot;Goodbye, world!&quot;</span>), <span class="bool-val">false</span>);</pre>
 </div><h4 id='method.try_get' class="method"><span id='try_get.v' class='invisible'><code>fn <a href='#method.try_get' class='fnname'>try_get</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;T&gt;</code></span></h4>
 <div class='docblock'><p>Attempts to borrow the value in this storage location.</p>
+
 <p>Returns <code>Some</code> if the state has previously been <a href="#method.set">set</a>.
 Otherwise returns <code>None</code>.</p>
-<h1 id="example-3" class="section-header"><a href="#example-3">Example</a></h1>
+
+<h1 id='example-3' class='section-header'><a href='#example-3'>Example</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="kw">static</span> <span class="ident">MY_GLOBAL</span>: <span class="ident">Storage</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Storage</span>::<span class="ident">new</span>();
 
@@ -122,11 +130,13 @@ Otherwise returns <code>None</code>.</p>
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">MY_GLOBAL</span>.<span class="ident">try_get</span>(), <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="string">&quot;Hello, world!&quot;</span>));</pre>
 </div><h4 id='method.get' class="method"><span id='get.v' class='invisible'><code>fn <a href='#method.get' class='fnname'>get</a>(&amp;self) -&gt; &amp;T</code></span></h4>
 <div class='docblock'><p>Borrows the value in this storage location.</p>
-<h1 id="panics" class="section-header"><a href="#panics">Panics</a></h1>
+
+<h1 id='panics' class='section-header'><a href='#panics'>Panics</a></h1>
 <p>Panics if a value has not previously been
 <a href="#method.set">set</a>. Use <a href="#method.try_get">try_get</a> for a non-panicking
 version.</p>
-<h1 id="example-4" class="section-header"><a href="#example-4">Example</a></h1>
+
+<h1 id='example-4' class='section-header'><a href='#example-4'>Example</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="kw">static</span> <span class="ident">MY_GLOBAL</span>: <span class="ident">Storage</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Storage</span>::<span class="ident">new</span>();
 
@@ -136,7 +146,8 @@ version.</p>
 <div class='docblock'><p>Borrows the value in this storage location if has already been set. If
 it has not, sets the value to the return value of <code>from</code> and return a
 borrow to the storage location.</p>
-<h1 id="example-5" class="section-header"><a href="#example-5">Example</a></h1>
+
+<h1 id='example-5' class='section-header'><a href='#example-5'>Example</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="kw">static</span> <span class="ident">MY_GLOBAL</span>: <span class="ident">Storage</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Storage</span>::<span class="ident">new</span>();
 

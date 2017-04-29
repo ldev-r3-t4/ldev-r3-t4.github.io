@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'></p><script>window.sidebarCurrent = {name: 'rocket', ty: 'mod', relpath: '../'};</script>
+        <p class='location'>Crate rocket</p><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#functions">Functions</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'rocket', ty: 'mod', relpath: '../'};</script>
     </nav>
 
     <nav class="sub">
@@ -49,27 +49,33 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/rocket/lib.rs.html#1-148' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><h1 id="rocket---core-api-documentation" class="section-header"><a href="#rocket---core-api-documentation">Rocket - Core API Documentation</a></h1>
+<div class='docblock'>
+<h1 id='rocket---core-api-documentation' class='section-header'><a href='#rocket---core-api-documentation'>Rocket - Core API Documentation</a></h1>
 <p>Hello, and welcome to the core Rocket API documentation!</p>
+
 <p>This API documentation is highly technical and is purely a reference.
-There's an <a href="https://rocket.rs/overview">overview</a> of Rocket on the main site
-as well as a <a href="https://rocket.rs/guide">full, detailed guide</a>. If you'd like
+There&#39;s an <a href="https://rocket.rs/overview">overview</a> of Rocket on the main site
+as well as a <a href="https://rocket.rs/guide">full, detailed guide</a>. If you&#39;d like
 pointers on getting started, see the
 <a href="https://rocket.rs/guide/quickstart">quickstart</a> or <a href="https://rocket.rs/guide/getting-started">getting
 started</a> chapters of the guide.</p>
+
 <p>You may also be interested in looking at the <a href="/rocket_contrib">contrib API
 documentation</a>, which contains JSON and templating
 support, among other features.</p>
-<h2 id="libraries" class="section-header"><a href="#libraries">Libraries</a></h2>
-<p>Rocket's functionality is split into three crates:</p>
+
+<h2 id='libraries' class='section-header'><a href='#libraries'>Libraries</a></h2>
+<p>Rocket&#39;s functionality is split into three crates:</p>
+
 <ol>
 <li><a href="/rocket">Core</a> - The core library. Needed by every Rocket application.</li>
 <li><a href="/rocket_codegen">Codegen</a> - Core code generation plugin. Should always
-be used alongsize <code>rocket</code>, though it's not necessary.</li>
+ be used alongsize <code>rocket</code>, though it&#39;s not necessary.</li>
 <li><a href="/rocket_contrib">Contrib</a> - Provides useful functionality for many
-Rocket applications. Completely optional.</li>
+ Rocket applications. Completely optional.</li>
 </ol>
-<h2 id="usage" class="section-header"><a href="#usage">Usage</a></h2>
+
+<h2 id='usage' class='section-header'><a href='#usage'>Usage</a></h2>
 <p>The sanctioned way to use Rocket is via the code generation plugin. This
 makes Rocket easier and safer to use and allows a somewhat stable API as
 Rocket matures. To use Rocket with the code generation plugin in your
@@ -79,8 +85,10 @@ Cargo-based project, add the following to <code>Cargo.toml</code>:</p>
 [<span class="ident">dependencies</span>]
 <span class="ident">rocket</span> <span class="op">=</span> <span class="string">&quot;*&quot;</span>
 <span class="ident">rocket_codegen</span> <span class="op">=</span> <span class="string">&quot;*&quot;</span></pre>
-<p>If you'll be deploying your project to <a href="https://crates.io">crates.io</a>,
-you'll need to change the &quot;*&quot; to the current version of Rocket.</p>
+
+<p>If you&#39;ll be deploying your project to <a href="https://crates.io">crates.io</a>,
+you&#39;ll need to change the &quot;*&quot; to the current version of Rocket.</p>
+
 <p>Then, add the following to the top of your <code>main.rs</code> file:</p>
 
 <pre class="rust rust-example-rendered">
@@ -88,8 +96,9 @@ you'll need to change the &quot;*&quot; to the current version of Rocket.</p>
 <span class="attribute">#<span class="op">!</span>[<span class="ident">plugin</span>(<span class="ident">rocket_codegen</span>)]</span>
 
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">rocket</span>;</pre>
+
 <p>See the <a href="https://rocket.rs/guide">guide</a> for more information on how to
-write Rocket applications. Here's a simple example to get you started:</p>
+write Rocket applications. Here&#39;s a simple example to get you started:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="attribute">#<span class="op">!</span>[<span class="ident">feature</span>(<span class="ident">plugin</span>)]</span>
@@ -105,13 +114,15 @@ write Rocket applications. Here's a simple example to get you started:</p>
 <span class="kw">fn</span> <span class="ident">main</span>() {
     <span class="ident">rocket</span>::<span class="ident">ignite</span>().<span class="ident">mount</span>(<span class="string">&quot;/&quot;</span>, <span class="macro">routes</span><span class="macro">!</span>[<span class="ident">hello</span>]).<span class="ident">launch</span>()
 }</pre>
-<h2 id="configuration" class="section-header"><a href="#configuration">Configuration</a></h2>
+
+<h2 id='configuration' class='section-header'><a href='#configuration'>Configuration</a></h2>
 <p>Rocket and Rocket libraries are configured via the <code>Rocket.toml</code> file and/or
 <code>ROCKET_{PARAM}</code> environment variables. For more information on how to
 configure Rocket, see the <a href="https://rocket.rs/guide/overview/#configuration">configuration
 section</a> of the guide as
 well as the <a href="/rocket/config">config</a> module documentation.</p>
-<h2 id="testing" class="section-header"><a href="#testing">Testing</a></h2>
+
+<h2 id='testing' class='section-header'><a href='#testing'>Testing</a></h2>
 <p>Rocket includes a small testing library that can be used to test your Rocket
 application. For information on how to test your Rocket applications, see
 the <a href="/rocket/testing">testing module</a> documentation.</p>
@@ -122,7 +133,6 @@ the <a href="/rocket/testing">testing module</a> documentation.</p>
                                   title='mod rocket::config'>config</a></td>
                            <td class='docblock-short'>
                                 <p>Application configuration and configuration parameter retrieval.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -130,7 +140,6 @@ the <a href="/rocket/testing">testing module</a> documentation.</p>
                                   title='mod rocket::data'>data</a></td>
                            <td class='docblock-short'>
                                 <p>Types and traits for reading and parsing request body data.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -138,7 +147,6 @@ the <a href="/rocket/testing">testing module</a> documentation.</p>
                                   title='mod rocket::handler'>handler</a></td>
                            <td class='docblock-short'>
                                 <p>The types of request and error handlers and their return values.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -146,7 +154,6 @@ the <a href="/rocket/testing">testing module</a> documentation.</p>
                                   title='mod rocket::http'>http</a></td>
                            <td class='docblock-short'>
                                 <p>Types that map to concepts in HTTP.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -154,7 +161,6 @@ the <a href="/rocket/testing">testing module</a> documentation.</p>
                                   title='mod rocket::outcome'>outcome</a></td>
                            <td class='docblock-short'>
                                 <p>Success, failure, and forward handling.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -162,7 +168,6 @@ the <a href="/rocket/testing">testing module</a> documentation.</p>
                                   title='mod rocket::request'>request</a></td>
                            <td class='docblock-short'>
                                 <p>Types and traits for request parsing and handling.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -170,7 +175,6 @@ the <a href="/rocket/testing">testing module</a> documentation.</p>
                                   title='mod rocket::response'>response</a></td>
                            <td class='docblock-short'>
                                 <p>Types and traits to build and send responses.</p>
-
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -179,7 +183,6 @@ the <a href="/rocket/testing">testing module</a> documentation.</p>
                                   title='struct rocket::Catcher'>Catcher</a></td>
                            <td class='docblock-short'>
                                 <p>An error catching route.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -187,7 +190,6 @@ the <a href="/rocket/testing">testing module</a> documentation.</p>
                                   title='struct rocket::Data'>Data</a></td>
                            <td class='docblock-short'>
                                 <p>Type representing the data in the body of an incoming request.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -195,7 +197,6 @@ the <a href="/rocket/testing">testing module</a> documentation.</p>
                                   title='struct rocket::Request'>Request</a></td>
                            <td class='docblock-short'>
                                 <p>The type of an incoming web request.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -203,7 +204,6 @@ the <a href="/rocket/testing">testing module</a> documentation.</p>
                                   title='struct rocket::Response'>Response</a></td>
                            <td class='docblock-short'>
                                 <p>An HTTP/Rocket response, returned by <code>Responder</code>s.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -212,7 +212,6 @@ the <a href="/rocket/testing">testing module</a> documentation.</p>
                            <td class='docblock-short'>
                                 <p>The main <code>Rocket</code> type: used to mount routes and catchers and launch the
 application.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -220,7 +219,6 @@ application.</p>
                                   title='struct rocket::Route'>Route</a></td>
                            <td class='docblock-short'>
                                 <p>A route: a method, its handler, path, rank, and format/content type.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -228,7 +226,6 @@ application.</p>
                                   title='struct rocket::State'>State</a></td>
                            <td class='docblock-short'>
                                 <p>Request guard to retrieve managed state.</p>
-
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
@@ -237,7 +234,6 @@ application.</p>
                                   title='enum rocket::Error'>Error</a></td>
                            <td class='docblock-short'>
                                 <p>[unstable] Error type for Rocket. Likely to change.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -245,7 +241,6 @@ application.</p>
                                   title='enum rocket::LoggingLevel'>LoggingLevel</a></td>
                            <td class='docblock-short'>
                                 <p>Defines the different levels for log messages.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -254,7 +249,6 @@ application.</p>
                            <td class='docblock-short'>
                                 <p>An enum representing success (<code>Success</code>), failure (<code>Failure</code>), or
 forwarding (<code>Forward</code>).</p>
-
                            </td>
                        </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
@@ -264,7 +258,6 @@ forwarding (<code>Forward</code>).</p>
                            <td class='docblock-short'>
                                 <p>Alias to <a href="/rocket/struct.Rocket.html#method.custom">Rocket::custom()</a>.
 Creates a new instance of <code>Rocket</code> with a custom configuration.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -273,7 +266,6 @@ Creates a new instance of <code>Rocket</code> with a custom configuration.</p>
                            <td class='docblock-short'>
                                 <p>Alias to <a href="/rocket/struct.Rocket.html#method.ignite">Rocket::ignite()</a>.
 Creates a new instance of <code>Rocket</code>.</p>
-
                            </td>
                        </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
@@ -282,7 +274,6 @@ Creates a new instance of <code>Rocket</code>.</p>
                                   title='type rocket::ErrorHandler'>ErrorHandler</a></td>
                            <td class='docblock-short'>
                                 <p>The type of an error handler.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -290,7 +281,6 @@ Creates a new instance of <code>Rocket</code>.</p>
                                   title='type rocket::Handler'>Handler</a></td>
                            <td class='docblock-short'>
                                 <p>The type of a request handler.</p>
-
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>

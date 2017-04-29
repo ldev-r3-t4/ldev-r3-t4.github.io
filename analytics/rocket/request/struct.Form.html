@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>request</a></p><script>window.sidebarCurrent = {name: 'Form', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct Form</p><div class="block items"><ul><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>request</a></p><script>window.sidebarCurrent = {name: 'Form', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -50,13 +50,16 @@
                    </a>
                </span><a class='srclink' href='../../src/rocket/request/form/mod.rs.html#158-162' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Form&lt;'f, T:&nbsp;<a class="trait" href="../../rocket/request/trait.FromForm.html" title="trait rocket::request::FromForm">FromForm</a>&lt;'f&gt; + 'f&gt; { /* fields omitted */ }</pre><div class='docblock'><p>A <code>FromData</code> type for parsing <code>FromForm</code> types.</p>
+
 <p>This type implements the <code>FromData</code> trait. It provides a generic means to
 parse arbitrary structures from incoming form data.</p>
-<h1 id="usage" class="section-header"><a href="#usage">Usage</a></h1>
+
+<h1 id='usage' class='section-header'><a href='#usage'>Usage</a></h1>
 <p>This type can be used with any type that implements the <code>FromForm</code> trait.
 The trait can be automatically derived; see the
 <a href="trait.FromForm.html">FromForm</a> documentation for more information on
 deriving or implementing the trait.</p>
+
 <p>Because <code>Form</code> implement <code>FromData</code>, it can be used directly as a target of
 the <code>data = &quot;&lt;param&gt;&quot;</code> route parameter. For instance, if some structure of
 type <code>T</code> implements the <code>FromForm</code> trait, an incoming form can be
@@ -66,12 +69,14 @@ handler:</p>
 <pre class="rust rust-example-rendered">
 <span class="attribute">#[<span class="ident">post</span>(<span class="string">&quot;/form_submit&quot;</span>, <span class="ident">data</span> <span class="op">=</span> <span class="string">&quot;&lt;param&gt;&quot;</span>)]</span>
 <span class="kw">fn</span> <span class="ident">submit</span>(<span class="ident">form</span>: <span class="ident">Form</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) ... { ... }</pre>
+
 <p>To preserve memory safety, if the underlying structure type contains
 references into form data, the type can only be borrowed via the
 <a href="#method.get">get</a> or <a href="#method.get_mut">get_mut</a> methods. Otherwise, the
 parsed structure can be retrieved with the <a href="#method.into_inner">into_inner</a>
 method.</p>
-<h2 id="with-references" class="section-header"><a href="#with-references">With References</a></h2>
+
+<h2 id='with-references' class='section-header'><a href='#with-references'>With References</a></h2>
 <p>The simplest data structure with a reference into form data looks like this:</p>
 
 <pre class="rust rust-example-rendered">
@@ -79,6 +84,7 @@ method.</p>
 <span class="kw">struct</span> <span class="ident">UserInput</span><span class="op">&lt;</span><span class="lifetime">&#39;f</span><span class="op">&gt;</span> {
     <span class="ident">value</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;f</span> <span class="ident">str</span>
 }</pre>
+
 <p>This corresponds to a form with a single field named <code>value</code> that should be
 a string. A handler for this type can be written as:</p>
 
@@ -87,10 +93,12 @@ a string. A handler for this type can be written as:</p>
 <span class="kw">fn</span> <span class="ident">submit_task</span><span class="op">&lt;</span><span class="lifetime">&#39;r</span><span class="op">&gt;</span>(<span class="ident">user_input</span>: <span class="ident">Form</span><span class="op">&lt;</span><span class="lifetime">&#39;r</span>, <span class="ident">UserInput</span><span class="op">&lt;</span><span class="lifetime">&#39;r</span><span class="op">&gt;&gt;</span>) <span class="op">-&gt;</span> <span class="ident">String</span> {
     <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;Your value: {}&quot;</span>, <span class="ident">user_input</span>.<span class="ident">get</span>().<span class="ident">value</span>)
 }</pre>
-<p>Note that the <code>`r</code> lifetime is used <em>twice</em> in the handler's signature:
+
+<p>Note that the <code>`r</code> lifetime is used <em>twice</em> in the handler&#39;s signature:
 this is necessary to tie the lifetime of the structure to the lifetime of
 the request data.</p>
-<h2 id="without-references" class="section-header"><a href="#without-references">Without References</a></h2>
+
+<h2 id='without-references' class='section-header'><a href='#without-references'>Without References</a></h2>
 <p>The owned analog of the <code>UserInput</code> type above is:</p>
 
 <pre class="rust rust-example-rendered">
@@ -98,6 +106,7 @@ the request data.</p>
 <span class="kw">struct</span> <span class="ident">OwnedUserInput</span> {
     <span class="ident">value</span>: <span class="ident">String</span>
 }</pre>
+
 <p>The handler is written similarly:</p>
 
 <pre class="rust rust-example-rendered">
@@ -106,10 +115,12 @@ the request data.</p>
     <span class="kw">let</span> <span class="ident">input</span>: <span class="ident">OwnedUserInput</span> <span class="op">=</span> <span class="ident">user_input</span>.<span class="ident">into_inner</span>();
     <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;Your value: {}&quot;</span>, <span class="ident">input</span>.<span class="ident">value</span>)
 }</pre>
+
 <p>Note that no lifetime annotations are required: Rust is able to infer the
 lifetime as <code>`static</code>. Because the lifetime is <code>`static</code>, the
 <code>into_inner</code> method can be used to directly retrieve the parsed value.</p>
-<h2 id="performance-and-correctness-considerations" class="section-header"><a href="#performance-and-correctness-considerations">Performance and Correctness Considerations</a></h2>
+
+<h2 id='performance-and-correctness-considerations' class='section-header'><a href='#performance-and-correctness-considerations'>Performance and Correctness Considerations</a></h2>
 <p>Whether you should use a <code>str</code> or <code>String</code> in your <code>FromForm</code> type depends
 on your use case. The primary question to answer is: <em>Can the input contain
 characters that must be URL encoded?</em> Note that this includes commmon
@@ -117,6 +128,7 @@ characters such as spaces. If so, then you must use <code>String</code>, whose
 <code>FromFormValue</code> implementation deserializes the URL encoded string for you.
 Because the <code>str</code> references will refer directly to the underlying form
 data, they will be raw and URL encoded.</p>
+
 <p>If your string values will not contain URL encoded characters, using <code>str</code>
 will result in fewer allocation and is thus spreferred.</p>
 </div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'f, T:&nbsp;<a class="trait" href="../../rocket/request/trait.FromForm.html" title="trait rocket::request::FromForm">FromForm</a>&lt;'f&gt; + 'f&gt; <a class="struct" href="../../rocket/request/struct.Form.html" title="struct rocket::request::Form">Form</a>&lt;'f, T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rocket/request/form/mod.rs.html#180-237' title='goto source code'>[src]</a></span></h3>
@@ -135,6 +147,7 @@ object.</p>
 <div class='docblock'><p>Formats the value using the given formatter.</p>
 </div></div><h3 class='impl'><span class='in-band'><code>impl&lt;'f, T:&nbsp;<a class="trait" href="../../rocket/request/trait.FromForm.html" title="trait rocket::request::FromForm">FromForm</a>&lt;'f&gt;&gt; <a class="trait" href="../../rocket/data/trait.FromData.html" title="trait rocket::data::FromData">FromData</a> for <a class="struct" href="../../rocket/request/struct.Form.html" title="struct rocket::request::Form">Form</a>&lt;'f, T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T::<a class="trait" href="../../rocket/request/trait.FromForm.html" title="trait rocket::request::FromForm">Error</a>: <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a>,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rocket/request/form/mod.rs.html#265-294' title='goto source code'>[src]</a></span></h3>
 <div class='docblock'><p>Parses a <code>Form</code> from incoming form data.</p>
+
 <p>If the content type of the request data is not
 <code>application/x-www-form-urlencoded</code>, <code>Forward</code>s the request. If the form
 data cannot be parsed into a <code>T</code>, a <code>Failure</code> with status code
@@ -143,6 +156,7 @@ data cannot be parsed into a <code>T</code>, a <code>Failure</code> with status 
 incoming stream fails, returns a <code>Failure</code> with status code
 <code>InternalServerError</code>. In all failure cases, the raw form string is returned
 if it was able to be retrieved from the incoming stream.</p>
+
 <p>All relevant warnings and errors are written to the console in Rocket
 logging format.</p>
 </div><div class='impl-items'><h4 id='associatedtype.Error' class="type"><span id='Error.t' class='invisible'><code>type <a href='../../rocket/data/trait.FromData.html#associatedtype.Error' class="type">Error</a> = <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/collections/string/struct.String.html" title="struct collections::string::String">String</a>&gt;</code></span></h4>

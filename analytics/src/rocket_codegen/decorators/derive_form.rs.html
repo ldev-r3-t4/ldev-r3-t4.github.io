@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/vadix/.cargo/registry/src/github.com-1ecc6299db9ec823/rocket_codegen-0.2.4/src/decorators/derive_form.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/vadix/.cargo/registry/src/github.com-1ecc6299db9ec823/rocket_codegen-0.2.6/src/decorators/derive_form.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>derive_form.rs.html -- source</title>
@@ -488,11 +488,11 @@
         <span class="kw">let</span> <span class="ident">id_str</span> <span class="op">=</span> <span class="ident">ident_string</span>.<span class="ident">as_str</span>();
         <span class="ident">arms</span>.<span class="ident">push</span>(<span class="macro">quote_tokens</span><span class="macro">!</span>(<span class="ident">cx</span>,
             <span class="macro-nonterminal">$</span><span class="macro-nonterminal">id_str</span> <span class="op">=&gt;</span> {
-                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ident</span> <span class="op">=</span> <span class="kw">match</span> ::<span class="ident">rocket</span>::<span class="ident">request</span>::<span class="ident">FromFormValue</span>::<span class="ident">from_form_value</span>(<span class="ident">v</span>) {
-                    <span class="prelude-val">Ok</span>(<span class="ident">v</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">v</span>),
-                    <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=&gt;</span> {
+                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">ident</span> <span class="op">=</span> <span class="kw">match</span> ::<span class="ident">rocket</span>::<span class="ident">request</span>::<span class="ident">FromFormValue</span>::<span class="ident">from_form_value</span>(<span class="ident">__v</span>) {
+                    <span class="prelude-val">Ok</span>(<span class="ident">__v</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">__v</span>),
+                    <span class="prelude-val">Err</span>(<span class="ident">__e</span>) <span class="op">=&gt;</span> {
                         <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;    =&gt; Error parsing form val &#39;{}&#39;: {:?}&quot;</span>,
-                                 <span class="macro-nonterminal">$</span><span class="macro-nonterminal">id_str</span>, <span class="ident">e</span>);
+                                 <span class="macro-nonterminal">$</span><span class="macro-nonterminal">id_str</span>, <span class="ident">__e</span>);
                         <span class="macro-nonterminal">$</span><span class="macro-nonterminal">return_err_stmt</span>
                     }
                 };
@@ -503,17 +503,17 @@
     <span class="comment">// The actual match statement. Iterate through all of the fields in the form</span>
     <span class="comment">// and use the $arms generated above.</span>
     <span class="ident">stmts</span>.<span class="ident">push</span>(<span class="macro">quote_stmt</span><span class="macro">!</span>(<span class="ident">cx</span>,
-        <span class="kw">for</span> (<span class="ident">k</span>, <span class="ident">v</span>) <span class="kw">in</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">arg</span> {
-            <span class="kw">match</span> <span class="ident">k</span> {
+        <span class="kw">for</span> (<span class="ident">__k</span>, <span class="ident">__v</span>) <span class="kw">in</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">arg</span> {
+            <span class="kw">match</span> <span class="ident">__k</span> {
                 <span class="macro-nonterminal">$</span><span class="macro-nonterminal">arms</span>
-                <span class="ident">field</span> <span class="kw">if</span> <span class="ident">field</span> <span class="op">==</span> <span class="string">&quot;_method&quot;</span> <span class="op">=&gt;</span> {
+                <span class="ident">__field</span> <span class="kw">if</span> <span class="ident">__field</span> <span class="op">==</span> <span class="string">&quot;_method&quot;</span> <span class="op">=&gt;</span> {
                     <span class="comment">/* This is a Rocket-specific field. If the user hasn&#39;t asked
                      * for it, just let it go by without error. This should stay
                      * in sync with Rocket::preprocess. */</span>
                 }
                 _ <span class="op">=&gt;</span> {
                     <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;    =&gt; {}={} has no matching field in struct.&quot;</span>,
-                             <span class="ident">k</span>, <span class="ident">v</span>);
+                             <span class="ident">__k</span>, <span class="ident">__v</span>);
                     <span class="macro-nonterminal">$</span><span class="macro-nonterminal">return_err_stmt</span>
                 }
            };

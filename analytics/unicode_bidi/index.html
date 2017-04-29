@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'></p><script>window.sidebarCurrent = {name: 'unicode_bidi', ty: 'mod', relpath: '../'};</script>
+        <p class='location'>Crate unicode_bidi</p><div class="block items"><ul><li><a href="#reexports">Reexports</a></li><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#functions">Functions</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'unicode_bidi', ty: 'mod', relpath: '../'};</script>
     </nav>
 
     <nav class="sub">
@@ -52,7 +52,8 @@
 <div class='docblock'><p>This crate implements the <a href="http://www.unicode.org/reports/tr9/">Unicode Bidirectional Algorithm</a> for display of mixed
 right-to-left and left-to-right text.  It is written in safe Rust, compatible with the
 current stable release.</p>
-<h2 id="example" class="section-header"><a href="#example">Example</a></h2>
+
+<h2 id='example' class='section-header'><a href='#example'>Example</a></h2>
 <pre class="rust rust-example-rendered">
 <span class="kw">use</span> <span class="ident">unicode_bidi</span>::{<span class="ident">process_text</span>, <span class="ident">reorder_line</span>};
 
@@ -102,7 +103,6 @@ current stable release.</p>
                                   title='struct unicode_bidi::BidiInfo'>BidiInfo</a></td>
                            <td class='docblock-short'>
                                 <p>Output of <code>process_text</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -110,7 +110,6 @@ current stable release.</p>
                                   title='struct unicode_bidi::InitialProperties'>InitialProperties</a></td>
                            <td class='docblock-short'>
                                 <p>Output of <code>initial_scan</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -118,7 +117,6 @@ current stable release.</p>
                                   title='struct unicode_bidi::ParagraphInfo'>ParagraphInfo</a></td>
                            <td class='docblock-short'>
                                 <p>Info about a single paragraph </p>
-
                            </td>
                        </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
@@ -127,7 +125,6 @@ current stable release.</p>
                                   title='fn unicode_bidi::initial_scan'>initial_scan</a></td>
                            <td class='docblock-short'>
                                 <p>Find the paragraphs and BidiClasses in a string of text.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -135,7 +132,6 @@ current stable release.</p>
                                   title='fn unicode_bidi::is_ltr'>is_ltr</a></td>
                            <td class='docblock-short'>
                                 <p>Even embedding levels are left-to-right.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -143,7 +139,6 @@ current stable release.</p>
                                   title='fn unicode_bidi::is_rtl'>is_rtl</a></td>
                            <td class='docblock-short'>
                                 <p>Odd levels are right-to-left.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -151,7 +146,6 @@ current stable release.</p>
                                   title='fn unicode_bidi::process_text'>process_text</a></td>
                            <td class='docblock-short'>
                                 <p>Determine the bidirectional embedding levels for a single paragraph.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -159,7 +153,6 @@ current stable release.</p>
                                   title='fn unicode_bidi::reorder_line'>reorder_line</a></td>
                            <td class='docblock-short'>
                                 <p>Re-order a line based on resolved levels.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -167,7 +160,6 @@ current stable release.</p>
                                   title='fn unicode_bidi::visual_runs'>visual_runs</a></td>
                            <td class='docblock-short'>
                                 <p>Find the level runs within a line and return them in visual order.</p>
-
                            </td>
                        </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
@@ -176,7 +168,6 @@ current stable release.</p>
                                   title='type unicode_bidi::LevelRun'>LevelRun</a></td>
                            <td class='docblock-short'>
                                 <p>A maximal substring of characters with the same embedding level.</p>
-
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>

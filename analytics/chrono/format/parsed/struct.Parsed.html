@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../../index.html'>chrono</a>::<wbr><a href='../index.html'>format</a>::<wbr><a href='index.html'>parsed</a></p><script>window.sidebarCurrent = {name: 'Parsed', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct Parsed</p><div class="block items"><ul><li><a href="#fields">Fields</a></li><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../../index.html'>chrono</a>::<wbr><a href='../index.html'>format</a>::<wbr><a href='index.html'>parsed</a></p><script>window.sidebarCurrent = {name: 'Parsed', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -72,26 +72,25 @@
     pub offset: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>&gt;,
     // some fields omitted
 }</pre><div class='docblock'><p>Parsed parts of date and time. There are two classes of methods:</p>
+
 <ul>
-<li>
-<p><code>set_*</code> methods try to set given field(s) while checking for the consistency.
-It may or may not check for the range constraint immediately (for efficiency reasons).</p>
-</li>
-<li>
-<p><code>to_*</code> methods try to make a concrete date and time value out of set fields.
-It fully checks any remaining out-of-range conditions and inconsistent/impossible fields.</p>
-</li>
+<li><p><code>set_*</code> methods try to set given field(s) while checking for the consistency.
+It may or may not check for the range constraint immediately (for efficiency reasons).</p></li>
+<li><p><code>to_*</code> methods try to make a concrete date and time value out of set fields.
+It fully checks any remaining out-of-range conditions and inconsistent/impossible fields.</p></li>
 </ul>
-</div><h2 class='fields'>Fields</h2><span id='structfield.year' class="structfield">
+</div><h2 id='fields' class='fields'>Fields</h2><span id='structfield.year' class="structfield">
                            <span id='year.v' class='invisible'>
                            <code>year: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>&gt;</code>
                            </span></span><div class='docblock'><p>Year.</p>
+
 <p>This can be negative unlike <a href="#structfield.year_div_100"><code>year_div_100</code></a>
 and <a href="#structfield.year_mod_100"><code>year_mod_100</code></a> fields.</p>
 </div><span id='structfield.year_div_100' class="structfield">
                            <span id='year_div_100.v' class='invisible'>
                            <code>year_div_100: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>&gt;</code>
                            </span></span><div class='docblock'><p>Year divided by 100. Implies that the year is &gt;= 1 BCE when set.</p>
+
 <p>Due to the common usage, if this field is missing but
 <a href="#structfield.year_mod_100"><code>year_mod_100</code></a> is present,
 it is inferred to 19 when <code>year_mod_100 &gt;= 70</code> and 20 otherwise.</p>
@@ -103,6 +102,7 @@ it is inferred to 19 when <code>year_mod_100 &gt;= 70</code> and 20 otherwise.</
                            <span id='isoyear.v' class='invisible'>
                            <code>isoyear: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>&gt;</code>
                            </span></span><div class='docblock'><p>Year in the <a href="../../naive/date/index.html#week-date">ISO week date</a>.</p>
+
 <p>This can be negative unlike <a href="#structfield.isoyear_div_100"><code>isoyear_div_100</code></a> and
 <a href="#structfield.isoyear_mod_100"><code>isoyear_mod_100</code></a> fields.</p>
 </div><span id='structfield.isoyear_div_100' class="structfield">
@@ -110,6 +110,7 @@ it is inferred to 19 when <code>year_mod_100 &gt;= 70</code> and 20 otherwise.</
                            <code>isoyear_div_100: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>&gt;</code>
                            </span></span><div class='docblock'><p>Year in the <a href="../../naive/date/index.html#week-date">ISO week date</a>, divided by 100.
 Implies that the year is &gt;= 1 BCE when set.</p>
+
 <p>Due to the common usage, if this field is missing but
 <a href="#structfield.isoyear_mod_100"><code>isoyear_mod_100</code></a> is present,
 it is inferred to 19 when <code>isoyear_mod_100 &gt;= 70</code> and 20 otherwise.</p>
@@ -173,6 +174,7 @@ Implies that the year is &gt;= 1 BCE when set.</p>
                            <span id='timestamp.v' class='invisible'>
                            <code>timestamp: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i64.html">i64</a>&gt;</code>
                            </span></span><div class='docblock'><p>The number of non-leap seconds since the midnight UTC on January 1, 1970.</p>
+
 <p>This can be off by one if <a href="#structfield.second"><code>second</code></a> is 60 (a leap second).</p>
 </div><span id='structfield.offset' class="structfield">
                            <span id='offset.v' class='invisible'>
@@ -228,28 +230,35 @@ given hour number in 12-hour clocks.</p>
 <div class='docblock'><p>Tries to set the <a href="#structfield.offset"><code>offset</code></a> field from given value.</p>
 </div><h4 id='method.to_naive_date' class="method"><span id='to_naive_date.v' class='invisible'><code>fn <a href='#method.to_naive_date' class='fnname'>to_naive_date</a>(&amp;self) -&gt; <a class="type" href="../../../chrono/format/type.ParseResult.html" title="type chrono::format::ParseResult">ParseResult</a>&lt;<a class="struct" href="../../../chrono/naive/date/struct.NaiveDate.html" title="struct chrono::naive::date::NaiveDate">NaiveDate</a>&gt;</code></span></h4>
 <div class='docblock'><p>Returns a parsed naive date out of given fields.</p>
+
 <p>This method is able to determine the date from given subset of fields:</p>
+
 <ul>
 <li>Year, month, day.</li>
 <li>Year, day of the year (ordinal).</li>
 <li>Year, week number counted from Sunday or Monday, day of the week.</li>
 <li>ISO week date.</li>
 </ul>
+
 <p>Gregorian year and ISO week date year can have their century number (<code>*_div_100</code>) omitted,
 the two-digit year is used to guess the century number then.</p>
 </div><h4 id='method.to_naive_time' class="method"><span id='to_naive_time.v' class='invisible'><code>fn <a href='#method.to_naive_time' class='fnname'>to_naive_time</a>(&amp;self) -&gt; <a class="type" href="../../../chrono/format/type.ParseResult.html" title="type chrono::format::ParseResult">ParseResult</a>&lt;<a class="struct" href="../../../chrono/naive/time/struct.NaiveTime.html" title="struct chrono::naive::time::NaiveTime">NaiveTime</a>&gt;</code></span></h4>
 <div class='docblock'><p>Returns a parsed naive time out of given fields.</p>
+
 <p>This method is able to determine the time from given subset of fields:</p>
+
 <ul>
 <li>Hour, minute. (second and nanosecond assumed to be 0)</li>
 <li>Hour, minute, second. (nanosecond assumed to be 0)</li>
 <li>Hour, minute, second, nanosecond.</li>
 </ul>
+
 <p>It is able to handle leap seconds when given second is 60.</p>
 </div><h4 id='method.to_naive_datetime_with_offset' class="method"><span id='to_naive_datetime_with_offset.v' class='invisible'><code>fn <a href='#method.to_naive_datetime_with_offset' class='fnname'>to_naive_datetime_with_offset</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;offset: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a><br>) -&gt; <a class="type" href="../../../chrono/format/type.ParseResult.html" title="type chrono::format::ParseResult">ParseResult</a>&lt;<a class="struct" href="../../../chrono/naive/datetime/struct.NaiveDateTime.html" title="struct chrono::naive::datetime::NaiveDateTime">NaiveDateTime</a>&gt;</code></span></h4>
 <div class='docblock'><p>Returns a parsed naive date and time out of given fields,
 except for the <a href="#structfield.offset"><code>offset</code></a> field (assumed to have a given value).
 This is required for parsing a local time or other known-timezone inputs.</p>
+
 <p>This method is able to determine the combined date and time
 from date and time fields or a single <a href="#structfield.timestamp"><code>timestamp</code></a> field.
 Either way those fields have to be consistent to each other.</p>
@@ -257,6 +266,7 @@ Either way those fields have to be consistent to each other.</p>
 <div class='docblock'><p>Returns a parsed fixed time zone offset out of given fields.</p>
 </div><h4 id='method.to_datetime' class="method"><span id='to_datetime.v' class='invisible'><code>fn <a href='#method.to_datetime' class='fnname'>to_datetime</a>(&amp;self) -&gt; <a class="type" href="../../../chrono/format/type.ParseResult.html" title="type chrono::format::ParseResult">ParseResult</a>&lt;<a class="struct" href="../../../chrono/datetime/struct.DateTime.html" title="struct chrono::datetime::DateTime">DateTime</a>&lt;<a class="struct" href="../../../chrono/offset/fixed/struct.FixedOffset.html" title="struct chrono::offset::fixed::FixedOffset">FixedOffset</a>&gt;&gt;</code></span></h4>
 <div class='docblock'><p>Returns a parsed timezone-aware date and time out of given fields.</p>
+
 <p>This method is able to determine the combined date and time
 from date and time fields or a single <a href="#structfield.timestamp"><code>timestamp</code></a> field,
 plus a time zone offset.
@@ -264,6 +274,7 @@ Either way those fields have to be consistent to each other.</p>
 </div><h4 id='method.to_datetime_with_timezone' class="method"><span id='to_datetime_with_timezone.v' class='invisible'><code>fn <a href='#method.to_datetime_with_timezone' class='fnname'>to_datetime_with_timezone</a>&lt;Tz:&nbsp;<a class="trait" href="../../../chrono/offset/trait.TimeZone.html" title="trait chrono::offset::TimeZone">TimeZone</a>&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;tz: &amp;Tz<br>) -&gt; <a class="type" href="../../../chrono/format/type.ParseResult.html" title="type chrono::format::ParseResult">ParseResult</a>&lt;<a class="struct" href="../../../chrono/datetime/struct.DateTime.html" title="struct chrono::datetime::DateTime">DateTime</a>&lt;Tz&gt;&gt;</code></span></h4>
 <div class='docblock'><p>Returns a parsed timezone-aware date and time out of given fields,
 with an additional <code>TimeZone</code> used to interpret and validate the local date.</p>
+
 <p>This method is able to determine the combined date and time
 from date and time fields or a single <a href="#structfield.timestamp"><code>timestamp</code></a> field,
 plus a time zone offset.

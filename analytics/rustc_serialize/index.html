@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         <a href='../rustc_serialize/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
-        <p class='location'></p><script>window.sidebarCurrent = {name: 'rustc_serialize', ty: 'mod', relpath: '../'};</script>
+        <p class='location'>Crate rustc_serialize</p><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#traits">Traits</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'rustc_serialize', ty: 'mod', relpath: '../'};</script>
     </nav>
 
     <nav class="sub">
@@ -48,15 +48,25 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../src/rustc_serialize/lib.rs.html#11-72' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../src/rustc_serialize/lib.rs.html#11-79' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Support code for encoding and decoding types.</p>
-<h1 id="usage" class="section-header"><a href="#usage">Usage</a></h1>
+
+<blockquote>
+<p><strong>NOTE</strong>: This crate is deprecated in favor of <a href="https://serde.rs"><code>serde</code></a>. No new feature
+development will happen in this crate, although bug fixes proposed through
+PRs will still be merged. It is very highly recommended by the Rust
+Library Team that you use <a href="https://serde.rs"><code>serde</code></a>, not this crate.</p>
+</blockquote>
+
+<h1 id='usage' class='section-header'><a href='#usage'>Usage</a></h1>
 <p>This crate is <a href="https://crates.io/crates/rustc-serialize">on crates.io</a> and
 can be used by adding <code>rustc-serialize</code> to the dependencies in your
-project's <code>Cargo.toml</code>.</p>
+project&#39;s <code>Cargo.toml</code>.</p>
+
 <pre><code class="language-toml">[dependencies]
 rustc-serialize = &quot;0.3&quot;
 </code></pre>
+
 <p>and this to your crate root:</p>
 
 <pre class="rust rust-example-rendered">
@@ -68,7 +78,6 @@ rustc-serialize = &quot;0.3&quot;
                                   title='mod rustc_serialize::base64'>base64</a></td>
                            <td class='docblock-short'>
                                 <p>Base64 binary-to-text encoding</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -76,7 +85,6 @@ rustc-serialize = &quot;0.3&quot;
                                   title='mod rustc_serialize::hex'>hex</a></td>
                            <td class='docblock-short'>
                                 <p>Hex binary-to-text encoding</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -84,7 +92,6 @@ rustc-serialize = &quot;0.3&quot;
                                   title='mod rustc_serialize::json'>json</a></td>
                            <td class='docblock-short'>
                                 <p>JSON parsing and serialization</p>
-
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
@@ -93,7 +100,6 @@ rustc-serialize = &quot;0.3&quot;
                                   title='trait rustc_serialize::Decodable'>Decodable</a></td>
                            <td class='docblock-short'>
                                 <p>Trait for deserializing a type.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -101,7 +107,6 @@ rustc-serialize = &quot;0.3&quot;
                                   title='trait rustc_serialize::Decoder'>Decoder</a></td>
                            <td class='docblock-short'>
                                 <p>Trait for reading in an encoding for deserialization.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -109,7 +114,6 @@ rustc-serialize = &quot;0.3&quot;
                                   title='trait rustc_serialize::DecoderHelpers'>DecoderHelpers</a></td>
                            <td class='docblock-short'>
                                 <p>Trait with helper functions for implementing <code>Decodable</code>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -117,7 +121,6 @@ rustc-serialize = &quot;0.3&quot;
                                   title='trait rustc_serialize::Encodable'>Encodable</a></td>
                            <td class='docblock-short'>
                                 <p>Trait for serializing a type.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -125,7 +128,6 @@ rustc-serialize = &quot;0.3&quot;
                                   title='trait rustc_serialize::Encoder'>Encoder</a></td>
                            <td class='docblock-short'>
                                 <p>Trait for writing out an encoding when serializing.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -133,7 +135,6 @@ rustc-serialize = &quot;0.3&quot;
                                   title='trait rustc_serialize::EncoderHelpers'>EncoderHelpers</a></td>
                            <td class='docblock-short'>
                                 <p>Trait with helper functions for implementing <code>Encodable</code>.</p>
-
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>

@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'></p><script>window.sidebarCurrent = {name: 'rocket_codegen', ty: 'mod', relpath: '../'};</script>
+        <p class='location'>Crate rocket_codegen</p><div class="block items"><ul><li><a href="#functions">Functions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'rocket_codegen', ty: 'mod', relpath: '../'};</script>
     </nav>
 
     <nav class="sub">
@@ -49,14 +49,17 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/rocket_codegen/lib.rs.html#1-201' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><h1 id="rocket---code-generation" class="section-header"><a href="#rocket---code-generation">Rocket - Code Generation</a></h1>
+<div class='docblock'>
+<h1 id='rocket---code-generation' class='section-header'><a href='#rocket---code-generation'>Rocket - Code Generation</a></h1>
 <p>This crate implements the code generation portions of Rocket. This includes
 custom derives, custom attributes, procedural macros, and lints. The
 documentation here is purely technical. The code generation facilities are
 documented thoroughly in the <a href="https://rocket.rs/guide">Rocket programming
 guide</a>.</p>
-<h2 id="custom-attributes" class="section-header"><a href="#custom-attributes">Custom Attributes</a></h2>
+
+<h2 id='custom-attributes' class='section-header'><a href='#custom-attributes'>Custom Attributes</a></h2>
 <p>This crate implements the following custom attributes:</p>
+
 <ul>
 <li><strong>route</strong></li>
 <li><strong>get</strong></li>
@@ -68,9 +71,11 @@ guide</a>.</p>
 <li><strong>options</strong></li>
 <li><strong>error</strong></li>
 </ul>
+
 <p>The grammar for all <em>route</em> attributes, including <strong>route</strong>, <strong>get</strong>,
 <strong>put</strong>, <strong>post</strong>, <strong>delete</strong>, <strong>head</strong>, <strong>patch</strong>, and <strong>options</strong> is
 defined as:</p>
+
 <pre>
 route := METHOD? '(' ('path' '=')? path (',' kv_param)* ')'
 
@@ -91,54 +96,66 @@ IDENT := Valid identifier, as defined by Rust
 URI_SEG := Valid HTTP URI Segment
 DYNAMIC_PARAM := '<' IDENT '..'? '>' (string literal)
 </pre>
+
 <p>Note that the <strong>route</strong> attribute takes a method as its first argument,
 while the remaining do not. That is, <strong>route</strong> looks like:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="attribute">#[<span class="ident">route</span>(<span class="ident">GET</span>, <span class="ident">path</span> <span class="op">=</span> <span class="string">&quot;/hello&quot;</span>)]</span></pre>
+
 <p>while the equivalent using <strong>get</strong> looks like:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="attribute">#[<span class="ident">get</span>(<span class="string">&quot;/hello&quot;</span>)]</span></pre>
+
 <p>The syntax for the <strong>error</strong> attribute is:</p>
+
 <pre>
 error := INTEGER
 </pre>
+
 <p>A use of the <code>error</code> attribute looks like:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="attribute">#[<span class="ident">error</span>(<span class="number">404</span>)]</span></pre>
-<h2 id="custom-derives" class="section-header"><a href="#custom-derives">Custom Derives</a></h2>
+
+<h2 id='custom-derives' class='section-header'><a href='#custom-derives'>Custom Derives</a></h2>
 <p>This crate implements the following custom derives:</p>
+
 <ul>
 <li><strong>FromForm</strong></li>
 </ul>
-<h2 id="procedural-macros" class="section-header"><a href="#procedural-macros">Procedural Macros</a></h2>
+
+<h2 id='procedural-macros' class='section-header'><a href='#procedural-macros'>Procedural Macros</a></h2>
 <p>This crate implements the following procedural macros:</p>
+
 <ul>
 <li><strong>routes</strong></li>
 <li><strong>errors</strong></li>
 </ul>
+
 <p>The syntax for both of these is defined as:</p>
+
 <pre>
 macro := PATH (',' macro)*
 
 PATH := a path, as defined by Rust
 </pre>
-<h2 id="lints" class="section-header"><a href="#lints">Lints</a></h2>
+
+<h2 id='lints' class='section-header'><a href='#lints'>Lints</a></h2>
 <p>This crate implements the following lints:</p>
+
 <ul>
-<li>
-<p><strong>unmounted_route</strong>: defaults to <em>warn</em></p>
-<p>emits a warning when a declared route is not mounted</p>
-</li>
-<li>
-<p><strong>unmanaged_state</strong>: defaults to <em>warn</em></p>
+<li><p><strong>unmounted_route</strong>: defaults to <em>warn</em></p>
+
+<p>emits a warning when a declared route is not mounted</p></li>
+<li><p><strong>unmanaged_state</strong>: defaults to <em>warn</em></p>
+
 <p>emits a warning when a <code>State&lt;T&gt;</code> request guest is used in a mounted
-route without managing a value for <code>T</code></p>
-</li>
+route without managing a value for <code>T</code></p></li>
 </ul>
-<h1 id="debugging-codegen" class="section-header"><a href="#debugging-codegen">Debugging Codegen</a></h1>
+
+<h1 id='debugging-codegen' class='section-header'><a href='#debugging-codegen'>Debugging Codegen</a></h1>
 <p>When the <code>ROCKET_CODEGEN_DEBUG</code> environment variable is set, this crate logs
 the items it has generated to the console at compile-time. For example, you
 might run the following to build a Rocket application with codegen logging
@@ -153,7 +170,6 @@ enabled:</p>
                                   title='fn rocket_codegen::plugin_registrar'>plugin_registrar</a></td>
                            <td class='docblock-short'>
                                 <p>Compiler hook for Rust to register plugins.</p>
-
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>

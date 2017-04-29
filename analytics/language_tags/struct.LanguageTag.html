@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='index.html'>language_tags</a></p><script>window.sidebarCurrent = {name: 'LanguageTag', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct LanguageTag</p><div class="block items"><ul><li><a href="#fields">Fields</a></li><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='index.html'>language_tags</a></p><script>window.sidebarCurrent = {name: 'LanguageTag', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -58,12 +58,13 @@
     pub extensions: <a class="struct" href="https://doc.rust-lang.org/nightly/collections/btree/map/struct.BTreeMap.html" title="struct collections::btree::map::BTreeMap">BTreeMap</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>, <a class="struct" href="https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html" title="struct collections::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/collections/string/struct.String.html" title="struct collections::string::String">String</a>&gt;&gt;,
     pub privateuse: <a class="struct" href="https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html" title="struct collections::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/collections/string/struct.String.html" title="struct collections::string::String">String</a>&gt;,
 }</pre><div class='docblock'><p>A language tag as described in <a href="http://tools.ietf.org/html/bcp47">BCP47</a>.</p>
+
 <p>Language tags are used to help identify languages, whether spoken,
 written, signed, or otherwise signaled, for the purpose of
 communication.  This includes constructed and artificial languages
 but excludes languages not intended primarily for human
 communication, such as programming languages.</p>
-</div><h2 class='fields'>Fields</h2><span id='structfield.language' class="structfield">
+</div><h2 id='fields' class='fields'>Fields</h2><span id='structfield.language' class="structfield">
                            <span id='language.v' class='invisible'>
                            <code>language: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/collections/string/struct.String.html" title="struct collections::string::String">String</a>&gt;</code>
                            </span></span><div class='docblock'><p>Language subtags are used to indicate the language, ignoring all
@@ -117,12 +118,15 @@ tag has more extlangs than the range these extlangs are ignored. Matches are
 case-insensitive. <code>*</code> in language ranges are represented using <code>None</code> values. The language
 range <code>*</code> that matches language tags is created by the default language tag:
 <code>let wildcard: LanguageTag = Default::default();.</code></p>
+
 <p>For example the range <code>en-GB</code> matches only <code>en-GB</code> and <code>en-Arab-GB</code> but not <code>en</code>.
 The range <code>en</code> matches all language tags starting with <code>en</code> including <code>en</code>, <code>en-GB</code>,
 <code>en-Arab</code> and <code>en-Arab-GB</code>.</p>
-<h1 id="panics" class="section-header"><a href="#panics">Panics</a></h1>
+
+<h1 id='panics' class='section-header'><a href='#panics'>Panics</a></h1>
 <p>If the language range has extensions or private use tags.</p>
-<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="kw">let</span> <span class="ident">range_italian</span> <span class="op">=</span> <span class="macro">langtag</span><span class="macro">!</span>(<span class="ident">it</span>);
 <span class="kw">let</span> <span class="ident">tag_german</span> <span class="op">=</span> <span class="macro">langtag</span><span class="macro">!</span>(<span class="ident">de</span>);
@@ -137,7 +141,9 @@ The range <code>en</code> matches all language tags starting with <code>en</code
 <div class='docblock'><p>Checks if it is a language range, meaning that there are no extension and privateuse tags.</p>
 </div><h4 id='method.canonicalize' class="method"><span id='canonicalize.v' class='invisible'><code>fn <a href='#method.canonicalize' class='fnname'>canonicalize</a>(&amp;self) -&gt; <a class="struct" href="../language_tags/struct.LanguageTag.html" title="struct language_tags::LanguageTag">LanguageTag</a></code></span></h4>
 <div class='docblock'><p>Returns the canonical version of the language tag.</p>
+
 <p>It currently applies the following steps:</p>
+
 <ul>
 <li>Grandfathered tags are replaced with the canonical version if possible.</li>
 <li>Extension languages are promoted to primary language.</li>
@@ -145,6 +151,7 @@ The range <code>en</code> matches all language tags starting with <code>en</code
 <li>Deprecated regions are replaced with new country names.</li>
 <li>The <code>heploc</code> variant is replaced with <code>alalc97</code>.</li>
 </ul>
+
 <p>The returned language tags may not be completly canonical and they are
 not validated.</p>
 </div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../language_tags/struct.LanguageTag.html" title="struct language_tags::LanguageTag">LanguageTag</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/language_tags/lib.rs.html#219' title='goto source code'>[src]</a></span></h3>

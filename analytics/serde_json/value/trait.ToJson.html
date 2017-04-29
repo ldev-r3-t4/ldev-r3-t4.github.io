@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>serde_json</a>::<wbr><a href='index.html'>value</a></p><script>window.sidebarCurrent = {name: 'ToJson', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Trait ToJson</p><div class="block items"><ul><li><a href="#required-methods">Required Methods</a></li><li><a href="#implementors">Implementors</a></li></ul></div><p class='location'><a href='../index.html'>serde_json</a>::<wbr><a href='index.html'>value</a></p><script>window.sidebarCurrent = {name: 'ToJson', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -57,7 +57,8 @@
             <div class='methods'>
         <h3 id='tymethod.to_json' class='method'><span id='to_json.v' class='invisible'><code>fn <a href='#tymethod.to_json' class='fnname'>to_json</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="enum" href="../../serde_json/value/enum.Value.html" title="enum serde_json::value::Value">Value</a>, <a class="struct" href="../../serde_json/error/struct.Error.html" title="struct serde_json::error::Error">Error</a>&gt;</code></span></h3><div class='docblock'><p>Represent <code>self</code> as a <code>serde_json::Value</code>. Note that <code>Value</code> is not a
 JSON string. If you need a string, use <code>serde_json::to_string</code> instead.</p>
-<p>This conversion can fail if <code>T</code>'s implementation of <code>Serialize</code> decides
+
+<p>This conversion can fail if <code>T</code>&#39;s implementation of <code>Serialize</code> decides
 to fail, or if <code>T</code> contains a map with non-string keys.</p>
 </div></div>
         <h2 id='implementors'>Implementors</h2>

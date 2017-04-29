@@ -53,21 +53,17 @@
 Returns <code>Ok</code> when the entire string has been parsed (otherwise <code>parsed</code> should not be used).
 There should be no trailing string after parsing;
 use a stray <a href="./enum.Item.html#variant.Space"><code>Item::Space</code></a> to trim whitespaces.</p>
+
 <p>This particular date and time parser is:</p>
+
 <ul>
-<li>
-<p>Greedy. It will consume the longest possible prefix.
+<li><p>Greedy. It will consume the longest possible prefix.
 For example, <code>April</code> is always consumed entirely when the long month name is requested;
-it equally accepts <code>Apr</code>, but prefers the longer prefix in this case.</p>
-</li>
-<li>
-<p>Padding-agnostic (for numeric items).
+it equally accepts <code>Apr</code>, but prefers the longer prefix in this case.</p></li>
+<li><p>Padding-agnostic (for numeric items).
 The <a href="./enum.Pad.html"><code>Pad</code></a> field is completely ignored,
-so one can prepend any number of whitespace then any number of zeroes before numbers.</p>
-</li>
-<li>
-<p>(Still) obeying the intrinsic parsing width. This allows, for example, parsing <code>HHMMSS</code>.</p>
-</li>
+so one can prepend any number of whitespace then any number of zeroes before numbers.</p></li>
+<li><p>(Still) obeying the intrinsic parsing width. This allows, for example, parsing <code>HHMMSS</code>.</p></li>
 </ul>
 </div></section>
     <section id='search' class="content hidden"></section>

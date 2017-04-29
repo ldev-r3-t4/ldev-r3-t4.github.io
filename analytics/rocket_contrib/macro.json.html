@@ -54,11 +54,13 @@
     ($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">json</span>:<span class="ident">tt</span>)<span class="op">+</span>) <span class="op">=&gt;</span> { ... };
 }</pre>
 <div class='docblock'><p>A macro to create ad-hoc JSON serializable values using JSON syntax.</p>
-<h1 id="usage" class="section-header"><a href="#usage">Usage</a></h1>
+
+<h1 id='usage' class='section-header'><a href='#usage'>Usage</a></h1>
 <p>To import the macro, add the <code>#[macro_use]</code> attribute to the <code>extern crate rocket_contrib</code> invocation:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="attribute">#[<span class="ident">macro_use</span>]</span> <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">rocket_contrib</span>;</pre>
+
 <p>The return type of a macro invocation is
 <a href="/rocket_contrib/enum.Value.html">Value</a>. A value created with this macro
 can be returned from a handler as follows:</p>
@@ -73,7 +75,8 @@ can be returned from a handler as follows:</p>
         <span class="string">&quot;array&quot;</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]
     }))
 }</pre>
-<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
 <p>Create a simple JSON object with two keys: <code>&quot;username&quot;</code> and <code>&quot;id&quot;</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -81,6 +84,7 @@ can be returned from a handler as follows:</p>
     <span class="string">&quot;username&quot;</span>: <span class="string">&quot;mjordan&quot;</span>,
     <span class="string">&quot;id&quot;</span>: <span class="number">23</span>
 });</pre>
+
 <p>Create a more complex object with a nested object and array:</p>
 
 <pre class="rust rust-example-rendered">
@@ -92,8 +96,9 @@ can be returned from a handler as follows:</p>
         <span class="string">&quot;ids&quot;</span>: [<span class="number">12</span>, <span class="number">121</span>],
     },
 });</pre>
+
 <p>Variables or expressions can be interpolated into the JSON literal. Any type
-interpolated into an array element or object value must implement Serde's
+interpolated into an array element or object value must implement Serde&#39;s
 <code>Serialize</code> trait, while any type interpolated into a object key must
 implement <code>Into&lt;String&gt;</code>.</p>
 
@@ -108,6 +113,7 @@ implement <code>Into&lt;String&gt;</code>.</p>
        <span class="ident">features</span>[<span class="number">0</span>]: <span class="ident">features</span>[<span class="number">1</span>]
    }
 });</pre>
+
 <p>Trailing commas are allowed inside both arrays and objects.</p>
 
 <pre class="rust rust-example-rendered">

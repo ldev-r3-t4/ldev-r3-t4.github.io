@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'></p><script>window.sidebarCurrent = {name: 'state', ty: 'mod', relpath: '../'};</script>
+        <p class='location'>Crate state</p><div class="block items"><ul><li><a href="#structs">Structs</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'state', ty: 'mod', relpath: '../'};</script>
     </nav>
 
     <nav class="sub">
@@ -49,9 +49,11 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../src/state/lib.rs.html#1-223' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><h1 id="state---safe-and-effortless-state-management" class="section-header"><a href="#state---safe-and-effortless-state-management">state - safe and effortless state management</a></h1>
+<div class='docblock'>
+<h1 id='state---safe-and-effortless-state-management' class='section-header'><a href='#state---safe-and-effortless-state-management'>state - safe and effortless state management</a></h1>
 <p>This crate allows you to safely and effortlessly manage global and/or
 thread-local state. Three primitives are provided for state management:</p>
+
 <ul>
 <li><strong><a href="struct.Container.html">Container</a>:</strong> Type-based global and
 thread-local storage for many values.</li>
@@ -59,23 +61,30 @@ thread-local storage for many values.</li>
 <li><strong><a href="struct.LocalStorage.html">LocalStorage</a>:</strong> Thread-local storage for a
 single instance.</li>
 </ul>
-<h2 id="usage" class="section-header"><a href="#usage">Usage</a></h2>
+
+<h2 id='usage' class='section-header'><a href='#usage'>Usage</a></h2>
 <p>Include <code>state</code> in your <code>Cargo.toml</code> <code>[dependencies]</code>:</p>
+
 <pre><code class="language-toml">[dependencies]
 state = &quot;0.2&quot;
 </code></pre>
+
 <p>Thread-local state management is not enabled by default. You can enable it
 via the <code>tls</code> feature:</p>
+
 <pre><code class="language-toml">[dependencies]
 state = { version = &quot;0.2&quot;, features = [&quot;tls&quot;] }
 </code></pre>
+
 <p>This crate requires Rust nightly due to the instability of the <code>const_fn</code>
 feature. Ensure the feature is enabled by adding the following to your
 top-level crate attributes:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="attribute">#<span class="op">!</span>[<span class="ident">feature</span>(<span class="ident">const_fn</span>)]</span></pre>
-<h2 id="use-cases" class="section-header"><a href="#use-cases">Use Cases</a></h2><h3 id="read-only-singleton" class="section-header"><a href="#read-only-singleton">Read-Only Singleton</a></h3>
+
+<h2 id='use-cases' class='section-header'><a href='#use-cases'>Use Cases</a></h2>
+<h3 id='read-only-singleton' class='section-header'><a href='#read-only-singleton'>Read-Only Singleton</a></h3>
 <p>Suppose you have the following structure which is initialized in <code>main</code>
 after receiving input from the user:</p>
 
@@ -91,16 +100,19 @@ after receiving input from the user:</p>
         <span class="comment">/* fill in structure at run-time from user input */</span>
     };
 }</pre>
-<p>You'd like to access this structure later, at any point in the program,
+
+<p>You&#39;d like to access this structure later, at any point in the program,
 without any synchronization overhead. Prior to <code>state</code>, assuming you needed
 to setup the structure after program start, your options were:</p>
+
 <ol>
 <li>Use <code>static mut</code> and <code>unsafe</code> to set an <code>Option&lt;Configuration&gt;</code> to
-<code>Some</code>. Retrieve by checking for <code>Some</code>.</li>
+ <code>Some</code>. Retrieve by checking for <code>Some</code>.</li>
 <li>Use <code>lazy_static</code> with a <code>RwLock</code> to set an
-<code>RwLock&lt;Option&lt;Configuration&gt;&gt;</code> to <code>Some</code>. Retrieve by <code>lock</code>ing and
-checking for <code>Some</code>, paying the cost of synchronization.</li>
+ <code>RwLock&lt;Option&lt;Configuration&gt;&gt;</code> to <code>Some</code>. Retrieve by <code>lock</code>ing and
+ checking for <code>Some</code>, paying the cost of synchronization.</li>
 </ol>
+
 <p>With <code>state</code>, you can use <a href="struct.LocalStorage.html">LocalStorage</a> and call
 <code>set</code> and <code>get</code>, as follows:</p>
 
@@ -115,20 +127,24 @@ checking for <code>Some</code>, paying the cost of synchronization.</li>
     <span class="comment">/* at any point later in the program, in any thread */</span>
     <span class="kw">let</span> <span class="ident">config</span> <span class="op">=</span> <span class="ident">CONFIG</span>.<span class="ident">get</span>();
 }</pre>
-<h3 id="readwrite-singleton" class="section-header"><a href="#readwrite-singleton">Read/Write Singleton</a></h3>
-<p>Following from the previous example, let's now say that we want to be able
+
+<h3 id='readwrite-singleton' class='section-header'><a href='#readwrite-singleton'>Read/Write Singleton</a></h3>
+<p>Following from the previous example, let&#39;s now say that we want to be able
 to modify our singleton <code>Configuration</code> structure as the program evolves. We
 have two options:</p>
+
 <ol>
 <li>If we want to maintain the <em>same</em> state in any thread, we can use a
-<code>Storage</code> structure and wrap our <code>Configuration</code> structure in a
-synchronization primitive.</li>
+ <code>Storage</code> structure and wrap our <code>Configuration</code> structure in a
+ synchronization primitive.</li>
 <li>If we want to maintain <em>different</em> state in any thread, we can continue
-to use a <code>LocalStorage</code> structure and wrap our <code>LocalStorage</code> type in a
-<code>Cell</code> structure for internal mutability.</li>
+ to use a <code>LocalStorage</code> structure and wrap our <code>LocalStorage</code> type in a
+ <code>Cell</code> structure for internal mutability.</li>
 </ol>
-<p>In this example, we'll choose <strong>1</strong>. The next example illustrates an
+
+<p>In this example, we&#39;ll choose <strong>1</strong>. The next example illustrates an
 instance of <strong>2</strong>.</p>
+
 <p>The following implements <strong>1</strong> by using a <code>Storage</code> structure and wrapping
 the <code>Configuration</code> type with a <code>RwLock</code>:</p>
 
@@ -146,9 +162,10 @@ the <code>Configuration</code> type with a <code>RwLock</code>:</p>
     <span class="comment">/* at any point later in the program, in any thread */</span>
     <span class="kw">let</span> <span class="ident">mut_config</span> <span class="op">=</span> <span class="ident">CONFIG</span>.<span class="ident">get</span>().<span class="ident">write</span>();
 }</pre>
-<h3 id="mutable-thread-local-data" class="section-header"><a href="#mutable-thread-local-data">Mutable, thread-local data</a></h3>
+
+<h3 id='mutable-thread-local-data' class='section-header'><a href='#mutable-thread-local-data'>Mutable, thread-local data</a></h3>
 <p>Imagine you want to count the number of invocations to a function per
-thread. You'd like to store the count in a <code>Cell&lt;usize&gt;</code> and use
+thread. You&#39;d like to store the count in a <code>Cell&lt;usize&gt;</code> and use
 <code>count.set(count.get() + 1)</code> to increment the count. Prior to <code>state</code>, your
 only option was to use the <code>thread_local!</code> macro. <code>state</code> provides a more
 flexible, and arguably simpler solution via <code>LocalStorage</code>. This scanario
@@ -182,7 +199,8 @@ is implemented in the folloiwng:</p>
 
     <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">total</span>, <span class="number">10</span>);
 }</pre>
-<h2 id="performance" class="section-header"><a href="#performance">Performance</a></h2>
+
+<h2 id='performance' class='section-header'><a href='#performance'>Performance</a></h2>
 <p><code>state</code> is heavily tuned to perform optimally. <code>get{_local}</code> and
 <code>set{_local}</code> calls to a <code>Container</code> incur overhead due to type lookup.
 <code>Storage</code>, on the other hand, is optimal for global storage retrieval; it is
@@ -191,11 +209,13 @@ is implemented in the folloiwng:</p>
 overhead due to thread lookup. However, <code>LocalStorage</code> has no
 synchronization overhead, so retrieval from <code>LocalStorage</code> is faster than
 through <code>Storage</code> across many threads.</p>
+
 <p>Keep in mind that <code>state</code> allows global initialization at <em>any</em> point in the
 program. Other solutions, such as <code>lazy_static!</code> and <code>thread_local!</code> allow
-initialization <em>only</em> a priori. In other words, <code>state</code>'s abilities are a
+initialization <em>only</em> a priori. In other words, <code>state</code>&#39;s abilities are a
 superset of those provided by <code>lazy_static!</code> and <code>thread_local!</code>.</p>
-<h2 id="when-to-use" class="section-header"><a href="#when-to-use">When To Use</a></h2>
+
+<h2 id='when-to-use' class='section-header'><a href='#when-to-use'>When To Use</a></h2>
 <p>You should avoid using <code>state</code> as much as possible. Instead, thread state
 manually throughout your program when feasible.</p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
@@ -205,7 +225,6 @@ manually throughout your program when feasible.</p>
                                   title='struct state::Container'>Container</a></td>
                            <td class='docblock-short'>
                                 <p>A container for global type-based state.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -213,7 +232,6 @@ manually throughout your program when feasible.</p>
                                   title='struct state::Storage'>Storage</a></td>
                            <td class='docblock-short'>
                                 <p>A single storage location for global access to a value.</p>
-
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>

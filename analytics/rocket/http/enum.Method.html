@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>http</a></p><script>window.sidebarCurrent = {name: 'Method', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Enum Method</p><div class="block items"><ul><li><a href="#variants">Variants</a></li><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>http</a></p><script>window.sidebarCurrent = {name: 'Method', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -60,12 +60,13 @@
     Connect,
     Patch,
 }</pre><div class='docblock'><p>Representation of HTTP methods.</p>
-</div><h2 class='variants'>Variants</h2>
+</div><h2 id='variants' class='variants'>Variants</h2>
 <span id='variant.Get' class='variant'><span id='Get.v' class='invisible'><code>Get</code></span></span><span id='variant.Put' class='variant'><span id='Put.v' class='invisible'><code>Put</code></span></span><span id='variant.Post' class='variant'><span id='Post.v' class='invisible'><code>Post</code></span></span><span id='variant.Delete' class='variant'><span id='Delete.v' class='invisible'><code>Delete</code></span></span><span id='variant.Options' class='variant'><span id='Options.v' class='invisible'><code>Options</code></span></span><span id='variant.Head' class='variant'><span id='Head.v' class='invisible'><code>Head</code></span></span><span id='variant.Trace' class='variant'><span id='Trace.v' class='invisible'><code>Trace</code></span></span><span id='variant.Connect' class='variant'><span id='Connect.v' class='invisible'><code>Connect</code></span></span><span id='variant.Patch' class='variant'><span id='Patch.v' class='invisible'><code>Patch</code></span></span><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class="enum" href="../../rocket/http/enum.Method.html" title="enum rocket::http::Method">Method</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rocket/http/method.rs.html#27-84' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.supports_payload' class="method"><span id='supports_payload.v' class='invisible'><code>fn <a href='#method.supports_payload' class='fnname'>supports_payload</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h4>
 <div class='docblock'><p>Returns <code>true</code> ff an HTTP request with the method represented by <code>self</code>
 supports a payload.</p>
-<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
+
+<h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="kw">use</span> <span class="ident">rocket</span>::<span class="ident">http</span>::<span class="ident">Method</span>;
 
@@ -73,7 +74,8 @@ supports a payload.</p>
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">Method</span>::<span class="ident">Post</span>.<span class="ident">supports_payload</span>(), <span class="bool-val">true</span>);</pre>
 </div><h4 id='method.as_str' class="method"><span id='as_str.v' class='invisible'><code>fn <a href='#method.as_str' class='fnname'>as_str</a>(&amp;self) -&gt; &amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a></code></span></h4>
 <div class='docblock'><p>Returns the string representation of <code>self</code>.</p>
-<h1 id="example-1" class="section-header"><a href="#example-1">Example</a></h1>
+
+<h1 id='example-1' class='section-header'><a href='#example-1'>Example</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="kw">use</span> <span class="ident">rocket</span>::<span class="ident">http</span>::<span class="ident">Method</span>;
 
@@ -92,9 +94,9 @@ supports a payload.</p>
 </div></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html" title="trait core::cmp::Eq">Eq</a> for <a class="enum" href="../../rocket/http/enum.Method.html" title="enum rocket::http::Method">Method</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rocket/http/method.rs.html#14' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html" title="trait core::hash::Hash">Hash</a> for <a class="enum" href="../../rocket/http/enum.Method.html" title="enum rocket::http::Method">Method</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rocket/http/method.rs.html#14' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.hash' class="method"><span id='hash.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#tymethod.hash' class='fnname'>hash</a>&lt;__H:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/hash/trait.Hasher.html" title="trait core::hash::Hasher">Hasher</a>&gt;(&amp;self, __arg_0: &amp;mut __H)</code></span></h4>
-<div class='docblock'><p>Feeds this value into the state given, updating the hasher as necessary.</p>
+<div class='docblock'><p>Feeds this value into the given [<code>Hasher</code>]. <a href="https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#tymethod.hash">Read more</a></p>
 </div><h4 id='method.hash_slice' class="method"><span id='hash_slice.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#method.hash_slice' class='fnname'>hash_slice</a>&lt;H&gt;(data: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[Self]</a>, state: &amp;mut H) <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;H: <a class="trait" href="https://doc.rust-lang.org/nightly/core/hash/trait.Hasher.html" title="trait core::hash::Hasher">Hasher</a>,&nbsp;</span></code><div class='since' title='Stable since Rust version 1.3.0'>1.3.0</div></span></h4>
-<div class='docblock'><p>Feeds a slice of this type into the state provided.</p>
+<div class='docblock'><p>Feeds a slice of this type into the given [<code>Hasher</code>]. <a href="https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#method.hash_slice">Read more</a></p>
 </div></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="enum" href="../../rocket/http/enum.Method.html" title="enum rocket::http::Method">Method</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rocket/http/method.rs.html#14' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span></h4>
 <div class='docblock'><p>Formats the value using the given formatter.</p>

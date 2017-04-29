@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='index.html'>term_painter</a></p><script>window.sidebarCurrent = {name: 'Color', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Enum Color</p><div class="block items"><ul><li><a href="#variants">Variants</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='index.html'>term_painter</a></p><script>window.sidebarCurrent = {name: 'Color', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -68,18 +68,20 @@
     BrightCyan,
     BrightWhite,
     Custom(<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>),
-}</pre><div class='docblock'><p>Lists all possible Colors. It implements <code>ToStyle</code> so it's possible to call
-<code>ToStyle</code>'s methods directly on a <code>Color</code> variant like:</p>
+}</pre><div class='docblock'><p>Lists all possible Colors. It implements <code>ToStyle</code> so it&#39;s possible to call
+<code>ToStyle</code>&#39;s methods directly on a <code>Color</code> variant like:</p>
 
 <pre class="rust rust-example-rendered">
 
 <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;{}&quot;</span>, <span class="ident">Color</span>::<span class="ident">Red</span>.<span class="ident">bold</span>().<span class="ident">paint</span>(<span class="string">&quot;Red and bold&quot;</span>));</pre>
+
 <p>It is not guaranteed that the local terminal supports all of those colors.
 As already mentioned in the module documentation, you should use <code>term</code>
-directly to check the terminal's capabilities.</p>
+directly to check the terminal&#39;s capabilities.</p>
+
 <p><strong>Note</strong>: Using <code>Color::NotSet</code> will <em>not</em> reset the color to the default
 terminal color.</p>
-</div><h2 class='variants'>Variants</h2>
+</div><h2 id='variants' class='variants'>Variants</h2>
 <span id='variant.NotSet' class='variant'><span id='NotSet.v' class='invisible'><code>NotSet</code></span></span><span id='variant.Black' class='variant'><span id='Black.v' class='invisible'><code>Black</code></span></span><span id='variant.Red' class='variant'><span id='Red.v' class='invisible'><code>Red</code></span></span><span id='variant.Green' class='variant'><span id='Green.v' class='invisible'><code>Green</code></span></span><span id='variant.Yellow' class='variant'><span id='Yellow.v' class='invisible'><code>Yellow</code></span></span><span id='variant.Blue' class='variant'><span id='Blue.v' class='invisible'><code>Blue</code></span></span><span id='variant.Magenta' class='variant'><span id='Magenta.v' class='invisible'><code>Magenta</code></span></span><span id='variant.Cyan' class='variant'><span id='Cyan.v' class='invisible'><code>Cyan</code></span></span><span id='variant.White' class='variant'><span id='White.v' class='invisible'><code>White</code></span></span><span id='variant.BrightBlack' class='variant'><span id='BrightBlack.v' class='invisible'><code>BrightBlack</code></span></span><span id='variant.BrightRed' class='variant'><span id='BrightRed.v' class='invisible'><code>BrightRed</code></span></span><span id='variant.BrightGreen' class='variant'><span id='BrightGreen.v' class='invisible'><code>BrightGreen</code></span></span><span id='variant.BrightYellow' class='variant'><span id='BrightYellow.v' class='invisible'><code>BrightYellow</code></span></span><span id='variant.BrightBlue' class='variant'><span id='BrightBlue.v' class='invisible'><code>BrightBlue</code></span></span><span id='variant.BrightMagenta' class='variant'><span id='BrightMagenta.v' class='invisible'><code>BrightMagenta</code></span></span><span id='variant.BrightCyan' class='variant'><span id='BrightCyan.v' class='invisible'><code>BrightCyan</code></span></span><span id='variant.BrightWhite' class='variant'><span id='BrightWhite.v' class='invisible'><code>BrightWhite</code></span></span><span id='variant.Custom' class='variant'><span id='Custom.v' class='invisible'><code>Custom(<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>)</code></span></span><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="enum" href="../term_painter/enum.Color.html" title="enum term_painter::Color">Color</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/term_painter/lib.rs.html#296' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span></h4>
 <div class='docblock'><p>Formats the value using the given formatter.</p>
@@ -103,7 +105,7 @@ terminal color.</p>
 <div class='docblock'><p>Returns a Style with default values and the <code>self</code> color as foreground
 color.</p>
 </div><h4 id='method.to_mapped_style' class="method"><span id='to_mapped_style.v' class='invisible'><code>fn <a href='../term_painter/trait.ToStyle.html#method.to_mapped_style' class='fnname'>to_mapped_style</a>&lt;F&gt;(self, func: F) -&gt; <a class="struct" href="../term_painter/struct.Style.html" title="struct term_painter::Style">Style</a> <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/trait.FnOnce.html" title="trait core::ops::FnOnce">FnOnce</a>(&amp;mut <a class="struct" href="../term_painter/struct.Style.html" title="struct term_painter::Style">Style</a>),&nbsp;</span></code></span></h4>
-<div class='docblock'><p>Convenience method for modifying the style before it's returned.</p>
+<div class='docblock'><p>Convenience method for modifying the style before it&#39;s returned.</p>
 </div><h4 id='method.fg' class="method"><span id='fg.v' class='invisible'><code>fn <a href='../term_painter/trait.ToStyle.html#method.fg' class='fnname'>fg</a>(self, c: <a class="enum" href="../term_painter/enum.Color.html" title="enum term_painter::Color">Color</a>) -&gt; <a class="struct" href="../term_painter/struct.Style.html" title="struct term_painter::Style">Style</a></code></span></h4>
 <div class='docblock'><p>Sets the foreground (text) color.</p>
 </div><h4 id='method.bg' class="method"><span id='bg.v' class='invisible'><code>fn <a href='../term_painter/trait.ToStyle.html#method.bg' class='fnname'>bg</a>(self, c: <a class="enum" href="../term_painter/enum.Color.html" title="enum term_painter::Color">Color</a>) -&gt; <a class="struct" href="../term_painter/struct.Style.html" title="struct term_painter::Style">Style</a></code></span></h4>

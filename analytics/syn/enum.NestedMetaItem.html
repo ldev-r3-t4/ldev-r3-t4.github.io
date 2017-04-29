@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='index.html'>syn</a></p><script>window.sidebarCurrent = {name: 'NestedMetaItem', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Enum NestedMetaItem</p><div class="block items"><ul><li><a href="#variants">Variants</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='index.html'>syn</a></p><script>window.sidebarCurrent = {name: 'NestedMetaItem', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -53,11 +53,14 @@
     MetaItem(<a class="enum" href="../syn/enum.MetaItem.html" title="enum syn::MetaItem">MetaItem</a>),
     Literal(<a class="enum" href="../syn/enum.Lit.html" title="enum syn::Lit">Lit</a>),
 }</pre><div class='docblock'><p>Possible values inside of compile-time attribute lists.</p>
-<p>E.g. the '..' in <code>#[name(..)]</code>.</p>
-</div><h2 class='variants'>Variants</h2>
+
+<p>E.g. the &#39;..&#39; in <code>#[name(..)]</code>.</p>
+</div><h2 id='variants' class='variants'>Variants</h2>
 <span id='variant.MetaItem' class='variant'><span id='MetaItem.v' class='invisible'><code>MetaItem(<a class="enum" href="../syn/enum.MetaItem.html" title="enum syn::MetaItem">MetaItem</a>)</code></span></span><div class='docblock'><p>A full <code>MetaItem</code>.</p>
+
 <p>E.g. <code>Copy</code> in <code>#[derive(Copy)]</code> would be a <code>MetaItem::Word(Ident::from(&quot;Copy&quot;))</code>.</p>
 </div><span id='variant.Literal' class='variant'><span id='Literal.v' class='invisible'><code>Literal(<a class="enum" href="../syn/enum.Lit.html" title="enum syn::Lit">Lit</a>)</code></span></span><div class='docblock'><p>A Rust literal.</p>
+
 <p>E.g. <code>&quot;name&quot;</code> in <code>#[rename(&quot;name&quot;)]</code>.</p>
 </div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="../quote/to_tokens/trait.ToTokens.html" title="trait quote::to_tokens::ToTokens">ToTokens</a> for <a class="enum" href="../syn/enum.NestedMetaItem.html" title="enum syn::NestedMetaItem">NestedMetaItem</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/attr.rs.html#293-304' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.to_tokens' class="method"><span id='to_tokens.v' class='invisible'><code>fn <a href='../quote/to_tokens/trait.ToTokens.html#tymethod.to_tokens' class='fnname'>to_tokens</a>(&amp;self, tokens: &amp;mut <a class="struct" href="../quote/tokens/struct.Tokens.html" title="struct quote::tokens::Tokens">Tokens</a>)</code></span></h4>
@@ -78,9 +81,9 @@
 <div class='docblock'><p>This method tests for <code>!=</code>.</p>
 </div></div><h3 class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html" title="trait core::hash::Hash">Hash</a> for <a class="enum" href="../syn/enum.NestedMetaItem.html" title="enum syn::NestedMetaItem">NestedMetaItem</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/syn/attr.rs.html#69' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.hash' class="method"><span id='hash.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#tymethod.hash' class='fnname'>hash</a>&lt;__H:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/hash/trait.Hasher.html" title="trait core::hash::Hasher">Hasher</a>&gt;(&amp;self, __arg_0: &amp;mut __H)</code></span></h4>
-<div class='docblock'><p>Feeds this value into the state given, updating the hasher as necessary.</p>
+<div class='docblock'><p>Feeds this value into the given [<code>Hasher</code>]. <a href="https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#tymethod.hash">Read more</a></p>
 </div><h4 id='method.hash_slice' class="method"><span id='hash_slice.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#method.hash_slice' class='fnname'>hash_slice</a>&lt;H&gt;(data: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[Self]</a>, state: &amp;mut H) <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;H: <a class="trait" href="https://doc.rust-lang.org/nightly/core/hash/trait.Hasher.html" title="trait core::hash::Hasher">Hasher</a>,&nbsp;</span></code><div class='since' title='Stable since Rust version 1.3.0'>1.3.0</div></span></h4>
-<div class='docblock'><p>Feeds a slice of this type into the state provided.</p>
+<div class='docblock'><p>Feeds a slice of this type into the given [<code>Hasher</code>]. <a href="https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#method.hash_slice">Read more</a></p>
 </div></div></section>
     <section id='search' class="content hidden"></section>
 

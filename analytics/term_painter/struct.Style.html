@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='index.html'>term_painter</a></p><script>window.sidebarCurrent = {name: 'Style', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct Style</p><div class="block items"><ul><li><a href="#fields">Fields</a></li><li><a href="#methods">Methods</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='index.html'>term_painter</a></p><script>window.sidebarCurrent = {name: 'Style', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -55,7 +55,7 @@
     // some fields omitted
 }</pre><div class='docblock'><p>Saves all properties of a style. Implements <code>ToStyle</code>, so you can call
 style modifiers on it.</p>
-</div><h2 class='fields'>Fields</h2><span id='structfield.fg' class="structfield">
+</div><h2 id='fields' class='fields'>Fields</h2><span id='structfield.fg' class="structfield">
                            <span id='fg.v' class='invisible'>
                            <code>fg: <a class="enum" href="../term_painter/enum.Color.html" title="enum term_painter::Color">Color</a></code>
                            </span></span><span id='structfield.bg' class="structfield">
@@ -96,7 +96,7 @@ style modifiers on it.</p>
 <div class='impl-items'><h4 id='method.to_style' class="method"><span id='to_style.v' class='invisible'><code>fn <a href='../term_painter/trait.ToStyle.html#tymethod.to_style' class='fnname'>to_style</a>(self) -&gt; <a class="struct" href="../term_painter/struct.Style.html" title="struct term_painter::Style">Style</a></code></span></h4>
 <div class='docblock'><p>Dummy implementation that just returns <code>self</code>.</p>
 </div><h4 id='method.to_mapped_style' class="method"><span id='to_mapped_style.v' class='invisible'><code>fn <a href='../term_painter/trait.ToStyle.html#method.to_mapped_style' class='fnname'>to_mapped_style</a>&lt;F&gt;(self, func: F) -&gt; <a class="struct" href="../term_painter/struct.Style.html" title="struct term_painter::Style">Style</a> <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;F: <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/trait.FnOnce.html" title="trait core::ops::FnOnce">FnOnce</a>(&amp;mut <a class="struct" href="../term_painter/struct.Style.html" title="struct term_painter::Style">Style</a>),&nbsp;</span></code></span></h4>
-<div class='docblock'><p>Convenience method for modifying the style before it's returned.</p>
+<div class='docblock'><p>Convenience method for modifying the style before it&#39;s returned.</p>
 </div><h4 id='method.fg' class="method"><span id='fg.v-1' class='invisible'><code>fn <a href='../term_painter/trait.ToStyle.html#method.fg' class='fnname'>fg</a>(self, c: <a class="enum" href="../term_painter/enum.Color.html" title="enum term_painter::Color">Color</a>) -&gt; <a class="struct" href="../term_painter/struct.Style.html" title="struct term_painter::Style">Style</a></code></span></h4>
 <div class='docblock'><p>Sets the foreground (text) color.</p>
 </div><h4 id='method.bg' class="method"><span id='bg.v-1' class='invisible'><code>fn <a href='../term_painter/trait.ToStyle.html#method.bg' class='fnname'>bg</a>(self, c: <a class="enum" href="../term_painter/enum.Color.html" title="enum term_painter::Color">Color</a>) -&gt; <a class="struct" href="../term_painter/struct.Style.html" title="struct term_painter::Style">Style</a></code></span></h4>

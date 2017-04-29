@@ -68,6 +68,27 @@
 <span id="23">23</span>
 <span id="24">24</span>
 <span id="25">25</span>
+<span id="26">26</span>
+<span id="27">27</span>
+<span id="28">28</span>
+<span id="29">29</span>
+<span id="30">30</span>
+<span id="31">31</span>
+<span id="32">32</span>
+<span id="33">33</span>
+<span id="34">34</span>
+<span id="35">35</span>
+<span id="36">36</span>
+<span id="37">37</span>
+<span id="38">38</span>
+<span id="39">39</span>
+<span id="40">40</span>
+<span id="41">41</span>
+<span id="42">42</span>
+<span id="43">43</span>
+<span id="44">44</span>
+<span id="45">45</span>
+<span id="46">46</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Mount: `/v1/`</span>
 <span class="doccomment">//!</span>
@@ -77,23 +98,44 @@
 <span class="kw">use</span> <span class="ident">rocket</span>::<span class="ident">http</span>::<span class="ident">Status</span>;
 <span class="kw">use</span> <span class="ident">rocket_contrib</span>::<span class="ident">JSON</span>;
 <span class="kw">use</span> <span class="ident">proto</span>::<span class="kw-2">*</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">sync</span>::<span class="ident">Mutex</span>;
 
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">routes</span>() <span class="op">-&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Route</span><span class="op">&gt;</span> {
-    <span class="macro">routes</span><span class="macro">!</span>[
-        <span class="ident">record_event</span>
-    ]
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">Data</span> <span class="op">=</span> <span class="ident">Mutex</span><span class="op">&lt;</span><span class="ident">Analytics</span><span class="op">&gt;</span>;
+
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Default</span>, <span class="ident">Debug</span>, <span class="ident">Clone</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Analytics</span> {
+    <span class="ident">events</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Event</span><span class="op">&gt;</span>,
 }
 
-<span class="doccomment">/// Route: `/`</span>
+<span class="kw">impl</span> <span class="ident">Analytics</span> {
+    <span class="kw">fn</span> <span class="ident">add</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">event</span>: <span class="ident">Event</span>) {
+        <span class="self">self</span>.<span class="ident">events</span>.<span class="ident">push</span>(<span class="ident">event</span>);
+    }
+}
+
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">routes</span>() <span class="op">-&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Route</span><span class="op">&gt;</span> {
+    <span class="macro">routes</span><span class="macro">!</span>[<span class="ident">record_event</span>]
+}
+
+<span class="doccomment">/// `PUT /`</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// This put request records an event for analytics processing.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// It requires a body with format `application/json` using the</span>
 <span class="doccomment">/// `Event` datastructure from analytics-proto.</span>
 <span class="attribute">#[<span class="ident">put</span>(<span class="string">&quot;/&quot;</span>, <span class="ident">format</span> <span class="op">=</span> <span class="string">&quot;application/json&quot;</span>, <span class="ident">data</span> <span class="op">=</span> <span class="string">&quot;&lt;event&gt;&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">record_event</span>(<span class="ident">event</span>: <span class="ident">JSON</span><span class="op">&lt;</span><span class="ident">Event</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">Custom</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span><span class="op">&gt;</span> {
-    <span class="ident">Custom</span>(<span class="ident">Status</span>::<span class="prelude-val">Ok</span>, <span class="string">&quot;OK&quot;</span>)
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">record_event</span>(<span class="ident">state</span>: <span class="ident">State</span><span class="op">&lt;</span><span class="ident">Data</span><span class="op">&gt;</span>, <span class="ident">event</span>: <span class="ident">JSON</span><span class="op">&lt;</span><span class="ident">Event</span><span class="op">&gt;</span>) {
+    <span class="ident">state</span>.<span class="ident">lock</span>().<span class="ident">unwrap</span>().<span class="ident">add</span>(<span class="ident">event</span>.<span class="ident">clone</span>());
 }
+
+<span class="doccomment">/// `GET /`</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// Provides a JSON list of all events.</span>
+<span class="attribute">#[<span class="ident">get</span>(<span class="string">&quot;/&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_events</span>(<span class="ident">state</span>: <span class="ident">State</span><span class="op">&lt;</span><span class="ident">Data</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">JSON</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Event</span><span class="op">&gt;&gt;</span> {
+    <span class="ident">JSON</span>(<span class="ident">state</span>.<span class="ident">lock</span>().<span class="ident">unwrap</span>().<span class="ident">events</span>.<span class="ident">clone</span>())
+}
+
 </pre>
 </section>
     <section id='search' class="content hidden"></section>

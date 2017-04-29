@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>request</a></p><script>window.sidebarCurrent = {name: 'FromForm', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Trait FromForm</p><div class="block items"><ul><li><a href="#associated-types">Associated Types</a></li><li><a href="#required-methods">Required Methods</a></li><li><a href="#implementors">Implementors</a></li></ul></div><p class='location'><a href='../index.html'>rocket</a>::<wbr><a href='index.html'>request</a></p><script>window.sidebarCurrent = {name: 'FromForm', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -54,6 +54,7 @@
     fn <a href='#tymethod.from_form_items' class='fnname'>from_form_items</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;form_items: &amp;mut <a class="struct" href="../../rocket/request/struct.FormItems.html" title="struct rocket::request::FormItems">FormItems</a>&lt;'f&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;Self, Self::<a class="trait" href="../../rocket/request/trait.FromForm.html" title="trait rocket::request::FromForm">Error</a>&gt;;
 }</pre><div class='docblock'><p>Trait to create an instance of some type from an HTTP form.
 <a href="struct.Form.html">Form</a> requires its generic type to implement this trait.</p>
+
 <p>This trait can be automatically derived via the
 <a href="/rocket_codegen">rocket_codegen</a> plugin:</p>
 
@@ -68,6 +69,7 @@
     <span class="ident">description</span>: <span class="ident">String</span>,
     <span class="ident">completed</span>: <span class="ident">bool</span>
 }</pre>
+
 <p>The type can then be parsed from incoming form data via the <code>data</code>
 parameter and <code>Form</code> type.</p>
 
@@ -76,9 +78,11 @@ parameter and <code>Form</code> type.</p>
 <span class="kw">fn</span> <span class="ident">submit_task</span>(<span class="ident">task</span>: <span class="ident">Form</span><span class="op">&lt;</span><span class="ident">TodoTask</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">String</span> {
     <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;New task: {}&quot;</span>, <span class="ident">task</span>.<span class="ident">get</span>().<span class="ident">description</span>)
 }</pre>
+
 <p>When deriving <code>FromForm</code>, every field in the structure must implement
 <a href="trait.FromFormValue.html">FromFormValue</a>.</p>
-<h1 id="implementing" class="section-header"><a href="#implementing">Implementing</a></h1>
+
+<h1 id='implementing' class='section-header'><a href='#implementing'>Implementing</a></h1>
 <p>An implementation of <code>FromForm</code> uses the <a href="struct.FormItems.html">FormItems</a>
 iterator to iterate through the raw form key/value pairs. Be aware that form
 fields that are typically hidden from your application, such as <code>_method</code>,

@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'><a href='index.html'>cookie</a></p><script>window.sidebarCurrent = {name: 'EncodedCookie', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Struct EncodedCookie</p><div class="block items"><ul><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='index.html'>cookie</a></p><script>window.sidebarCurrent = {name: 'EncodedCookie', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <nav class="sub">
@@ -50,13 +50,16 @@
                    </a>
                </span><a class='srclink' href='../src/cookie/lib.rs.html#664' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct EncodedCookie&lt;'a, 'c: 'a&gt;(_);</pre><div class='docblock'><p>Wrapper around <code>Cookie</code> whose <code>Display</code> implementation percent-encodes the
-cookie's name and value.</p>
+cookie&#39;s name and value.</p>
+
 <p>A value of this type can be obtained via the
 <a href="struct.Cookie.html#method.encoded">encoded</a> method on
 <a href="struct.Cookie.html">Cookie</a>. This type should only be used for its
 <code>Display</code> implementation.</p>
+
 <p>This type is only available when the <code>percent-encode</code> feature is enabled.</p>
-<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
+
+<h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="kw">use</span> <span class="ident">cookie</span>::<span class="ident">Cookie</span>;
 
