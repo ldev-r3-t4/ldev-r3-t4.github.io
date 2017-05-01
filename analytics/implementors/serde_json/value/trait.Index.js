@@ -1,4 +1,5 @@
 (function() {var implementors = {};
+implementors["reqwest"] = [];
 implementors["rocket_contrib"] = [];
 implementors["serde_json"] = [];
 

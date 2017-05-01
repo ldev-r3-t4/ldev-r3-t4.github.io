@@ -1,7 +1,9 @@
 (function() {var implementors = {};
 implementors["hyper"] = ["impl <a class=\"trait\" href=\"url/percent_encoding/trait.EncodeSet.html\" title=\"trait url::percent_encoding::EncodeSet\">EncodeSet</a> for <a class=\"struct\" href=\"hyper/header/parsing/struct.HTTP_VALUE.html\" title=\"struct hyper::header::parsing::HTTP_VALUE\">HTTP_VALUE</a>",];
+implementors["reqwest"] = ["impl <a class=\"trait\" href=\"url/percent_encoding/trait.EncodeSet.html\" title=\"trait url::percent_encoding::EncodeSet\">EncodeSet</a> for <a class=\"struct\" href=\"reqwest/header/parsing/struct.HTTP_VALUE.html\" title=\"struct reqwest::header::parsing::HTTP_VALUE\">HTTP_VALUE</a>",];
 implementors["rocket"] = ["impl <a class=\"trait\" href=\"url/percent_encoding/trait.EncodeSet.html\" title=\"trait url::percent_encoding::EncodeSet\">EncodeSet</a> for <a class=\"struct\" href=\"hyper/header/parsing/struct.HTTP_VALUE.html\" title=\"struct hyper::header::parsing::HTTP_VALUE\">HTTP_VALUE</a>",];
 implementors["rocket_contrib"] = ["impl <a class=\"trait\" href=\"url/percent_encoding/trait.EncodeSet.html\" title=\"trait url::percent_encoding::EncodeSet\">EncodeSet</a> for <a class=\"struct\" href=\"hyper/header/parsing/struct.HTTP_VALUE.html\" title=\"struct hyper::header::parsing::HTTP_VALUE\">HTTP_VALUE</a>",];
+implementors["serde_urlencoded"] = [];
 implementors["url"] = [];
 
             if (window.register_implementors) {

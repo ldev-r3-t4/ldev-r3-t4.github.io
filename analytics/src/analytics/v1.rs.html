@@ -90,17 +90,13 @@
 <span id="45">45</span>
 <span id="46">46</span>
 <span id="47">47</span>
-<span id="48">48</span>
-<span id="49">49</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Mount: `/v1/`</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! This module contains the handlers for the mount point `/v1/`.</span>
 <span class="kw">use</span> <span class="ident">rocket</span>::{<span class="ident">Route</span>, <span class="ident">State</span>};
-<span class="kw">use</span> <span class="ident">rocket</span>::<span class="ident">response</span>::<span class="ident">status</span>::<span class="ident">Custom</span>;
-<span class="kw">use</span> <span class="ident">rocket</span>::<span class="ident">http</span>::<span class="ident">Status</span>;
 <span class="kw">use</span> <span class="ident">rocket_contrib</span>::<span class="ident">JSON</span>;
-<span class="kw">use</span> <span class="ident">proto</span>::<span class="kw-2">*</span>;
+<span class="kw">use</span> <span class="ident">proto</span>::<span class="ident">proto1</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">sync</span>::<span class="ident">Mutex</span>;
 
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>

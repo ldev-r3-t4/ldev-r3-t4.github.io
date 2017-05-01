@@ -1,4 +1,5 @@
 (function() {var implementors = {};
+implementors["reqwest"] = [];
 implementors["rocket_contrib"] = [];
 
             if (window.register_implementors) {

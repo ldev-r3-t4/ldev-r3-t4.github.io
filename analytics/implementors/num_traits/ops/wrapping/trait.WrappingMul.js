@@ -2,6 +2,7 @@
 implementors["chrono"] = [];
 implementors["num"] = [];
 implementors["num_traits"] = [];
+implementors["reqwest"] = [];
 implementors["rocket_contrib"] = [];
 
             if (window.register_implementors) {

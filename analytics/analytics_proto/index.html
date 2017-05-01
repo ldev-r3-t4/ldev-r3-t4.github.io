@@ -29,7 +29,7 @@
 
     <nav class="sidebar">
         
-        <p class='location'>Crate analytics_proto</p><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'analytics_proto', ty: 'mod', relpath: '../'};</script>
+        <p class='location'>Crate analytics_proto</p><div class="block items"><ul><li><a href="#modules">Modules</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'analytics_proto', ty: 'mod', relpath: '../'};</script>
     </nav>
 
     <nav class="sub">
@@ -48,34 +48,24 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../src/analytics_proto/lib.rs.html#1-59' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>This crate contains the API for the protocol of the analytics server. <code>Event</code> is the type which is sent to the
+               </span><a class='srclink' href='../src/analytics_proto/lib.rs.html#1-9' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>See the individual protocol modules below for different versions of the protocol.</p>
+</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="proto1/index.html"
+                                  title='mod analytics_proto::proto1'>proto1</a></td>
+                           <td class='docblock-short'>
+                                <p>This crate contains the API for the protocol of the analytics server. <code>Event</code> is the type which is sent to the
 analytics server. Here are some examples of <code>Event</code> structures using different <code>Message</code> variants:</p>
-
-<p><code>{&quot;received_time&quot;:&quot;2017-04-11T04:29:16.064185621Z&quot;,&quot;serviced_time&quot;:&quot;2017-04-11T04:29:16.064188591Z&quot;,&quot;message&quot;:{&quot;AllChannels&quot;:{&quot;total_channels&quot;:5,&quot;success&quot;:true}}}</code></p>
-
-<p><code>{&quot;received_time&quot;:&quot;2017-04-11T04:29:16.064324152Z&quot;,&quot;serviced_time&quot;:&quot;2017-04-11T04:29:16.064324934Z&quot;,&quot;message&quot;:{&quot;MostRecentMessages&quot;:{&quot;num_messages&quot;:8,&quot;success&quot;:true}}}</code></p>
-
-<p><code>{&quot;received_time&quot;:&quot;2017-04-11T04:29:16.064422755Z&quot;,&quot;serviced_time&quot;:&quot;2017-04-11T04:29:16.064423786Z&quot;,&quot;message&quot;:{&quot;MoreMessages&quot;:{&quot;num_requested&quot;:5,&quot;num_sent&quot;:0,&quot;success&quot;:false}}}</code></p>
-
-<p><code>{&quot;received_time&quot;:&quot;2017-04-11T04:29:16.064537018Z&quot;,&quot;serviced_time&quot;:&quot;2017-04-11T04:29:16.064537698Z&quot;,&quot;message&quot;:{&quot;SendMessage&quot;:{&quot;message_length&quot;:87,&quot;success&quot;:true}}}</code></p>
-
-<p><code>{&quot;received_time&quot;:&quot;2017-04-11T04:29:16.064613838Z&quot;,&quot;serviced_time&quot;:&quot;2017-04-11T04:29:16.064614475Z&quot;,&quot;message&quot;:{&quot;CreateChannel&quot;:{&quot;channel_name_length&quot;:7,&quot;success&quot;:true}}}</code></p>
-</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
-<table>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Event.html"
-                                  title='struct analytics_proto::Event'>Event</a></td>
-                           <td class='docblock-short'>
-                                
                            </td>
-                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
-<table>
+                       </tr>
                        <tr class=' module-item'>
-                           <td><a class="enum" href="enum.Message.html"
-                                  title='enum analytics_proto::Message'>Message</a></td>
+                           <td><a class="mod" href="proto2/index.html"
+                                  title='mod analytics_proto::proto2'>proto2</a></td>
                            <td class='docblock-short'>
-                                
+                                <p>This crate contains the API for the protocol of the analytics server. <code>Event</code> is the type which is sent to the
+analytics server. Here are some examples of <code>Event</code> structures using different <code>Message</code> variants:</p>
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>

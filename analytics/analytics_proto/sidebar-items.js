@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["Message",""]],"struct":[["Event",""]]});
+initSidebarItems({"mod":[["proto1","This crate contains the API for the protocol of the analytics server. `Event` is the type which is sent to the analytics server. Here are some examples of `Event` structures using different `Message` variants:"],["proto2","This crate contains the API for the protocol of the analytics server. `Event` is the type which is sent to the analytics server. Here are some examples of `Event` structures using different `Message` variants:"]]});

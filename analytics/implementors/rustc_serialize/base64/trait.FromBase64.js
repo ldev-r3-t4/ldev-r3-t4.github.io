@@ -1,5 +1,6 @@
 (function() {var implementors = {};
 implementors["hyper"] = [];
+implementors["reqwest"] = [];
 implementors["rocket"] = [];
 implementors["rocket_contrib"] = [];
 implementors["rustc_serialize"] = [];

@@ -85,6 +85,7 @@
 <span id="40">40</span>
 <span id="41">41</span>
 <span id="42">42</span>
+<span id="43">43</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! This crate runs the analytics server for the Large Scale Round 3 Team 4 project.</span>
 <span class="doccomment">//!</span>
@@ -97,15 +98,16 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! Choose one of the version modules which corresponds to a mount point below to see more about it.</span>
 
-
 <span class="attribute">#<span class="op">!</span>[<span class="ident">feature</span>(<span class="ident">plugin</span>)]</span>
 <span class="attribute">#<span class="op">!</span>[<span class="ident">plugin</span>(<span class="ident">rocket_codegen</span>)]</span>
 <span class="attribute">#<span class="op">!</span>[<span class="ident">allow</span>(<span class="ident">unmounted_route</span>)]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">rocket</span>;
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">rocket_contrib</span>;
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">analytics_proto</span> <span class="kw">as</span> <span class="ident">proto</span>;
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">reqwest</span> <span class="kw">as</span> <span class="ident">rq</span>;
 
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">v1</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">v2</span>;
 
 <span class="kw">use</span> <span class="ident">rocket</span>::<span class="ident">Rocket</span>;
 <span class="kw">use</span> <span class="ident">rocket</span>::<span class="ident">response</span>::<span class="ident">content</span>::<span class="ident">HTML</span>;

@@ -1,6 +1,7 @@
 (function() {var implementors = {};
 implementors["chrono"] = [];
 implementors["num_traits"] = [];
+implementors["reqwest"] = [];
 implementors["rocket_contrib"] = [];
 
             if (window.register_implementors) {
